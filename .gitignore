@@ -1,0 +1,80 @@
+﻿# Ignore build output directories
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Ignore Mono auto generated files
+mono_crash.*
+
+# Ignore web config transformations
+*.transformed.*
+*_lasttransformed.*
+
+# Ignore NuGet packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directory
+.vscode/
+
+# Local History for Visual Studio Code
+.history/
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Rider temp directories
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/contentModel.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/__pycache__
+
+# Resharper
+_ReSharper*/
+
+# Ignore Visual Studio temporary files, build results, and
+# build directories
+[Bb]in/
+[Oo]bj/
+.vs/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.log
+
+# JetBrains Rider
+.idea/
+*.sln.iml
