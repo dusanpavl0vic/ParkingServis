@@ -32,12 +32,21 @@ namespace ParkingServis.Entiteti
         public virtual int? Spratovi { get; set; }
         public virtual int? Nivoi { get; set; }
 
-        public virtual IList<ParkingMesto> ListaParkingMesta { get; set; }
+        public virtual IList<ParkingMesto> SadrziParkingMesta { get; set; }
 
 
         public Parking()
         {
-            ListaParkingMesta = new List<ParkingMesto>();
+            SadrziParkingMesta = new List<ParkingMesto>();
         }
+    }
+
+    public class Nadzemna : Parking
+    {
+
+    }
+    public class Podzemna : Parking
+    {
+
     }
 }

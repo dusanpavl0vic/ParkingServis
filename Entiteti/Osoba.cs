@@ -29,15 +29,24 @@ namespace ParkingServis.Entiteti
         public virtual string Naziv { get; set; }
 
         public virtual IList<OsobaTelefon> ListTelefoni { get; set; }
-        public virtual IList<Karta> ListKarte { get; set; }
-        public virtual IList<Zakup> ListZakupa { get; set; }
+        public virtual IList<Karta> KupovinaPretplatne { get; set; }
+        public virtual IList<Zakup> ZakupljenaParkingMesta { get; set; }
 
         public Osoba()
         {
             ListTelefoni = new List<OsobaTelefon>();
-            ListKarte = new List<Karta>();
-            ListZakupa = new List<Zakup>();
+            KupovinaPretplatne = new List<Karta>();
+            ZakupljenaParkingMesta = new List<Zakup>();
         }
+    }
+
+    public class FizickoLice : Osoba
+    {
+
+    }
+    public class PravnoLice : Osoba
+    {
+
     }
 
 }

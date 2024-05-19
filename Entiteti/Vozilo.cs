@@ -12,6 +12,7 @@ namespace ParkingServis.Entiteti
         public virtual string BrojSaobracajneDozvole { get; set; }
         public virtual string Proizvodjac { get; set; }
         public virtual string Model { get; set; }
+        public virtual Karta VoziloZaPretplatnu { get; set; }
         public Zakup Zakup { get; set; }
     }
 }

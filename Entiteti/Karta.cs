@@ -20,9 +20,18 @@ namespace ParkingServis.Entiteti
         public virtual DateTime? OdVreme { get; set; }
         public virtual DateTime? DoVreme { get; set; }
         public virtual string RegistarskiBrojVozila { get; set; }
-        public virtual Osoba Osoba { get; set; }
-        public virtual Vozilo Vozilo { get; set; }
+        public virtual Osoba ProdajaOsobi { get; set; }
+        public virtual Vozilo OdnosiNaVozilo { get; set; }
         public IskoriscenaKarta IskoriscenaKarta { get; set; }
+    }
+
+    public class Jednokratna : Karta
+    {
+
+    }
+    public class Pretplatna : Karta
+    {
+
     }
 
 }

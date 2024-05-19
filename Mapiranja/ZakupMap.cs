@@ -6,6 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//CREATE TABLE Zakup (
+//    IDOsobe NUMBER,
+//    RegistarskiBrojVozila NVARCHAR2(7),
+//    IDParkingMesta NUMBER,
+//    OdVreme TIMESTAMP NOT NULL,
+//    DoVreme TIMESTAMP NOT NULL,
+//    DatumPotpisa DATE NOT NULL,
+//    FOREIGN KEY (IDOsobe) REFERENCES Osoba(ID),
+//    FOREIGN KEY (IDParkingMesta) REFERENCES ParkingMesto(ID),
+//    FOREIGN KEY (RegistarskiBrojVozila) REFERENCES Vozilo(RegistarskiBroj),
+//    CONSTRAINT CheckVremeZakup CHECK(DoVreme > OdVreme),
+//    CONSTRAINT PK_Zakup PRIMARY KEY(IDOsobe, RegistarskiBrojVozila, IDParkingMesta)
+//);
+
 namespace ParkingServis.Mapiranja
 {
     public class ZakupMap : ClassMap<Zakup>

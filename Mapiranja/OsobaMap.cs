@@ -6,6 +6,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//CREATE TABLE Osoba (
+//    ID NUMBER PRIMARY KEY,
+//    Adresa NVARCHAR2(30) NOT NULL,
+//    LicnoIme NVARCHAR2(30) NOT NULL,
+//    ImeRoditelja NVARCHAR2(30) NOT NULL,
+//    Prezime NVARCHAR2(30) NOT NULL,
+//    OSOBATYPE NVARCHAR2(20) NOT NULL,
+//    JMBG NVARCHAR2(30) UNIQUE,
+//    BrojLicneKarte NVARCHAR2(30) UNIQUE,
+//    MestoIzdavanjaLicne NVARCHAR2(30),
+//    BrojVozackeDozvole NVARCHAR2(30),
+//    ZiviUZoni NVARCHAR2(30),
+//    PIB NVARCHAR2(30),
+//    Naziv NVARCHAR2(30),
+//    CONSTRAINT CheckOType CHECK(OSOBATYPE in ('FizickoLice', 'PravnoLice'))
+//);
+
 namespace ParkingServis.Mapiranja
 {
     public class OsobaMap : ClassMap<Osoba>

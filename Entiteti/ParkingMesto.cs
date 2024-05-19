@@ -42,7 +42,7 @@ namespace ParkingServis.Entiteti
         public virtual int? RedniBroj { get; set; }
         public virtual int? Sprat { get; set; }
 
-        public virtual Parking Parking { get; set; }
+        public virtual Parking PripadaParkingu { get; set; }
         public Zakup Zakup { get; set; }
     }
 

@@ -6,6 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//CREATE TABLE Parking (
+//    ID NUMBER PRIMARY KEY,
+//    MontazniObjekat NVARCHAR2(30) NOT NULL,
+//    Zona NVARCHAR2(20) NOT NULL,
+//    Adresa NVARCHAR2(30) NOT NULL,
+//    OdVreme TIMESTAMP NOT NULL,
+//    DoVreme TIMESTAMP NOT NULL,
+//    BrojParkingMesta NUMBER NOT NULL,
+//    Naziv NVARCHAR2(30) NOT NULL,
+//    PARKINGTYPE NVARCHAR2(20) NOT NULL,
+//    Spratovi NUMBER,
+//    Nivoi NUMBER,
+//    CONSTRAINT CheckBPM CHECK(BrojParkingMesta > 0),
+//    CONSTRAINT CheckVreme CHECK(DoVreme > OdVreme),
+//    CONSTRAINT CheckPType CHECK(PARKINGTYPE in ('Nadzemna', 'Podzemna')),
+//    CONSTRAINT CheckMO CHECK(MontazniObjekat in ('Montazni', 'NijeMontazni'))
+//);
+
 namespace ParkingServis.Mapiranja
 {
     public class ParkingMap : ClassMap<Parking>
