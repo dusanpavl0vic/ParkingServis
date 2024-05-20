@@ -27,17 +27,22 @@ namespace ParkingServis.Mapiranja
         public ParkingMestoMap()
         {
             Table("ParkingMesto");
-            Id(x => x.ID);
-            Map(x => x.TrenutniStatus).CustomType<EnumTrenutniStatus>().Not.Nullable();
-            Map(x => x.ParkingMestoType).CustomType<EnumParkingMestoType>().Not.Nullable();
-            Map(x => x.NazivUlice).Not.Nullable();
-            Map(x => x.Zona).Not.Nullable();
-            Map(x => x.RedniBroj);
-            Map(x => x.Sprat);
-            References(x => x.Parking, "IDParkinga");
-            HasOne(x => x.Zakup).Cascade.All();
-            CheckConstraint("PARKINGMESTOTYPE in ('NaUlici', 'JavnoParkingMesto')");
-            CheckConstraint("TrenutniStatus in ('Zauzeto', 'Slobodno')");
+
+            Id(x => x.ID).GeneratedBy.Identity();
+
+            Map(x => x.TrenutniStatus, "TrenutniStatus").CustomType<EnumTrenutniStatus>().Not.Nullable();
+            Map(x => x.NazivUlice, "NazivUlice").Not.Nullable();
+            Map(x => x.Zona, "Zona").Not.Nullable();
+            Map(x => x.RedniBroj, "RedniBroj");
+            Map(x => x.Sprat, "Sprat");
+
+            References(x => x.PripadaParkingu).Column("IDParkinga").Not.Nullable().LazyLoad();
+
+
+            //HasOne(x => x.Zakup).Cascade.All();
+
+            //CheckConstraint("PARKINGMESTOTYPE in ('NaUlici', 'JavnoParkingMesto')");
+            //CheckConstraint("TrenutniStatus in ('Zauzeto', 'Slobodno')");
         }
     }
 }

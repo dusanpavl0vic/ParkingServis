@@ -30,23 +30,45 @@ namespace ParkingServis.Mapiranja
         public OsobaMap()
         {
             Table("Osoba");
-            Id(x => x.ID);
-            Map(x => x.Adresa).Not.Nullable();
-            Map(x => x.LicnoIme).Not.Nullable();
-            Map(x => x.ImeRoditelja).Not.Nullable();
-            Map(x => x.Prezime).Not.Nullable();
-            Map(x => x.OsobaType).CustomType<EnumOsobaType>().Not.Nullable();
-            Map(x => x.JMBG).Unique();
-            Map(x => x.BrojLicneKarte).Unique();
-            Map(x => x.MestoIzdavanjaLicne);
-            Map(x => x.BrojVozackeDozvole);
-            Map(x => x.ZiviUZoni);
-            Map(x => x.PIB);
-            Map(x => x.Naziv);
-            HasMany(x => x.ListTelefoni).Cascade.All().KeyColumn("IDOsobe");
-            HasMany(x => x.ListKarte).Cascade.All().KeyColumn("IDOsobe");
-            HasMany(x => x.ListZakupa).Cascade.All().KeyColumn("IDOsobe");
+            Id(x => x.ID, "ID").GeneratedBy.Identity();
+
+            DiscriminateSubClassesOnColumn("OSOBATYPE");
+
+            Map(x => x.Adresa, "Adresa").Not.Nullable();
+            Map(x => x.LicnoIme, "LicnoIme").Not.Nullable();
+            Map(x => x.ImeRoditelja, "ImeRoditelja").Not.Nullable();
+            Map(x => x.Prezime, "Prezime").Not.Nullable();
+            Map(x => x.JMBG, "JMBG").Unique();
+            Map(x => x.BrojLicneKarte, "BrojLicneKarte").Unique();
+            Map(x => x.MestoIzdavanjaLicne, "BrojVozackeDozvole");
+            Map(x => x.BrojVozackeDozvole, "BrojVozackeDozvole");
+            Map(x => x.ZiviUZoni, "ZiviUZoni");
+            Map(x => x.PIB, "PIB");
+            Map(x => x.Naziv, "Naziv");
+
+            HasMany(x => x.ListTelefoni).KeyColumn("IDOsobe").Inverse().Cascade.All();
+            HasMany(x => x.KupovinaPretplatne).KeyColumn("IDOsobe").Inverse().Cascade.All();
+
+
+            //HasMany(x => x.ListZakupa).Cascade.All().KeyColumn("IDOsobe");
+
             CheckConstraint("OSOBATYPE in ('FizickoLice', 'PravnoLice')");
+        }
+    }
+
+    public class FizickoLiceMap : SubclassMap<FizickoLice>
+    {
+        public FizickoLiceMap()
+        {
+            DiscriminatorValue("FizickoLice");
+        }
+    }
+
+    public class PravnoLiceMap : SubclassMap<PravnoLice>
+    {
+        public PravnoLiceMap()
+        {
+            DiscriminatorValue("PravnoLice");
         }
     }
 }

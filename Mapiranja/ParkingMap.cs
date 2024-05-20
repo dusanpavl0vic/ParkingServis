@@ -31,22 +31,43 @@ namespace ParkingServis.Mapiranja
         public ParkingMap()
         {
             Table("Parking");
-            Id(x => x.ID);
-            Map(x => x.MontazniObjekat).CustomType<EnumMontazniObjekat>().Not.Nullable();
-            Map(x => x.Zona).Not.Nullable();
-            Map(x => x.Adresa).Not.Nullable();
-            Map(x => x.OdVreme).Not.Nullable();
-            Map(x => x.DoVreme).Not.Nullable();
-            Map(x => x.BrojParkingMesta).Not.Nullable();
-            Map(x => x.Naziv).Not.Nullable();
-            Map(x => x.ParkingType).CustomType<EnumParkingType>().Not.Nullable();
-            Map(x => x.Spratovi);
-            Map(x => x.Nivoi);
-            HasMany(x => x.ListaParkingMesta).Cascade.All().KeyColumn("IDParkinga");
-            CheckConstraint("BrojParkingMesta > 0");
-            CheckConstraint("DoVreme > OdVreme");
-            CheckConstraint("PARKINGTYPE in ('Nadzemna', 'Podzemna')");
-            CheckConstraint("MontazniObjekat in ('Montazni', 'NijeMontazni')");
+
+            Id(x => x.ID).GeneratedBy.Identity();
+
+            DiscriminateSubClassesOnColumn("PARKINGTYPE");
+
+            Map(x => x.MontazniObjekat, "MontazniObjekat").CustomType<EnumMontazniObjekat>().Not.Nullable();
+            Map(x => x.Zona, "Zona").Not.Nullable();
+            Map(x => x.Adresa, "Adresa").Not.Nullable();
+            Map(x => x.OdVreme, "OdVreme").Not.Nullable();
+            Map(x => x.DoVreme, "DoVreme").Not.Nullable();
+            Map(x => x.BrojParkingMesta, "BrojParkingMesta").Not.Nullable();
+            Map(x => x.Naziv, "Naziv").Not.Nullable();
+            Map(x => x.Spratovi, "Spratovi");
+            Map(x => x.Nivoi, "Nivoi");
+
+            HasMany(x => x.SadrziParkingMesta).KeyColumn("IDParkinga").Inverse().Cascade.All();
+
+            //CheckConstraint("BrojParkingMesta > 0");
+            //CheckConstraint("DoVreme > OdVreme");
+            //CheckConstraint("PARKINGTYPE in ('Nadzemna', 'Podzemna')");
+            //CheckConstraint("MontazniObjekat in ('Montazni', 'NijeMontazni')");
+        }
+    }
+
+    public class NadzemnaMap : SubclassMap<Nadzemna>
+    {
+        public NadzemnaMap()
+        {
+            DiscriminatorValue("Nadzemna");
+        }
+    }
+
+    public class PodzemnaMap : SubclassMap<Podzemna>
+    {
+        public PodzemnaMap()
+        {
+            DiscriminatorValue("Podzemna");
         }
     }
 }

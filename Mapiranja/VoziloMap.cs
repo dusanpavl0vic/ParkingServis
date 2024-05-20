@@ -27,8 +27,9 @@ namespace ParkingServis.Mapiranja
             Map(x => x.Proizvodjac, "Proizvodjac").Not.Nullable();
             Map(x => x.Model, "Model").Not.Nullable();
 
-            HasOne(x => x.Zakup).Cascade.All();
-            HasOne(x => x.VoziloZaPretplatnu).Cascade.All();
+            HasOne(x => x.VoziloZaPretplatnu).Constrained().Cascade.All(); ;
+
+            //HasOne(x => x.Zakup).Cascade.All();
         }
     }
 }

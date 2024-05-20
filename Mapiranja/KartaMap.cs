@@ -34,15 +34,13 @@ namespace ParkingServis.Mapiranja
             Map(x => x.Datum, "Datum");
             Map(x => x.OdVreme, "OdVreme");
             Map(x => x.DoVreme, "DoVreme");
-            Map(x => x.RegistarskiBrojVozila, "RegistarskiBrojVozila");
 
-            References(x => x.ProdajaOsobi, "IDOsobe")
-                .ForeignKey("FK_Osoba_Karta")
-                .Not.Nullable();
+            References(x => x.ProdajaOsobi).Column("IDOsobe").LazyLoad();
+            References(x => x.OdnosiNaVozilo).Column("RegistarskiBrojVozila").LazyLoad();
 
-            References(x => x.OdnosiNaVozilo, "RegistarskiBrojVozila")
-                .ForeignKey("FK_Vozilo_Karta");
+            HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
 
+            
             CheckConstraint("DoVreme > OdVreme");
         }
     }

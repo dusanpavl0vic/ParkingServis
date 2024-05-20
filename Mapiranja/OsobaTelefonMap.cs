@@ -23,7 +23,8 @@ namespace ParkingServis.Mapiranja
             CompositeId()
                 .KeyReference(x => x.Osoba, "IDOsobe")
                 .KeyProperty(x => x.Telefon);
-            Map(x => x.Telefon).Unique();
+
+            References(x => x.Osoba).Column("IDOsobe").Not.Nullable().LazyLoad();
         }
     }
 }

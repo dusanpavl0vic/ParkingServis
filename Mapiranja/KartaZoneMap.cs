@@ -21,7 +21,10 @@ namespace ParkingServis.Mapiranja
             Table("KartaZone");
             CompositeId()
                 .KeyReference(x => x.Karta, "SerijskiBrojKarte")
-                .KeyProperty(x => x.Zona);
+                .KeyProperty(x => x.Zona, "Zona");
+
+            References(x => x.Karta).Column("SerijskiBrojKarte").Not.Nullable().LazyLoad();
+
         }
     }
 }
