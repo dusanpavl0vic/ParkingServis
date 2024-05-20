@@ -105,11 +105,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
+    <Compile Include="DTOManager.cs" />
     <Compile Include="Entiteti\IskoriscenaKarta.cs" />
+    <Compile Include="Entiteti\IskoriscenaKartaId.cs" />
     <Compile Include="Entiteti\Karta.cs" />
     <Compile Include="Entiteti\KartaZone.cs" />
+    <Compile Include="Entiteti\KartaZoneId.cs" />
     <Compile Include="Entiteti\Osoba.cs" />
     <Compile Include="Entiteti\OsobaTelefon.cs" />
+    <Compile Include="Entiteti\OsobaTelefonId.cs" />
     <Compile Include="Entiteti\Parking.cs" />
     <Compile Include="Entiteti\ParkingMesto.cs" />
     <Compile Include="Entiteti\Vozilo.cs" />
@@ -131,6 +135,9 @@
     <Compile Include="Mapiranja\ZakupMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

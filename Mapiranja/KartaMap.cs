@@ -27,7 +27,7 @@ namespace ParkingServis.Mapiranja
         public KartaMap()
         {
             Table("Karta");
-            Id(x => x.SerijskiBroj, "SerijskiBroj").GeneratedBy.Identity();
+            Id(x => x.SerijskiBroj, "SerijskiBroj").GeneratedBy.Assigned();
 
             DiscriminateSubClassesOnColumn("KARTATYPE");
 
@@ -41,7 +41,7 @@ namespace ParkingServis.Mapiranja
             HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
 
             
-            CheckConstraint("DoVreme > OdVreme");
+            //CheckConstraint("DoVreme > OdVreme");
         }
     }
     public class JednokratnaMap : SubclassMap<Jednokratna>

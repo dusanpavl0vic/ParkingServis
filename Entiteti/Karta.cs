@@ -15,7 +15,7 @@ namespace ParkingServis.Entiteti
     public class Karta
     {
         public virtual int SerijskiBroj { get; set; }
-        public virtual EnumKartaType KartaType { get; set; }
+        public virtual string KartaType { get; set; }
         public virtual DateTime? Datum { get; set; }
         public virtual DateTime? OdVreme { get; set; }
         public virtual DateTime? DoVreme { get; set; }

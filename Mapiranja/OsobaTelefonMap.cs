@@ -21,10 +21,10 @@ namespace ParkingServis.Mapiranja
         {
             Table("OsobaTelefon");
             CompositeId()
-                .KeyReference(x => x.Osoba, "IDOsobe")
-                .KeyProperty(x => x.Telefon);
+                .KeyReference(x => x.Id.Osoba, "IDOsobe")
+                .KeyProperty(x => x.Id.OsobaTelefon, "Telefon");
 
-            References(x => x.Osoba).Column("IDOsobe").Not.Nullable().LazyLoad();
+            //References(x => x.Osoba).Column("IDOsobe").Not.Nullable().LazyLoad();
         }
     }
 }

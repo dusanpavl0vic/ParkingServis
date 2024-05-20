@@ -10,24 +10,30 @@ namespace ParkingServis.Entiteti
     {
         public virtual Karta Karta { get; set; }
         public virtual IskoriscenaKarta IskoriscenaKarta { get; set; }
+
         public override bool Equals(object obj)
         {
-            if (Object.ReferenceEquals(this, obj))
+            if (ReferenceEquals(this, obj))
                 return true;
 
-            if (obj.GetType() != typeof(IskoriscenaKartaId))
+            if (obj == null || GetType() != obj.GetType())
                 return false;
 
-            IskoriscenaKartaId recievedObject = (IskoriscenaKartaId)obj;
+            IskoriscenaKartaId other = (IskoriscenaKartaId)obj;
 
-            if ((IskoriscenaKarta.VremeIzvrseneKontrole == recievedObject.IskoriscenaKarta.VremeIzvrseneKontrole) && (Karta.SerijskiBroj == recievedObject.Karta.SerijskiBroj))
-                return true;
-
-            return false;
+            return Karta.SerijskiBroj == other.Karta.SerijskiBroj &&
+                   IskoriscenaKarta.VremeIzvrseneKontrole == other.IskoriscenaKarta.VremeIzvrseneKontrole;
         }
+
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + Karta.SerijskiBroj.GetHashCode();
+                hash = hash * 23 + IskoriscenaKarta.VremeIzvrseneKontrole.GetHashCode();
+                return hash;
+            }
         }
     }
 }

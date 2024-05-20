@@ -28,18 +28,16 @@ namespace ParkingServis.Mapiranja
         {
             Table("IskoriscenaKarta");
             CompositeId()
-                .KeyProperty(x => x.VremeIzvrseneKontrole, "VremeIzvrseneKontrole")
-                .KeyReference(x => x.KupljenaNaKioskuKarta, "SerijskiBroj");
+                .KeyProperty(x => x.Id.Karta, "SerijskiBroj")
+                .KeyReference(x => x.Id.IskoriscenaKarta, "VremeIzvrseneKontrole");
             Map(x => x.OdVreme, "OdVreme").Not.Nullable();
             Map(x => x.DoVreme, "DoVreme").Not.Nullable();
 
-            
-            References(x => x.KupljenaNaKioskuKarta).Column("SerijskiBroj").LazyLoad();
-            References(x => x.ZaVozilo).Column("RegistarskiBrojVozila").LazyLoad();
-            References(x => x.ZaParkingMesto).Column("IDParkingMesta").LazyLoad();
+            //References(x => x.KupljenaNaKioskuKarta, "SerijskiBroj").LazyLoad();
+            References(x => x.ZaVozilo, "RegistarskiBrojVozila").LazyLoad();
+            References(x => x.ZaParkingMesto, "IDParkingMesta").LazyLoad();
 
-
-            CheckConstraint("DoVreme > OdVreme");
+            //CheckConstraint("DoVreme > OdVreme");
         }
     }
 }

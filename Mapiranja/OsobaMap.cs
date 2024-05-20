@@ -52,7 +52,7 @@ namespace ParkingServis.Mapiranja
 
             //HasMany(x => x.ListZakupa).Cascade.All().KeyColumn("IDOsobe");
 
-            CheckConstraint("OSOBATYPE in ('FizickoLice', 'PravnoLice')");
+            //CheckConstraint("OSOBATYPE in ('FizickoLice', 'PravnoLice')");
         }
     }
 
