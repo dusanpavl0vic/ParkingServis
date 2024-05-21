@@ -16,8 +16,12 @@ namespace ParkingServis
         {
             InitializeComponent();
             // load and show data
+        }
+        private void ParkingMestaForm_Load(object sender, EventArgs e)
+        {
             PopulateListView();
         }
+
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -26,8 +30,18 @@ namespace ParkingServis
 
         private void PopulateListView()
         {
+            MessageBox.Show("Mjau");
+            listaParkinga.Items.Clear();
 
+            List<ParkingPregled> podaci = DTOManager.VratiSveParkinge();
+            foreach(ParkingPregled podatak in podaci)
+            {
+                ListViewItem item = new ListViewItem(podatak.GetListViewItem());
+                listaParkinga.Items.Add(item);
+            }
 
+            listaParkinga.Refresh();
         }
-    }
+
+            }
 }
