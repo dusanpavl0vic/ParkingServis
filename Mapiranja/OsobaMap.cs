@@ -40,7 +40,7 @@ namespace ParkingServis.Mapiranja
             Map(x => x.Prezime, "Prezime").Not.Nullable();
             Map(x => x.JMBG, "JMBG").Unique();
             Map(x => x.BrojLicneKarte, "BrojLicneKarte").Unique();
-            Map(x => x.MestoIzdavanjaLicne, "BrojVozackeDozvole");
+            Map(x => x.MestoIzdavanjaLicne, "MestoIzdavanjaLicne");
             Map(x => x.BrojVozackeDozvole, "BrojVozackeDozvole");
             Map(x => x.ZiviUZoni, "ZiviUZoni");
             Map(x => x.PIB, "PIB");

@@ -28,9 +28,11 @@ namespace ParkingServis
             {
                 NHibernate.ISession s = DataLayer.GetSession();
 
-                Vozilo vozilo = s.Load<Vozilo>(registarskiBroj);
+                //Vozilo vozilo = s.Load<Vozilo>(registarskiBroj);
+                Karta k = s.Load<Karta>(1);
 
-                s.Delete(vozilo);
+                MessageBox.Show(k.DoVreme.ToString() + " ");
+                //s.Delete(k);
                 s.Flush();
 
 

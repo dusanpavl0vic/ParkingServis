@@ -16,7 +16,7 @@ namespace ParkingServis.Entiteti
     {
         public virtual int ID { get; set; }
         public virtual string Adresa { get; set; }
-        public virtual EnumOsobaType OsobaType { get; set; }
+        public virtual string OsobaType { get; set; }
         public virtual string LicnoIme { get; set; }
         public virtual string ImeRoditelja { get; set; }
         public virtual string Prezime { get; set; }
@@ -30,13 +30,13 @@ namespace ParkingServis.Entiteti
 
         public virtual IList<OsobaTelefon> ListTelefoni { get; set; }
         public virtual IList<Karta> KupovinaPretplatne { get; set; }
-        public virtual IList<Zakup> ZakupljenaParkingMesta { get; set; }
+        //public virtual IList<Zakup> ZakupljenaParkingMesta { get; set; }
 
         public Osoba()
         {
-            ListTelefoni = new List<OsobaTelefon>();
+            //ListTelefoni = new List<OsobaTelefon>();
             KupovinaPretplatne = new List<Karta>();
-            ZakupljenaParkingMesta = new List<Zakup>();
+            //ZakupljenaParkingMesta = new List<Zakup>();
         }
     }
 

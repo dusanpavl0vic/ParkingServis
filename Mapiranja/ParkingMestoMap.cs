@@ -38,6 +38,8 @@ namespace ParkingServis.Mapiranja
 
             References(x => x.PripadaParkingu).Column("IDParkinga").Not.Nullable().LazyLoad();
 
+            HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
+
 
             //HasOne(x => x.Zakup).Cascade.All();
 

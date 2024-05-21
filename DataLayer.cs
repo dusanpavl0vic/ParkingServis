@@ -6,6 +6,7 @@ using NHibernate;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using ParkingServis.Mapiranja;
+using ParkingServis.Entiteti;
 
 namespace Prodavnica
 {
@@ -39,15 +40,16 @@ namespace Prodavnica
                 var cfg = OracleManagedDataClientConfiguration.Oracle10
                 .ShowSql()
                 .ConnectionString(c =>
-                    c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18820;Password=S18820"));
+                    c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;PERSIST SECURITY INFO=True;User Id=S18820;Password=S18820"));
 
                 return Fluently.Configure()
-                    .Database(cfg)
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<VoziloMap>())
+                    .Database(cfg.ShowSql())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<KartaMap>())
                     .BuildSessionFactory();
             }
             catch (Exception ec)
             {
+                System.Windows.Forms.MessageBox.Show(ec.InnerException.ToString());
                 System.Windows.Forms.MessageBox.Show(ec.Message);
                 return null;
             }

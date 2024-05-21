@@ -20,11 +20,9 @@ namespace ParkingServis.Mapiranja
         public OsobaTelefonMap()
         {
             Table("OsobaTelefon");
-            CompositeId()
-                .KeyReference(x => x.Id.Osoba, "IDOsobe")
-                .KeyProperty(x => x.Id.OsobaTelefon, "Telefon");
+            Id(x => x.Id, "ID").GeneratedBy.Identity();
 
-            //References(x => x.Osoba).Column("IDOsobe").Not.Nullable().LazyLoad();
+            References(x => x.Osoba).Column("IDOsobe").Not.Nullable().LazyLoad();
         }
     }
 }

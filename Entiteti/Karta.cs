@@ -22,12 +22,19 @@ namespace ParkingServis.Entiteti
         public virtual string RegistarskiBrojVozila { get; set; }
         public virtual Osoba ProdajaOsobi { get; set; }
         public virtual Vozilo OdnosiNaVozilo { get; set; }
-        public IskoriscenaKarta IskoriscenaKarta { get; set; }
+        public virtual IList<KartaZone> ListaZona { get; set; }
+        public virtual IskoriscenaKarta IskoriscenaKarta { get; set; }
+
+        public Karta()
+        {
+            ListaZona = new List<KartaZone>();
+        }
+
     }
 
     public class Jednokratna : Karta
     {
-
+        
     }
     public class Pretplatna : Karta
     {

@@ -27,18 +27,15 @@ namespace ParkingServis.Mapiranja
         public ZakupMap()
         {
             Table("Zakup");
-
-            CompositeId()
-                .KeyReference(x => x.Osoba, "IDOsobe")
-                .KeyReference(x => x.ListVozila, "RegistarskiBrojVozila")
-                .KeyReference(x => x.ListParkingMesta, "IDParkingMesta");
+            Id(x => x.Id, "ID").GeneratedBy.Identity();
 
             Map(x => x.OdVreme, "OdVreme").Not.Nullable();
             Map(x => x.DoVreme, "DoVreme").Not.Nullable();
             Map(x => x.DatumPotpisa, "DatumPotpisa").Not.Nullable();
 
-            //HasMany(x => x.ListVozila).Cascade.All().KeyColumn("RegistarskiBrojVozila");
-            //HasMany(x => x.ListParkingMesta).Cascade.All().KeyColumn("IDParkingMesta");
+            References(x => x.Osoba, "IDOSOBE").LazyLoad();
+            HasMany(x => x.ListVozila).Cascade.All().KeyColumn("RegistarskiBrojVozila");
+            HasMany(x => x.ListParkingMesta).Cascade.All().KeyColumn("IDParkingMesta");
 
             //CheckConstraint("DoVreme > OdVreme");
         }

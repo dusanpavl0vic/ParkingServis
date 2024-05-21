@@ -8,14 +8,13 @@ namespace ParkingServis.Entiteti
 {
     public class KartaZone
     {
-        public virtual KartaZoneId Id{ get; set; }
+        public virtual int Id{ get; set; }
         public virtual string Zona { get; set; }
 
         public virtual Karta Karta { get; set; }
 
         public KartaZone()
         {
-            Id = new KartaZoneId();
         }
     }
 

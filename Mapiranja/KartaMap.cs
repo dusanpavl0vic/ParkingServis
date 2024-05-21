@@ -27,7 +27,7 @@ namespace ParkingServis.Mapiranja
         public KartaMap()
         {
             Table("Karta");
-            Id(x => x.SerijskiBroj, "SerijskiBroj").GeneratedBy.Assigned();
+            Id(x => x.SerijskiBroj, "SERIJSKIBROJ").GeneratedBy.Assigned();
 
             DiscriminateSubClassesOnColumn("KARTATYPE");
 
@@ -38,9 +38,11 @@ namespace ParkingServis.Mapiranja
             References(x => x.ProdajaOsobi).Column("IDOsobe").LazyLoad();
             References(x => x.OdnosiNaVozilo).Column("RegistarskiBrojVozila").LazyLoad();
 
+            HasMany(x => x.ListaZona).KeyColumn("SerijskiBrojKarta").Inverse().Cascade.All();
+
             HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
 
-            
+
             //CheckConstraint("DoVreme > OdVreme");
         }
     }

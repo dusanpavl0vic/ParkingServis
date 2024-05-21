@@ -41,9 +41,11 @@ namespace ParkingServis.Entiteti
         public virtual string Zona { get; set; }
         public virtual int? RedniBroj { get; set; }
         public virtual int? Sprat { get; set; }
-
+        
+        // strani kljucevi
+        public virtual IskoriscenaKarta IskoriscenaKarta { get; set; }
         public virtual Parking PripadaParkingu { get; set; }
-        public Zakup Zakup { get; set; }
+        //public Zakup Zakup { get; set; }
     }
 
 }

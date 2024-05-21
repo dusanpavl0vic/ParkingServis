@@ -8,10 +8,12 @@ namespace ParkingServis.Entiteti
 {
     public class Zakup
     {
+        public virtual int Id { get; set; }
         public virtual DateTime OdVreme { get; set; }
         public virtual DateTime DoVreme { get; set; }
         public virtual DateTime DatumPotpisa { get; set; }
 
+        // strani kljucevi
         public virtual Osoba Osoba { get; set; }
         public virtual IList<Vozilo> ListVozila { get; set; }
         public virtual IList<ParkingMesto> ListParkingMesta { get; set; }

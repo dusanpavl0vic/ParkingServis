@@ -22,12 +22,13 @@ namespace ParkingServis.Mapiranja
             Table("Vozilo");
 
             Id(x => x.RegistarskiBroj).Column("RegistarskiBroj").GeneratedBy.Assigned();
-            
+
             Map(x => x.BrojSaobracajneDozvole, "BrojSaobracajneDozvole").Not.Nullable().Unique();
             Map(x => x.Proizvodjac, "Proizvodjac").Not.Nullable();
             Map(x => x.Model, "Model").Not.Nullable();
 
-            HasOne(x => x.VoziloZaPretplatnu).Constrained().Cascade.All(); ;
+            HasOne(x => x.VoziloZaPretplatnu).Constrained().Cascade.All();
+            HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
 
             //HasOne(x => x.Zakup).Cascade.All();
         }

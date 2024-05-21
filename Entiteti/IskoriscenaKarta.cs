@@ -8,7 +8,7 @@ namespace ParkingServis.Entiteti
 {
     public class IskoriscenaKarta
     {
-        public virtual IskoriscenaKartaId Id { get; set; }
+        public virtual int Id { get; set; }
         public virtual DateTime VremeIzvrseneKontrole { get; set; }
         public virtual DateTime OdVreme { get; set; }
         public virtual DateTime DoVreme { get; set; }
@@ -18,7 +18,6 @@ namespace ParkingServis.Entiteti
 
         public IskoriscenaKarta()
         {
-            Id = new IskoriscenaKartaId();
         }
     }
 }

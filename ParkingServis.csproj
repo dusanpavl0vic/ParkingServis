@@ -107,13 +107,10 @@
     <Compile Include="DataLayer.cs" />
     <Compile Include="DTOManager.cs" />
     <Compile Include="Entiteti\IskoriscenaKarta.cs" />
-    <Compile Include="Entiteti\IskoriscenaKartaId.cs" />
     <Compile Include="Entiteti\Karta.cs" />
     <Compile Include="Entiteti\KartaZone.cs" />
-    <Compile Include="Entiteti\KartaZoneId.cs" />
     <Compile Include="Entiteti\Osoba.cs" />
     <Compile Include="Entiteti\OsobaTelefon.cs" />
-    <Compile Include="Entiteti\OsobaTelefonId.cs" />
     <Compile Include="Entiteti\Parking.cs" />
     <Compile Include="Entiteti\ParkingMesto.cs" />
     <Compile Include="Entiteti\Vozilo.cs" />

@@ -36,7 +36,7 @@ namespace ParkingServis.Mapiranja
 
             DiscriminateSubClassesOnColumn("PARKINGTYPE");
 
-            Map(x => x.MontazniObjekat, "MontazniObjekat").CustomType<EnumMontazniObjekat>().Not.Nullable();
+            Map(x => x.MontazniObjekat, "MontazniObjekat").Not.Nullable();
             Map(x => x.Zona, "Zona").Not.Nullable();
             Map(x => x.Adresa, "Adresa").Not.Nullable();
             Map(x => x.OdVreme, "OdVreme").Not.Nullable();

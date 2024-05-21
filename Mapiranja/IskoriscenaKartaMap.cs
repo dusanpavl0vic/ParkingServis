@@ -27,13 +27,12 @@ namespace ParkingServis.Mapiranja
         public IskoriscenaKartaMap()
         {
             Table("IskoriscenaKarta");
-            CompositeId()
-                .KeyProperty(x => x.Id.Karta, "SerijskiBroj")
-                .KeyReference(x => x.Id.IskoriscenaKarta, "VremeIzvrseneKontrole");
+            Id(x => x.Id, "ID").GeneratedBy.Identity();
+
             Map(x => x.OdVreme, "OdVreme").Not.Nullable();
             Map(x => x.DoVreme, "DoVreme").Not.Nullable();
 
-            //References(x => x.KupljenaNaKioskuKarta, "SerijskiBroj").LazyLoad();
+            References(x => x.KupljenaNaKioskuKarta, "SerijskiBroj").LazyLoad();
             References(x => x.ZaVozilo, "RegistarskiBrojVozila").LazyLoad();
             References(x => x.ZaParkingMesto, "IDParkingMesta").LazyLoad();
 
