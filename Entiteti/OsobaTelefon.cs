@@ -15,7 +15,6 @@ namespace ParkingServis.Entiteti
 
         public OsobaTelefon()
         {
-            //Id = new OsobaTelefonId();
         }
     }
 

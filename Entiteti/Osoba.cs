@@ -30,13 +30,13 @@ namespace ParkingServis.Entiteti
 
         public virtual IList<OsobaTelefon> ListTelefoni { get; set; }
         public virtual IList<Karta> KupovinaPretplatne { get; set; }
-        //public virtual IList<Zakup> ZakupljenaParkingMesta { get; set; }
+        public virtual IList<Zakup> ZakupljenaParkingMesta { get; set; }
 
         public Osoba()
         {
-            //ListTelefoni = new List<OsobaTelefon>();
+            ListTelefoni = new List<OsobaTelefon>();
             KupovinaPretplatne = new List<Karta>();
-            //ZakupljenaParkingMesta = new List<Zakup>();
+            ZakupljenaParkingMesta = new List<Zakup>();
         }
     }
 

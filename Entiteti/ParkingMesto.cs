@@ -45,7 +45,7 @@ namespace ParkingServis.Entiteti
         // strani kljucevi
         public virtual IskoriscenaKarta IskoriscenaKarta { get; set; }
         public virtual Parking PripadaParkingu { get; set; }
-        //public Zakup Zakup { get; set; }
+        public virtual Zakup Zakup { get; set; }
     }
 
 }
