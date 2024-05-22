@@ -15,6 +15,33 @@ namespace ParkingServis
     public class DTOManager
     {
         #region Vozilo
+
+        public static List<VoziloPregled> VratiSvaVozila()
+        {
+            List<VoziloPregled> vozila = new List<VoziloPregled>();
+
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+                IEnumerable<Vozilo> svaVozila = from o in session.Query<Vozilo>()
+                                                   select o;
+
+                foreach(Vozilo vozilo in svaVozila)
+                {
+                    vozila.Add(new VoziloPregled(vozilo));
+                }
+
+                session.Close();
+                return vozila;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+
+            return vozila;
+
+        }
         public static void obrisiVozilo(int registarskiBroj)
         {
             try
@@ -32,6 +59,8 @@ namespace ParkingServis
                 //handle exceptions
             }
         }
+
+
         #endregion
 
         #region Parking
