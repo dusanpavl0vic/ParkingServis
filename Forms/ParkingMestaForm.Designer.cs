@@ -30,16 +30,16 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listaParkinga = new System.Windows.Forms.ListView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,7 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
+            this.listaParkinga.FullRowSelect = true;
             this.listaParkinga.HideSelection = false;
             this.listaParkinga.Location = new System.Drawing.Point(6, 19);
             this.listaParkinga.Name = "listaParkinga";
@@ -70,7 +71,31 @@
             this.listaParkinga.TabIndex = 0;
             this.listaParkinga.UseCompatibleStateImageBehavior = false;
             this.listaParkinga.View = System.Windows.Forms.View.Details;
-            this.listaParkinga.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Id";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Naziv";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Adresa";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Od Vreme";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Do Vreme";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Broj Parking Mesta";
+            this.columnHeader6.Width = 109;
             // 
             // groupBox2
             // 
@@ -101,6 +126,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Obrisi parking mesto";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -110,31 +136,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Dodaj parking mesto";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Id";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Naziv";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Adresa";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Od Vreme";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Do Vreme";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Broj Parking Mesta";
-            this.columnHeader6.Width = 109;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ParkingMestaForm
             // 

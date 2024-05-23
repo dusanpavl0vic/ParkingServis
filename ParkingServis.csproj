@@ -122,10 +122,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="KarteForm.cs">
+    <Compile Include="Forms\DodajParkingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KarteForm.Designer.cs">
+    <Compile Include="Forms\DodajParkingForm.Designer.cs">
+      <DependentUpon>DodajParkingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\KarteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KarteForm.Designer.cs">
       <DependentUpon>KarteForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Mapiranja\IskoriscenaKartaMap.cs" />
@@ -137,36 +143,39 @@
     <Compile Include="Mapiranja\ParkingMestoMap.cs" />
     <Compile Include="Mapiranja\VoziloMap.cs" />
     <Compile Include="Mapiranja\ZakupMap.cs" />
-    <Compile Include="OsobeForm.cs">
+    <Compile Include="Forms\OsobeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OsobeForm.Designer.cs">
+    <Compile Include="Forms\OsobeForm.Designer.cs">
       <DependentUpon>OsobeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ParkingMestaForm.cs">
+    <Compile Include="Forms\ParkingMestaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ParkingMestaForm.Designer.cs">
+    <Compile Include="Forms\ParkingMestaForm.Designer.cs">
       <DependentUpon>ParkingMestaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VozilaForm.cs">
+    <Compile Include="Forms\VozilaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VozilaForm.Designer.cs">
+    <Compile Include="Forms\VozilaForm.Designer.cs">
       <DependentUpon>VozilaForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KarteForm.resx">
+    <EmbeddedResource Include="Forms\DodajParkingForm.resx">
+      <DependentUpon>DodajParkingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KarteForm.resx">
       <DependentUpon>KarteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OsobeForm.resx">
+    <EmbeddedResource Include="Forms\OsobeForm.resx">
       <DependentUpon>OsobeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ParkingMestaForm.resx">
+    <EmbeddedResource Include="Forms\ParkingMestaForm.resx">
       <DependentUpon>ParkingMestaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -178,7 +187,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="VozilaForm.resx">
+    <EmbeddedResource Include="Forms\VozilaForm.resx">
       <DependentUpon>VozilaForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">

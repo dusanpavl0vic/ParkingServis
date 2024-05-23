@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Linq;
 using System.Windows.Forms;
+using ISession = NHibernate.ISession;
 
 namespace ParkingServis
 {
@@ -60,7 +61,24 @@ namespace ParkingServis
 
             return parkinzi;
 
-        } 
+        }
+
+        public static void ObrisiParking(int index)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+                Parking parking = session.Load<Parking>(index);
+
+                session.Delete(parking);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
 
         #endregion
     }

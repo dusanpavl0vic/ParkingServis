@@ -12,9 +12,11 @@ namespace ParkingServis
 {
     public partial class ParkingMestaForm : Form
     {
+        private int selectedIndex;
         public ParkingMestaForm()
         {
             InitializeComponent();
+            selectedIndex = -1;
             // load and show data
         }
         private void ParkingMestaForm_Load(object sender, EventArgs e)
@@ -22,15 +24,8 @@ namespace ParkingServis
             PopulateListView();
         }
 
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void PopulateListView()
         {
-            MessageBox.Show("Mjau");
             listaParkinga.Items.Clear();
 
             List<ParkingPregled> podaci = DTOManager.VratiSveParkinge();
@@ -43,5 +38,26 @@ namespace ParkingServis
             listaParkinga.Refresh();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listaParkinga.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Morate odabrati barem jedan parking");
+                return;
             }
+
+            var selected = listaParkinga.SelectedItems;
+
+            for (int i = 0; i < selected.Count; i++)
+            {
+                DTOManager.ObrisiParking(int.Parse(selected[i].SubItems[0].Text));
+            }
+        }
+
+    }
 }
