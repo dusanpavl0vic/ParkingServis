@@ -27,6 +27,14 @@ namespace ParkingServis
                 IEnumerable<Vozilo> svaVozila = from o in session.Query<Vozilo>()
                                                    select o;
 
+
+                Vozilo testVozilo = svaVozila.ElementAt(0);
+                MessageBox.Show(
+                    testVozilo.BrojSaobracajneDozvole
+                    + " " + testVozilo.IskoriscenaKarta + " " +
+                    testVozilo.Model +
+                    " " + testVozilo.Proizvodjac);
+
                 foreach(Vozilo vozilo in svaVozila)
                 {
                     vozila.Add(new VoziloPregled(vozilo));
@@ -107,6 +115,25 @@ namespace ParkingServis
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        public static void DodajParking(int index)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
         }
 
         #endregion

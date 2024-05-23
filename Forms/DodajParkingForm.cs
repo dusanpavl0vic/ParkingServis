@@ -18,5 +18,21 @@ namespace ParkingServis.Forms
         }
 
 
+
+
+  //      public virtual int ID { get; set; }
+  //      public virtual string MontazniObjekat { get; set; }
+  //      public virtual string Zona { get; set; }
+  //      public virtual string Adresa { get; set; }
+  //      public virtual DateTime OdVreme { get; set; }
+  //      public virtual DateTime DoVreme { get; set; }
+  //      public virtual int BrojParkingMesta { get; set; }
+  //      public virtual string Naziv { get; set; }
+  //      public virtual string ParkingType { get; set; }
+  //      public virtual int? Spratovi { get; set; }
+  //      public virtual int? Nivoi { get; set; }
+
+
+
     }
 }

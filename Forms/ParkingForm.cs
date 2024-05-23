@@ -7,19 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ParkingServis.Forms;
 
 namespace ParkingServis
 {
-    public partial class ParkingMestaForm : Form
+    public partial class ParkingForm : Form
     {
-        private int selectedIndex;
-        public ParkingMestaForm()
+        public ParkingForm()
         {
             InitializeComponent();
-            selectedIndex = -1;
-            // load and show data
         }
-        private void ParkingMestaForm_Load(object sender, EventArgs e)
+        private void ParkingForm_Load(object sender, EventArgs e)
         {
             PopulateListView();
         }
@@ -40,7 +38,8 @@ namespace ParkingServis
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            DodajParkingForm dodajParkingForm = new DodajParkingForm();
+            dodajParkingForm.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)

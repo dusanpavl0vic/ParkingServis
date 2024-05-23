@@ -31,6 +31,7 @@ namespace ParkingServis.Mapiranja
             HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
 
             //HasOne(x => x.Zakup).Cascade.All();
+            //HasOne(x => x.Zakup).Cascade.All();
         }
     }
 }

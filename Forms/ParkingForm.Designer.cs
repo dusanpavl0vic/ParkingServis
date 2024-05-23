@@ -1,6 +1,6 @@
 ﻿namespace ParkingServis
 {
-    partial class ParkingMestaForm
+    partial class ParkingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -138,16 +138,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // ParkingMestaForm
+            // ParkingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 549);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "ParkingMestaForm";
+            this.Name = "ParkingForm";
             this.Text = "Pregled parking mesta";
-            this.Load += new System.EventHandler(this.ParkingMestaForm_Load);
+            this.Load += new System.EventHandler(this.ParkingForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -43,6 +43,7 @@ namespace ParkingServis
         }
     }
 
+
     public class VoziloPregled
     {
         public string RegistarskiBroj;
@@ -56,6 +57,30 @@ namespace ParkingServis
             this.BrojSaobracajneDozvole = vozilo.BrojSaobracajneDozvole;
             this.Proizvodjac = vozilo.Proizvodjac;
             this.Model = vozilo.Model;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new string[]
+            {
+                this.RegistarskiBroj,
+                this.BrojSaobracajneDozvole,
+                this.Proizvodjac,
+                this.Model
+            };
+        }
+    }
+
+    public class VoziloBasic
+    {
+        public string RegistarskiBroj;
+        public string BrojSaobracajneDozvole;
+        public string Proizvodjac;
+        public string Model;
+
+        public VoziloBasic(Vozilo vozilo)
+        {
+
         }
 
         public string[] GetListViewItem()

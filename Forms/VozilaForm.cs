@@ -37,6 +37,7 @@ namespace ParkingServis
             listaVozila.Items.Clear();
 
             List<VoziloPregled> podaci = DTOManager.VratiSvaVozila();
+            return;
             foreach (VoziloPregled podatak in podaci)
             {
                 ListViewItem item = new ListViewItem(podatak.GetListViewItem());
@@ -44,6 +45,11 @@ namespace ParkingServis
             }
 
             listaVozila.Refresh();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
