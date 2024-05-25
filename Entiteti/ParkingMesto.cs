@@ -45,7 +45,20 @@ namespace ParkingServis.Entiteti
         // strani kljucevi
         public virtual IskoriscenaKarta IskoriscenaKarta { get; set; }
         public virtual Parking PripadaParkingu { get; set; }
-        public virtual Zakup Zakup { get; set; }
+        public virtual IList<Zakup> ListaZakupa { get; set; }
+
+        public ParkingMesto()
+        {
+            this.ListaZakupa = new List<Zakup>();
+        }
+    }
+    public class NaUlici : ParkingMesto
+    {
+
+    }
+    public class JavnoParkingMesto : ParkingMesto
+    {
+
     }
 
 }

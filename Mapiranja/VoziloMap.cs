@@ -27,11 +27,11 @@ namespace ParkingServis.Mapiranja
             Map(x => x.Proizvodjac, "Proizvodjac").Not.Nullable();
             Map(x => x.Model, "Model").Not.Nullable();
 
-            HasOne(x => x.VoziloZaPretplatnu).Constrained().Cascade.All();
-            HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
+            //References(x => x.VoziloZaPretplatnu).Cascade.All();
+            References(x => x.VoziloZaPretplatnu).Column("RegistarskiBrojVozila").LazyLoad();
+            //HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
 
-            //HasOne(x => x.Zakup).Cascade.All();
-            //HasOne(x => x.Zakup).Cascade.All();
+            //HasMany(x => x.ListaZakupa).Cascade.All().KeyColumn("RegistarskiBrojVozila");
         }
     }
 }

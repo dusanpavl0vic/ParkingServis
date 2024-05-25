@@ -50,7 +50,7 @@ namespace ParkingServis.Mapiranja
             HasMany(x => x.KupovinaPretplatne).KeyColumn("IDOsobe").Inverse().Cascade.All();
 
 
-            //HasMany(x => x.ListZakupa).Cascade.All().KeyColumn("IDOsobe");
+            HasMany(x => x.ZakupljenaParkingMesta).Cascade.All().KeyColumn("IDOsobe");
 
             //CheckConstraint("OSOBATYPE in ('FizickoLice', 'PravnoLice')");
         }

@@ -34,8 +34,8 @@ namespace ParkingServis.Mapiranja
             Map(x => x.DatumPotpisa, "DatumPotpisa").Not.Nullable();
 
             References(x => x.Osoba, "IDOSOBE").LazyLoad();
-            HasMany(x => x.ListVozila).Cascade.All().KeyColumn("RegistarskiBrojVozila");
-            HasMany(x => x.ListParkingMesta).Cascade.All().KeyColumn("IDParkingMesta");
+            References(x => x.Vozilo, "RegistarskiBrojVozila").LazyLoad();
+            References(x => x.ParkingMesto, "IDParkingMesta").LazyLoad();
 
             //CheckConstraint("DoVreme > OdVreme");
         }

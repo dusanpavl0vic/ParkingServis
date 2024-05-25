@@ -40,6 +40,7 @@ namespace ParkingServis.Mapiranja
 
             HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
 
+            HasMany(x => x.ListaZakupa).Cascade.All().KeyColumn("IDParkingMesta");
 
             //HasOne(x => x.Zakup).Cascade.All();
 

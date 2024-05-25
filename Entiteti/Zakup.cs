@@ -15,13 +15,11 @@ namespace ParkingServis.Entiteti
 
         // strani kljucevi
         public virtual Osoba Osoba { get; set; }
-        public virtual IList<Vozilo> ListVozila { get; set; }
-        public virtual IList<ParkingMesto> ListParkingMesta { get; set; }
+        public virtual Vozilo Vozilo { get; set; }
+        public virtual ParkingMesto ParkingMesto { get; set; }
 
         public Zakup()
         {
-            ListVozila = new List<Vozilo>();
-            ListParkingMesta = new List<ParkingMesto>();
         }
     }
 
