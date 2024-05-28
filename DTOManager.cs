@@ -28,9 +28,9 @@ namespace ParkingServis
                                                    select o;
 
 
-                Vozilo testVozilo = svaVozila.ElementAt(0);
-                MessageBox.Show(
-                    testVozilo.BrojSaobracajneDozvole + " " + testVozilo.Model + " " + testVozilo.Proizvodjac);
+                //Vozilo testVozilo = svaVozila.ElementAt(0);
+                //MessageBox.Show(
+                //    testVozilo.BrojSaobracajneDozvole + " " + testVozilo.Model + " " + testVozilo.Proizvodjac);
 
                 foreach(Vozilo vozilo in svaVozila)
                 {
@@ -48,12 +48,36 @@ namespace ParkingServis
             return vozila;
 
         }
-        public static void obrisiVozilo(int registarskiBroj)
+        public static void dodajVozilo(VoziloBasic r)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ParkingServis.Entiteti.Vozilo o = new ParkingServis.Entiteti.Vozilo();
+                o.Id = r.Id;
+                o.RegistarskiBroj = r.RegistarskiBroj;
+                o.BrojSaobracajneDozvole = r.BrojSaobracajneDozvole;
+                o.Proizvodjac = r.Proizvodjac;
+                o.Model = r.Model;
+
+                s.SaveOrUpdate(o);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                //handle exceptions
+            }
+        }
+        public static void obrisiVozilo(int index)
         {
             try
             {
                 NHibernate.ISession s = DataLayer.GetSession();
-                Vozilo vozilo = s.Load<Vozilo>(registarskiBroj);
+                Vozilo vozilo = s.Load<Vozilo>(index);
 
                 s.Delete(vozilo);
                 s.Flush();
@@ -62,7 +86,7 @@ namespace ParkingServis
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                MessageBox.Show(ec.Message);
             }
         }
 

@@ -134,6 +134,12 @@
     <Compile Include="Forms\DodajParkingForm.Designer.cs">
       <DependentUpon>DodajParkingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DodajVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DodajVozilo.Designer.cs">
+      <DependentUpon>DodajVozilo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\KarteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DodajParkingForm.resx">
       <DependentUpon>DodajParkingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DodajVozilo.resx">
+      <DependentUpon>DodajVozilo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\KarteForm.resx">
       <DependentUpon>KarteForm.cs</DependentUpon>

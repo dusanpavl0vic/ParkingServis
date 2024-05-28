@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,6 +47,7 @@ namespace ParkingServis
 
     public class VoziloPregled
     {
+        public int Id;
         public string RegistarskiBroj;
         public string BrojSaobracajneDozvole;
         public string Proizvodjac;
@@ -53,6 +55,7 @@ namespace ParkingServis
 
         public VoziloPregled(Vozilo vozilo)
         {
+            this.Id = vozilo.Id;
             this.RegistarskiBroj = vozilo.RegistarskiBroj;
             this.BrojSaobracajneDozvole = vozilo.BrojSaobracajneDozvole;
             this.Proizvodjac = vozilo.Proizvodjac;
@@ -63,6 +66,7 @@ namespace ParkingServis
         {
             return new string[]
             {
+                this.Id.ToString(),
                 this.RegistarskiBroj,
                 this.BrojSaobracajneDozvole,
                 this.Proizvodjac,
@@ -73,6 +77,7 @@ namespace ParkingServis
 
     public class VoziloBasic
     {
+        public int Id;
         public string RegistarskiBroj;
         public string BrojSaobracajneDozvole;
         public string Proizvodjac;
@@ -82,11 +87,15 @@ namespace ParkingServis
         {
 
         }
+        public VoziloBasic()
+        {
 
+        }
         public string[] GetListViewItem()
         {
             return new string[]
             {
+                this.Id.ToString(),
                 this.RegistarskiBroj,
                 this.BrojSaobracajneDozvole,
                 this.Proizvodjac,
