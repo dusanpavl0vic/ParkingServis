@@ -27,7 +27,6 @@ namespace ParkingServis
             return parking;
         }
 
-<<<<<<< HEAD
 
         public ParkingMesto ToParkingMesto(ParkingMesto parking, ParkingMestoBasic parkingBasic)
         {
@@ -41,17 +40,6 @@ namespace ParkingServis
             parking.PripadaParkingu = parkingBasic.PripadaParkingu;
 
             return parking;
-=======
-        public Vozilo ToVozilo(Vozilo vozilo, VoziloBasic voziloBasic)
-        {
-            vozilo.Id = voziloBasic.Id;
-            vozilo.RegistarskiBroj = voziloBasic.RegistarskiBroj;
-            vozilo.BrojSaobracajneDozvole = voziloBasic.BrojSaobracajneDozvole;
-            vozilo.Model = voziloBasic.Model;
-            vozilo.Proizvodjac = voziloBasic.Proizvodjac;
-
-            return vozilo;
->>>>>>> 3574251bbfa29bca44aa53585842ba483fa83d25
         }
     }
 }

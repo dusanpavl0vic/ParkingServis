@@ -75,11 +75,7 @@ namespace ParkingServis
             }
             catch (Exception e)
             {
-<<<<<<< HEAD
-                MessageBox.Show(ec.Message);
-=======
                 MessageBox.Show(e.Message);
->>>>>>> 3574251bbfa29bca44aa53585842ba483fa83d25
             }
 
         }
