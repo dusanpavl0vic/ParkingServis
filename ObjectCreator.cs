@@ -26,5 +26,16 @@ namespace ParkingServis
 
             return parking;
         }
+
+        public Vozilo ToVozilo(Vozilo vozilo, VoziloBasic voziloBasic)
+        {
+            vozilo.Id = voziloBasic.Id;
+            vozilo.RegistarskiBroj = voziloBasic.RegistarskiBroj;
+            vozilo.BrojSaobracajneDozvole = voziloBasic.BrojSaobracajneDozvole;
+            vozilo.Model = voziloBasic.Model;
+            vozilo.Proizvodjac = voziloBasic.Proizvodjac;
+
+            return vozilo;
+        }
     }
 }

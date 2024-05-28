@@ -49,29 +49,34 @@ namespace ParkingServis
             return vozila;
 
         }
-        public static void dodajVozilo(VoziloBasic r)
+        public static void DodajVozilo(VoziloBasic novoVozilo)
         {
             try
             {
-                ISession s = DataLayer.GetSession();
+                NHibernate.ISession session = DataLayer.GetSession();
 
-                ParkingServis.Entiteti.Vozilo o = new ParkingServis.Entiteti.Vozilo();
-                o.Id = r.Id;
-                o.RegistarskiBroj = r.RegistarskiBroj;
-                o.BrojSaobracajneDozvole = r.BrojSaobracajneDozvole;
-                o.Proizvodjac = r.Proizvodjac;
-                o.Model = r.Model;
+                // proveri dal postoji vozilo sa taj ID
+                Vozilo postojiVozilo = session.Get<Vozilo>(novoVozilo.Id);
+                if (postojiVozilo != null)
+                {
+                    session.SaveOrUpdate(postojiVozilo);
+                    MessageBox.Show("Vec postoji vozilo sa tim id-jem");
+                    return;
+                }
 
-                s.SaveOrUpdate(o);
+                Vozilo vozilo = new Vozilo();
+                ObjectCreator.Instance.ToVozilo(vozilo, novoVozilo);
+                session.Save(vozilo);
 
-                s.Flush();
+                session.Flush();
+                session.Close();
 
-                s.Close();
             }
-            catch (Exception ec)
+            catch (Exception e)
             {
-                //handle exceptions
+                MessageBox.Show(e.Message);
             }
+
         }
         public static void obrisiVozilo(int index)
         {

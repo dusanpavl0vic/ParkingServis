@@ -32,7 +32,7 @@ namespace ParkingServis
 
         }
 
-        private void PopulateListView()
+        public void PopulateListView()
         {
             //MessageBox.Show("Mrnjao");
             listaVozila.Items.Clear();
@@ -66,11 +66,12 @@ namespace ParkingServis
             {
                 DTOManager.obrisiVozilo(int.Parse(selected[i].SubItems[0].Text));
             }
+            PopulateListView();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DodajVozilo dodajVoziloForm = new DodajVozilo();
+            DodajVozilo dodajVoziloForm = new DodajVozilo(this);
             dodajVoziloForm.ShowDialog();
         }
     }

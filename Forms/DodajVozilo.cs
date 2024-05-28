@@ -13,25 +13,22 @@ namespace ParkingServis.Forms
 {
     public partial class DodajVozilo : Form
     {
-        public DodajVozilo()
+        private VozilaForm activeVozilaForm;
+        public DodajVozilo(VozilaForm activeVozilaform)
         {
+            this.activeVozilaForm = activeVozilaform;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*
-            VoziloBasic s = new VoziloBasic();
-            s.Id = Int32.Parse(textBox1.Text);
-            s.RegistarskiBroj = textBox2.Text;
-            s.BrojSaobracajneDozvole = textBox3.Text;
-            s.Proizvodjac = textBox4.Text;
-            s.Model = textBox5.Text;
+        
+            var novoVozilo = new VoziloBasic(Convert.ToInt32(numericUpDown1.Value), textBox2.Text, textBox3.Text, textBox5.Text, textBox4.Text);
 
-            DTOManager.dodajVozilo(s);
+            DTOManager.DodajVozilo(novoVozilo);
 
-            MessageBox.Show("Uspesno ste dodali novo vozilo!");
-            */
+            activeVozilaForm.PopulateListView();
+          
         }
     }
 }
