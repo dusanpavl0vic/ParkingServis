@@ -46,10 +46,20 @@ namespace ParkingServis
 
         public VoziloBasic(Vozilo vozilo)
         {
+            this.Id = vozilo.Id;
+            this.RegistarskiBroj = vozilo.RegistarskiBroj;
+            this.BrojSaobracajneDozvole = vozilo.BrojSaobracajneDozvole;
+            this.Proizvodjac = vozilo.Proizvodjac;
+            this.Model = vozilo.Model;
         }
 
-        public VoziloBasic()
+        public VoziloBasic(int Id, string RegistarskiBroj, string BrojSaobracajneDozvole,string Model,string Proizvodjac)
         {
+            this.Id = Id;
+            this.RegistarskiBroj = RegistarskiBroj;
+            this.BrojSaobracajneDozvole = BrojSaobracajneDozvole;
+            this.Model=Model;
+            this.Proizvodjac = Proizvodjac;
         }
 
         public string[] GetListViewItem()

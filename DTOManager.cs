@@ -144,11 +144,6 @@ namespace ParkingServis
 
         }
 
-
-
-
-
-
         public static void ObrisiParking(int index)
         {
             try
@@ -312,6 +307,33 @@ namespace ParkingServis
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        public static void AzurirajParkingMesto(ParkingMestoBasic novoParkingMesto)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                ParkingMesto parkingMesto = session.Load<ParkingMesto>(novoParkingMesto.ID);
+                if (parkingMesto == null)
+                {
+                    MessageBox.Show("Ne postoji parking sa tim id-jem");
+                    return;
+                }
+
+                parkingMesto = ObjectCreator.Instance.ToParkingMesto(parkingMesto, novoParkingMesto);
+                session.Update(parkingMesto);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
         }
 
         #endregion

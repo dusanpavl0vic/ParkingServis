@@ -146,6 +146,12 @@
     <Compile Include="Forms\IzmeniParking.Designer.cs">
       <DependentUpon>IzmeniParking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\IzmeniParkingMesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IzmeniParkingMesto.Designer.cs">
+      <DependentUpon>IzmeniParkingMesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\KarteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IzmeniParking.resx">
       <DependentUpon>IzmeniParking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IzmeniParkingMesto.resx">
+      <DependentUpon>IzmeniParkingMesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\KarteForm.resx">
       <DependentUpon>KarteForm.cs</DependentUpon>
