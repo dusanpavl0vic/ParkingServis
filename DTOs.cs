@@ -105,6 +105,11 @@ namespace ParkingServis
         }
     }
 
+<<<<<<< HEAD
+=======
+
+   
+>>>>>>> 3574251bbfa29bca44aa53585842ba483fa83d25
     public class ParkingBasic
     {
         public string Adresa;
@@ -152,7 +157,39 @@ namespace ParkingServis
         }
     }
 
+<<<<<<< HEAD
     #endregion
+=======
+    public class VoziloPregled
+    {
+        public int Id;
+        public string RegistarskiBroj;
+        public string BrojSaobracajneDozvole;
+        public string Model;
+        public string Proizvodjac;
+
+        public VoziloPregled(Vozilo vozilo)
+        {
+            this.Id = vozilo.Id;
+            this.RegistarskiBroj = vozilo.RegistarskiBroj;
+            this.BrojSaobracajneDozvole = vozilo.BrojSaobracajneDozvole;
+            this.Proizvodjac = vozilo.Proizvodjac;
+            this.Model = vozilo.Model;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                this.Id.ToString(),
+                this.RegistarskiBroj,
+                this.BrojSaobracajneDozvole,
+                this.Proizvodjac,
+                this.Model
+            };
+        }
+    }
+>>>>>>> 3574251bbfa29bca44aa53585842ba483fa83d25
 
     #region ParkingMesto
 
@@ -176,6 +213,7 @@ namespace ParkingServis
 
         public ParkingMestoPregled(ParkingMesto parkingMesto)
         {
+<<<<<<< HEAD
             ID = parkingMesto.ID;
             TrenutniStatus = parkingMesto.TrenutniStatus;
             ParkingMestoType = parkingMesto.ParkingMestoType;
@@ -197,6 +235,22 @@ namespace ParkingServis
                 RedniBroj.ToString(),
                 Sprat.ToString()
             };
+=======
+            this.Id = vozilo.Id;
+            this.RegistarskiBroj = vozilo.RegistarskiBroj;
+            this.BrojSaobracajneDozvole = vozilo.BrojSaobracajneDozvole;
+            this.Proizvodjac = vozilo.Proizvodjac;
+            this.Model = vozilo.Model;
+        }
+
+        public VoziloBasic(int Id, string RegistarskiBroj, string BrojSaobracajneDozvole,string Model,string Proizvodjac)
+        {
+            this.Id = Id;
+            this.RegistarskiBroj = RegistarskiBroj;
+            this.BrojSaobracajneDozvole = BrojSaobracajneDozvole;
+            this.Model=Model;
+            this.Proizvodjac = Proizvodjac;
+>>>>>>> 3574251bbfa29bca44aa53585842ba483fa83d25
         }
     }
 
