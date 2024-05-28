@@ -107,7 +107,7 @@
             this.groupBox2.Size = new System.Drawing.Size(221, 153);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Podaci o parking mestima";
+            this.groupBox2.Text = "Podaci o parkinzima";
             // 
             // button3
             // 
@@ -115,7 +115,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(209, 38);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Izmeni podatke o parking mestu";
+            this.button3.Text = "Izmeni podatke o parkingu";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -124,7 +124,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(209, 38);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Obrisi parking mesto";
+            this.button2.Text = "Obrisi parking";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -134,7 +134,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(209, 38);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Dodaj parking mesto";
+            this.button1.Text = "Dodaj parking";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -146,7 +146,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "ParkingForm";
-            this.Text = "Pregled parking mesta";
+            this.Text = "Pregled parkinga";
             this.Load += new System.EventHandler(this.ParkingForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

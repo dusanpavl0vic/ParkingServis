@@ -22,7 +22,7 @@ namespace ParkingServis
             PopulateListView();
         }
 
-        private void PopulateListView()
+        public void PopulateListView()
         {
             listaParkinga.Items.Clear();
 
@@ -38,7 +38,7 @@ namespace ParkingServis
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DodajParkingForm dodajParkingForm = new DodajParkingForm();
+            DodajParking dodajParkingForm = new DodajParking(this);
             dodajParkingForm.ShowDialog();
         }
 
@@ -54,8 +54,10 @@ namespace ParkingServis
 
             for (int i = 0; i < selected.Count; i++)
             {
+                MessageBox.Show("Brisanje " + int.Parse(selected[i].SubItems[0].Text));
                 DTOManager.ObrisiParking(int.Parse(selected[i].SubItems[0].Text));
             }
+            PopulateListView();
         }
 
     }

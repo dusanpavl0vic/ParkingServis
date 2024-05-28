@@ -32,7 +32,7 @@ namespace ParkingServis.Mapiranja
         {
             Table("Parking");
 
-            Id(x => x.ID).GeneratedBy.Identity();
+            Id(x => x.ID).GeneratedBy.Assigned();
 
             DiscriminateSubClassesOnColumn("PARKINGTYPE");
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Linq;
 using System.Windows.Forms;
+
 using ISession = NHibernate.ISession;
 
 namespace ParkingServis
@@ -114,13 +115,51 @@ namespace ParkingServis
             }
         }
 
-        public static void DodajParking(int index)
+        public static void DodajParking(ParkingBasic noviParking)
         {
             try
             {
                 NHibernate.ISession session = DataLayer.GetSession();
 
+                // proveri dal postoji parking sa taj ID
+                Parking postojiParking = session.Get<Parking>(noviParking.ID);
+                if (postojiParking != null)
+                {
+                    session.SaveOrUpdate(postojiParking);
+                    MessageBox.Show("Vec postoji parking sa tim id-jem");
+                    return;
+                }
 
+                Parking parking = new Parking();
+                ObjectCreator.Instance.ToParking(parking, noviParking);
+                session.Save(parking);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
+        public static void AzurirajParking(ParkingBasic noviParking)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                Parking parking = session.Load<Parking>(noviParking.ID);
+                if (parking == null)
+                {
+                    MessageBox.Show("Ne postoji parking sa tim id-jem");
+                    return;
+                }
+
+                parking = ObjectCreator.Instance.ToParking(parking, noviParking);
+                session.Update(parking);
 
                 session.Flush();
                 session.Close();
