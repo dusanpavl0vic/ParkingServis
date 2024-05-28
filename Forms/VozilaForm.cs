@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParkingServis.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,11 +34,10 @@ namespace ParkingServis
 
         private void PopulateListView()
         {
-            MessageBox.Show("Mrnjao");
+            //MessageBox.Show("Mrnjao");
             listaVozila.Items.Clear();
 
             List<VoziloPregled> podaci = DTOManager.VratiSvaVozila();
-            return;
             foreach (VoziloPregled podatak in podaci)
             {
                 ListViewItem item = new ListViewItem(podatak.GetListViewItem());
@@ -50,6 +50,28 @@ namespace ParkingServis
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (listaVozila.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Morate odabrati barem jedno vozilo");
+                return;
+            }
+
+            var selected = listaVozila.SelectedItems;
+
+            for (int i = 0; i < selected.Count; i++)
+            {
+                DTOManager.obrisiVozilo(int.Parse(selected[i].SubItems[0].Text));
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DodajVozilo dodajVoziloForm = new DodajVozilo();
+            dodajVoziloForm.ShowDialog();
         }
     }
 }

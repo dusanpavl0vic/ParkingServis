@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 using ParkingServis.Entiteti;
 
 namespace ParkingServis
@@ -42,27 +47,30 @@ namespace ParkingServis
 
     public class VoziloPregled
     {
+        public int Id;
+        public string RegistarskiBroj;
         public string BrojSaobracajneDozvole;
         public string Model;
         public string Proizvodjac;
-        public string RegistarskiBroj;
 
         public VoziloPregled(Vozilo vozilo)
         {
-            RegistarskiBroj = vozilo.RegistarskiBroj;
-            BrojSaobracajneDozvole = vozilo.BrojSaobracajneDozvole;
-            Proizvodjac = vozilo.Proizvodjac;
-            Model = vozilo.Model;
+            this.Id = vozilo.Id;
+            this.RegistarskiBroj = vozilo.RegistarskiBroj;
+            this.BrojSaobracajneDozvole = vozilo.BrojSaobracajneDozvole;
+            this.Proizvodjac = vozilo.Proizvodjac;
+            this.Model = vozilo.Model;
         }
 
         public string[] GetListViewItem()
         {
             return new[]
             {
-                RegistarskiBroj,
-                BrojSaobracajneDozvole,
-                Proizvodjac,
-                Model
+                this.Id.ToString(),
+                this.RegistarskiBroj,
+                this.BrojSaobracajneDozvole,
+                this.Proizvodjac,
+                this.Model
             };
         }
     }
@@ -118,23 +126,28 @@ namespace ParkingServis
 
     public class VoziloBasic
     {
+        public int Id;
+        public string RegistarskiBroj;
         public string BrojSaobracajneDozvole;
         public string Model;
         public string Proizvodjac;
-        public string RegistarskiBroj;
 
         public VoziloBasic(Vozilo vozilo)
         {
         }
+        public VoziloBasic()
+        {
 
+        }
         public string[] GetListViewItem()
         {
             return new[]
             {
-                RegistarskiBroj,
-                BrojSaobracajneDozvole,
-                Proizvodjac,
-                Model
+                this.Id.ToString(),
+                this.RegistarskiBroj,
+                this.BrojSaobracajneDozvole,
+                this.Proizvodjac,
+                this.Model
             };
         }
     }
