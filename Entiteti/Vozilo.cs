@@ -21,6 +21,8 @@ namespace ParkingServis.Entiteti
 
         public Vozilo()
         {
+            //this.VoziloZaPretplatnu = null;
+            //this.IskoriscenaKarta = null;
             this.ListaZakupa = new List<Zakup>();
         }
     }

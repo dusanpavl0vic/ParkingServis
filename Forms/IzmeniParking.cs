@@ -40,8 +40,6 @@ namespace ParkingServis.Forms
                 return;
             }
 
-            MessageBox.Show(parking.ParkingType + "  Mrnjaou");
-
             inputID.Value = parking.ID;
             textNaziv.Text = parking.Naziv;
             textAdresa.Text = parking.Adresa;

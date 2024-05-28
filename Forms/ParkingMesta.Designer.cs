@@ -38,8 +38,8 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,7 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
+            this.listaParkingMesta.FullRowSelect = true;
             this.listaParkingMesta.HideSelection = false;
             this.listaParkingMesta.Location = new System.Drawing.Point(12, 12);
             this.listaParkingMesta.Name = "listaParkingMesta";
@@ -111,15 +112,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Izmeni Parking mesto";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(6, 72);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(182, 47);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Izmeni parking mesto";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(6, 125);
@@ -128,6 +120,16 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Obrisi parking mesto";
             this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 72);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(182, 47);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Izmeni parking mesto";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ParkingMesta
             // 

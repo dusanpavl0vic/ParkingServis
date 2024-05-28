@@ -44,5 +44,17 @@ namespace ParkingServis.Forms
             DodajParkingMesto dodajPM = new DodajParkingMesto(this, idParkinga);
             dodajPM.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listaParkingMesta.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Morate odabrati barem jedan parking");
+                return;
+            }
+
+            IzmeniParkingMesto izmeniPM = new IzmeniParkingMesto(this, Convert.ToInt32(listaParkingMesta.SelectedItems[0].SubItems[0].Text));
+            izmeniPM.Show();
+        }
     }
 }

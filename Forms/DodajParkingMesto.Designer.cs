@@ -56,6 +56,7 @@
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // saveButton
             // 
@@ -75,6 +76,7 @@
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Trenutni Status";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -84,6 +86,7 @@
             this.label3.Size = new System.Drawing.Size(93, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Tip Parking Mesta";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // numericID
             // 
@@ -91,6 +94,7 @@
             this.numericID.Name = "numericID";
             this.numericID.Size = new System.Drawing.Size(120, 20);
             this.numericID.TabIndex = 7;
+            this.numericID.ValueChanged += new System.EventHandler(this.numericID_ValueChanged);
             // 
             // textNazivUlice
             // 
@@ -98,6 +102,7 @@
             this.textNazivUlice.Name = "textNazivUlice";
             this.textNazivUlice.Size = new System.Drawing.Size(100, 20);
             this.textNazivUlice.TabIndex = 9;
+            this.textNazivUlice.TextChanged += new System.EventHandler(this.textNazivUlice_TextChanged);
             // 
             // label4
             // 
@@ -107,6 +112,7 @@
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Naziv Ulice";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textZona
             // 
@@ -114,6 +120,7 @@
             this.textZona.Name = "textZona";
             this.textZona.Size = new System.Drawing.Size(100, 20);
             this.textZona.TabIndex = 19;
+            this.textZona.TextChanged += new System.EventHandler(this.textZona_TextChanged);
             // 
             // label8
             // 
@@ -123,6 +130,7 @@
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 18;
             this.label8.Text = "Zona";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label10
             // 
@@ -132,6 +140,7 @@
             this.label10.Size = new System.Drawing.Size(32, 13);
             this.label10.TabIndex = 21;
             this.label10.Text = "Sprat";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // numericSprat
             // 
@@ -139,6 +148,7 @@
             this.numericSprat.Name = "numericSprat";
             this.numericSprat.Size = new System.Drawing.Size(120, 20);
             this.numericSprat.TabIndex = 20;
+            this.numericSprat.ValueChanged += new System.EventHandler(this.numericSprat_ValueChanged);
             // 
             // label11
             // 
@@ -148,6 +158,7 @@
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 23;
             this.label11.Text = "Redni Broj";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // numericRedniBroj
             // 
@@ -155,6 +166,7 @@
             this.numericRedniBroj.Name = "numericRedniBroj";
             this.numericRedniBroj.Size = new System.Drawing.Size(120, 20);
             this.numericRedniBroj.TabIndex = 22;
+            this.numericRedniBroj.ValueChanged += new System.EventHandler(this.numericRedniBroj_ValueChanged);
             // 
             // comboTipParkingMesta
             // 
@@ -166,6 +178,7 @@
             this.comboTipParkingMesta.Name = "comboTipParkingMesta";
             this.comboTipParkingMesta.Size = new System.Drawing.Size(121, 21);
             this.comboTipParkingMesta.TabIndex = 24;
+            this.comboTipParkingMesta.SelectedIndexChanged += new System.EventHandler(this.comboTipParkingMesta_SelectedIndexChanged);
             // 
             // comboTrenutniStatus
             // 
@@ -177,6 +190,7 @@
             this.comboTrenutniStatus.Name = "comboTrenutniStatus";
             this.comboTrenutniStatus.Size = new System.Drawing.Size(121, 21);
             this.comboTrenutniStatus.TabIndex = 25;
+            this.comboTrenutniStatus.SelectedIndexChanged += new System.EventHandler(this.comboTrenutniStatus_SelectedIndexChanged);
             // 
             // DodajParkingMesto
             // 

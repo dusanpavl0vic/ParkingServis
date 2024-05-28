@@ -200,6 +200,7 @@
             this.Controls.Add(this.label1);
             this.Name = "IzmeniParkingMesto";
             this.Text = "IzmeniParkingMesto";
+            this.Load += new System.EventHandler(this.IzmeniParkingMesto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericRedniBroj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericSprat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericID)).EndInit();
