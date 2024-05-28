@@ -40,8 +40,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonParkingMesta = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -117,6 +120,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Izmeni podatke o parkingu";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -138,11 +142,32 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.buttonParkingMesta);
+            this.groupBox3.Location = new System.Drawing.Point(496, 180);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(221, 64);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Parking mesta";
+            // 
+            // buttonParkingMesta
+            // 
+            this.buttonParkingMesta.Location = new System.Drawing.Point(6, 19);
+            this.buttonParkingMesta.Name = "buttonParkingMesta";
+            this.buttonParkingMesta.Size = new System.Drawing.Size(209, 38);
+            this.buttonParkingMesta.TabIndex = 0;
+            this.buttonParkingMesta.Text = "ParkingMesta";
+            this.buttonParkingMesta.UseVisualStyleBackColor = true;
+            this.buttonParkingMesta.Click += new System.EventHandler(this.buttonParkingMesta_Click);
+            // 
             // ParkingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 549);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "ParkingForm";
@@ -150,6 +175,7 @@
             this.Load += new System.EventHandler(this.ParkingForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -168,5 +194,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button buttonParkingMesta;
     }
 }

@@ -32,7 +32,7 @@ namespace ParkingServis.Mapiranja
 
             DiscriminateSubClassesOnColumn("PARKINGMESTOTYPE");
 
-            Map(x => x.TrenutniStatus, "TrenutniStatus").CustomType<EnumTrenutniStatus>().Not.Nullable();
+            Map(x => x.TrenutniStatus, "TrenutniStatus").Not.Nullable();
             Map(x => x.NazivUlice, "NazivUlice").Not.Nullable();
             Map(x => x.Zona, "Zona").Not.Nullable();
             Map(x => x.RedniBroj, "RedniBroj");

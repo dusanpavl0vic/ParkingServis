@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Linq;
 using System.Windows.Forms;
-
+using NHibernate.Transform;
 using ISession = NHibernate.ISession;
 
 namespace ParkingServis
@@ -17,6 +17,7 @@ namespace ParkingServis
     public class DTOManager
     {
         #region Vozilo
+
 
         public static List<VoziloPregled> VratiSvaVozila()
         {
@@ -70,7 +71,7 @@ namespace ParkingServis
             }
             catch (Exception ec)
             {
-                //handle exceptions
+                MessageBox.Show(ec.Message);
             }
         }
         public static void obrisiVozilo(int index)
@@ -95,6 +96,22 @@ namespace ParkingServis
         #endregion
 
         #region Parking
+        public static Parking VratiParking(int idVozila)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+                Parking parking = session.Get<Parking>(idVozila);
+
+                return parking;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+        }
+
         public static List<ParkingPregled> VratiSveParkinge()
         {
             List<ParkingPregled> parkinzi = new List<ParkingPregled>();
@@ -121,6 +138,11 @@ namespace ParkingServis
             return parkinzi;
 
         }
+
+
+
+
+
 
         public static void ObrisiParking(int index)
         {
@@ -149,7 +171,6 @@ namespace ParkingServis
                 Parking postojiParking = session.Get<Parking>(noviParking.ID);
                 if (postojiParking != null)
                 {
-                    session.SaveOrUpdate(postojiParking);
                     MessageBox.Show("Vec postoji parking sa tim id-jem");
                     return;
                 }
@@ -194,6 +215,98 @@ namespace ParkingServis
                 MessageBox.Show(e.Message);
             }
 
+        }
+
+        #endregion
+
+        #region ParkingMesto
+
+
+        public static ParkingMesto VratiParkingMesto(int idParkingMesta)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+                ParkingMesto parkingMesto = session.Get<ParkingMesto>(idParkingMesta);
+
+                return parkingMesto;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+        }
+
+        public static List<ParkingMestoPregled> VratiParkingMesta(int idParkinga)
+        {
+            List<ParkingMestoPregled> parkingMesta = new List<ParkingMestoPregled>();
+
+            try
+            {
+                ISession session = DataLayer.GetSession();
+                List<ParkingMesto> sviParkingzi =
+                    (from o in session.Query<ParkingMesto>()
+                        where o.PripadaParkingu.ID == idParkinga
+                        select o).ToList();
+
+                foreach (ParkingMesto p in sviParkingzi)
+                {
+                    parkingMesta.Add(new ParkingMestoPregled(p));
+                }
+
+                return parkingMesta;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return parkingMesta;
+            }
+        } 
+        
+        public static void ObrisiParkingMesto(int index)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+                ParkingMesto parkingMesto = session.Get<ParkingMesto>(index);
+
+                session.Delete(parkingMesto);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void DodajParkingMesto(ParkingMestoBasic novoParkingMesto)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                // proveri dal postoji parking sa taj ID
+                ParkingMesto postojiParkingMesto = session.Get<ParkingMesto>(novoParkingMesto.ID);
+                if (postojiParkingMesto != null)
+                {
+                    MessageBox.Show("Vec postoji parking sa tim id-jem");
+                    return;
+                }
+
+                ParkingMesto parkingMesto = new ParkingMesto();
+                ObjectCreator.Instance.ToParkingMesto(parkingMesto, novoParkingMesto);
+                session.Save(parkingMesto);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         #endregion

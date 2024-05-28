@@ -20,8 +20,9 @@ namespace ParkingServis.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*
+            
             VoziloBasic s = new VoziloBasic();
+
             s.Id = Int32.Parse(textBox1.Text);
             s.RegistarskiBroj = textBox2.Text;
             s.BrojSaobracajneDozvole = textBox3.Text;
@@ -31,7 +32,7 @@ namespace ParkingServis.Forms
             DTOManager.dodajVozilo(s);
 
             MessageBox.Show("Uspesno ste dodali novo vozilo!");
-            */
+            
         }
     }
 }

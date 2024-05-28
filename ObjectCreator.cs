@@ -26,5 +26,20 @@ namespace ParkingServis
 
             return parking;
         }
+
+
+        public ParkingMesto ToParkingMesto(ParkingMesto parking, ParkingMestoBasic parkingBasic)
+        {
+            parking.ID = parkingBasic.ID;
+            parking.TrenutniStatus = parkingBasic.TrenutniStatus;
+            parking.ParkingMestoType = parkingBasic.ParkingMestoType;
+            parking.NazivUlice = parkingBasic.NazivUlice;
+            parking.Zona = parkingBasic.Zona;
+            parking.RedniBroj = parkingBasic.RedniBroj;
+            parking.Sprat = parkingBasic.Sprat;
+            parking.PripadaParkingu = parkingBasic.PripadaParkingu;
+
+            return parking;
+        }
     }
 }

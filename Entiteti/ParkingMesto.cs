@@ -35,8 +35,8 @@ namespace ParkingServis.Entiteti
     public class ParkingMesto
     {
         public virtual int ID { get; set; }
-        public virtual EnumTrenutniStatus TrenutniStatus { get; set; }
-        public virtual EnumParkingMestoType ParkingMestoType { get; set; }
+        public virtual string TrenutniStatus { get; set; }
+        public virtual string ParkingMestoType { get; set; }
         public virtual string NazivUlice { get; set; }
         public virtual string Zona { get; set; }
         public virtual int? RedniBroj { get; set; }

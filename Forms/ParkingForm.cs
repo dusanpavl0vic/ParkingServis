@@ -60,5 +60,29 @@ namespace ParkingServis
             PopulateListView();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (listaParkinga.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Morate odabrati barem jedan parking");
+                return;
+            }
+
+            IzmeniParking izmeniParkingForm = new IzmeniParking(this ,Convert.ToInt32(listaParkinga.SelectedItems[0].SubItems[0].Text));
+            izmeniParkingForm.Show();
+        }
+
+        private void buttonParkingMesta_Click(object sender, EventArgs e)
+        {
+            if (listaParkinga.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Morate odabrati barem jedan parking");
+                return;
+            }
+
+            ParkingMesta parkingMestoForm =
+                new ParkingMesta(Convert.ToInt32(listaParkinga.SelectedItems[0].SubItems[0].Text));
+            parkingMestoForm.Show();
+        }
     }
 }

@@ -128,11 +128,11 @@
     <Compile Include="Forms\DodajParking.Designer.cs">
       <DependentUpon>DodajParking.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DodajParkingForm.cs">
+    <Compile Include="Forms\DodajParkingMesto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DodajParkingForm.Designer.cs">
-      <DependentUpon>DodajParkingForm.cs</DependentUpon>
+    <Compile Include="Forms\DodajParkingMesto.Designer.cs">
+      <DependentUpon>DodajParkingMesto.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DodajVozilo.cs">
       <SubType>Form</SubType>
@@ -140,11 +140,23 @@
     <Compile Include="Forms\DodajVozilo.Designer.cs">
       <DependentUpon>DodajVozilo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\IzmeniParking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IzmeniParking.Designer.cs">
+      <DependentUpon>IzmeniParking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\KarteForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\KarteForm.Designer.cs">
       <DependentUpon>KarteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ParkingMesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ParkingMesta.Designer.cs">
+      <DependentUpon>ParkingMesta.cs</DependentUpon>
     </Compile>
     <Compile Include="Mapiranja\IskoriscenaKartaMap.cs" />
     <Compile Include="Mapiranja\KartaMap.cs" />
@@ -182,11 +194,14 @@
     <EmbeddedResource Include="Forms\DodajParking.resx">
       <DependentUpon>DodajParking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DodajParkingForm.resx">
-      <DependentUpon>DodajParkingForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DodajParkingMesto.resx">
+      <DependentUpon>DodajParkingMesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DodajVozilo.resx">
       <DependentUpon>DodajVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IzmeniParking.resx">
+      <DependentUpon>IzmeniParking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\KarteForm.resx">
       <DependentUpon>KarteForm.cs</DependentUpon>
@@ -196,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ParkingForm.resx">
       <DependentUpon>ParkingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ParkingMesta.resx">
+      <DependentUpon>ParkingMesta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

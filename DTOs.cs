@@ -1,13 +1,74 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using ParkingServis.Entiteti;
 
 namespace ParkingServis
 {
+    #region Vozilo
+
+    public class VoziloPregled
+    {
+        public string BrojSaobracajneDozvole;
+        public int Id;
+        public string Model;
+        public string Proizvodjac;
+        public string RegistarskiBroj;
+
+        public VoziloPregled(Vozilo vozilo)
+        {
+            Id = vozilo.Id;
+            RegistarskiBroj = vozilo.RegistarskiBroj;
+            BrojSaobracajneDozvole = vozilo.BrojSaobracajneDozvole;
+            Proizvodjac = vozilo.Proizvodjac;
+            Model = vozilo.Model;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                Id.ToString(),
+                RegistarskiBroj,
+                BrojSaobracajneDozvole,
+                Proizvodjac,
+                Model
+            };
+        }
+    }
+
+
+    public class VoziloBasic
+    {
+        public string BrojSaobracajneDozvole;
+        public int Id;
+        public string Model;
+        public string Proizvodjac;
+        public string RegistarskiBroj;
+
+        public VoziloBasic(Vozilo vozilo)
+        {
+        }
+
+        public VoziloBasic()
+        {
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                Id.ToString(),
+                RegistarskiBroj,
+                BrojSaobracajneDozvole,
+                Proizvodjac,
+                Model
+            };
+        }
+    }
+
+    #endregion
+
+    #region Parking
+
     public class ParkingPregled
     {
         public string Adresa;
@@ -43,38 +104,6 @@ namespace ParkingServis
             };
         }
     }
-
-
-    public class VoziloPregled
-    {
-        public int Id;
-        public string RegistarskiBroj;
-        public string BrojSaobracajneDozvole;
-        public string Model;
-        public string Proizvodjac;
-
-        public VoziloPregled(Vozilo vozilo)
-        {
-            this.Id = vozilo.Id;
-            this.RegistarskiBroj = vozilo.RegistarskiBroj;
-            this.BrojSaobracajneDozvole = vozilo.BrojSaobracajneDozvole;
-            this.Proizvodjac = vozilo.Proizvodjac;
-            this.Model = vozilo.Model;
-        }
-
-        public string[] GetListViewItem()
-        {
-            return new[]
-            {
-                this.Id.ToString(),
-                this.RegistarskiBroj,
-                this.BrojSaobracajneDozvole,
-                this.Proizvodjac,
-                this.Model
-            };
-        }
-    }
-
 
     public class ParkingBasic
     {
@@ -123,35 +152,95 @@ namespace ParkingServis
         }
     }
 
+    #endregion
 
-    public class VoziloBasic
+    #region ParkingMesto
+
+    //       public virtual int ID { get; set; }
+    //       public virtual EnumTrenutniStatus TrenutniStatus { get; set; }
+    //       public virtual EnumParkingMestoType ParkingMestoType { get; set; }
+    //       public virtual string NazivUlice { get; set; }
+    //       public virtual string Zona { get; set; }
+    //       public virtual int? RedniBroj { get; set; }
+    //       public virtual int? Sprat { get; set; }
+
+    public class ParkingMestoPregled
     {
-        public int Id;
-        public string RegistarskiBroj;
-        public string BrojSaobracajneDozvole;
-        public string Model;
-        public string Proizvodjac;
+        public int ID;
+        public string NazivUlice;
+        public string ParkingMestoType;
+        public int? RedniBroj;
+        public int? Sprat;
+        public string TrenutniStatus;
+        public string Zona;
 
-        public VoziloBasic(Vozilo vozilo)
+        public ParkingMestoPregled(ParkingMesto parkingMesto)
         {
+            ID = parkingMesto.ID;
+            TrenutniStatus = parkingMesto.TrenutniStatus;
+            ParkingMestoType = parkingMesto.ParkingMestoType;
+            NazivUlice = parkingMesto.NazivUlice;
+            Zona = parkingMesto.Zona;
+            RedniBroj = parkingMesto.RedniBroj;
+            Sprat = parkingMesto.Sprat;
         }
-        public VoziloBasic()
-        {
 
-        }
         public string[] GetListViewItem()
         {
             return new[]
             {
-                this.Id.ToString(),
-                this.RegistarskiBroj,
-                this.BrojSaobracajneDozvole,
-                this.Proizvodjac,
-                this.Model
+                ID.ToString(),
+                TrenutniStatus,
+                ParkingMestoType,
+                NazivUlice,
+                Zona,
+                RedniBroj.ToString(),
+                Sprat.ToString()
             };
         }
     }
+
+
+    public class ParkingMestoBasic
+    {
+        public int ID;
+        public string NazivUlice;
+        public string ParkingMestoType;
+        public int? RedniBroj;
+        public int? Sprat;
+        public string TrenutniStatus;
+        public string Zona;
+        public Parking PripadaParkingu;
+
+        public ParkingMestoBasic(ParkingMesto parking)
+        {
+            ID = parking.ID;
+            TrenutniStatus = parking.TrenutniStatus;
+            ParkingMestoType = parking.ParkingMestoType;
+            NazivUlice = parking.NazivUlice;
+            Zona = parking.Zona;
+            RedniBroj = parking.RedniBroj;
+            Sprat = parking.Sprat;
+            PripadaParkingu = parking.PripadaParkingu;
+        }
+
+        public ParkingMestoBasic(int ID, string trenutniStatus, string ParkingType, string NazivUlice, string Zona,
+            int? redniBroj, int? sprat, Parking parking)
+        {
+            this.ID = ID;
+            TrenutniStatus = trenutniStatus;
+            ParkingMestoType = ParkingType;
+            this.NazivUlice = NazivUlice;
+            this.Zona = Zona;
+            RedniBroj = redniBroj;
+            Sprat = sprat;
+            PripadaParkingu = parking;
+        }
+    }
+
+    #endregion
 }
+
 
 //public virtual string MontazniObjekat { get; set; }
 //public virtual string Zona { get; set; }
