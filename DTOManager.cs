@@ -30,10 +30,7 @@ namespace ParkingServis
 
                 Vozilo testVozilo = svaVozila.ElementAt(0);
                 MessageBox.Show(
-                    testVozilo.BrojSaobracajneDozvole
-                    + " " + testVozilo.IskoriscenaKarta + " " +
-                    testVozilo.Model +
-                    " " + testVozilo.Proizvodjac);
+                    testVozilo.BrojSaobracajneDozvole + " " + testVozilo.Model + " " + testVozilo.Proizvodjac);
 
                 foreach(Vozilo vozilo in svaVozila)
                 {

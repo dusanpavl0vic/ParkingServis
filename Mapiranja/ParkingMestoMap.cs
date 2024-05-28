@@ -30,6 +30,8 @@ namespace ParkingServis.Mapiranja
 
             Id(x => x.ID).GeneratedBy.Identity();
 
+            DiscriminateSubClassesOnColumn("PARKINGMESTOTYPE");
+
             Map(x => x.TrenutniStatus, "TrenutniStatus").CustomType<EnumTrenutniStatus>().Not.Nullable();
             Map(x => x.NazivUlice, "NazivUlice").Not.Nullable();
             Map(x => x.Zona, "Zona").Not.Nullable();
@@ -46,6 +48,22 @@ namespace ParkingServis.Mapiranja
 
             //CheckConstraint("PARKINGMESTOTYPE in ('NaUlici', 'JavnoParkingMesto')");
             //CheckConstraint("TrenutniStatus in ('Zauzeto', 'Slobodno')");
+        }
+    }
+
+    public class NaUliciMap : SubclassMap<NaUlici>
+    {
+        public NaUliciMap()
+        {
+            DiscriminatorValue("NaUlici");
+        }
+    }
+
+    public class JavnoParkingMestoMap : SubclassMap<JavnoParkingMesto>
+    {
+        public JavnoParkingMestoMap()
+        {
+            DiscriminatorValue("JavnoParkingMesto");
         }
     }
 }

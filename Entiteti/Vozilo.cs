@@ -8,6 +8,7 @@ namespace ParkingServis.Entiteti
 {
     public class Vozilo
     {
+        public virtual int Id { get; set; }
         public virtual string RegistarskiBroj { get; set; }
         public virtual string BrojSaobracajneDozvole { get; set; }
         public virtual string Proizvodjac { get; set; }

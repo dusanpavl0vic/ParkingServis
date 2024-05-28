@@ -40,7 +40,7 @@ namespace Prodavnica
                 var cfg = OracleManagedDataClientConfiguration.Oracle10
                 .ShowSql()
                 .ConnectionString(c =>
-                    c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;PERSIST SECURITY INFO=True;User Id=S18820;Password=S18820"));
+                    c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;PERSIST SECURITY INFO=True;User Id=S18837;Password=S18837"));
 
                 return Fluently.Configure()
                     .Database(cfg.ShowSql())
