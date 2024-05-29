@@ -51,7 +51,9 @@ namespace ParkingServis.Forms
             inputSpratovi.Value = Convert.ToDecimal(parking.Spratovi);
             inputNivoi.Value = Convert.ToDecimal(parking.Nivoi);
             inputBrojParkingMesta.Value = parking.BrojParkingMesta;
+
         }
+
 
         private void saveButton_Click(object sender, EventArgs e)
         {
