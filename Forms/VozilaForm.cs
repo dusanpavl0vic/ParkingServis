@@ -49,7 +49,14 @@ namespace ParkingServis
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (listaVozila.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Morate odabrati barem jedan parking");
+                return;
+            }
 
+            IzmeniVozilo izmeniV = new IzmeniVozilo(this, Convert.ToInt32(listaVozila.SelectedItems[0].SubItems[0].Text));
+            izmeniV.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)

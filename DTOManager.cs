@@ -18,7 +18,21 @@ namespace ParkingServis
     {
         #region Vozilo
 
+        public static Vozilo VratiVozilo(int idVozila)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+                Vozilo vozilo = session.Get<Vozilo>(idVozila);
 
+                return vozilo;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+        }
         public static List<VoziloPregled> VratiSvaVozila()
         {
             List<VoziloPregled> vozila = new List<VoziloPregled>();
@@ -75,6 +89,7 @@ namespace ParkingServis
             }
 
         }
+
         public static void obrisiVozilo(int index)
         {
             try
@@ -99,7 +114,33 @@ namespace ParkingServis
                 MessageBox.Show(ec.Message);
             }
         }
+        public static void AzurirajVozilo(VoziloBasic novoVozilo)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
 
+                Vozilo vozilo = session.Load<Vozilo>(novoVozilo.Id);
+                if (vozilo == null)
+                {
+                    MessageBox.Show("Ne postoji vozilo sa tim id-jem");
+                    session.Close();
+                    return;
+                }
+
+                vozilo = ObjectCreator.Instance.ToVozilo(vozilo, novoVozilo);
+                session.Update(vozilo);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
 
         #endregion
 

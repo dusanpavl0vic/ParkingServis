@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using ParkingServis.Entiteti;
 
 namespace ParkingServis.Forms
 {
@@ -16,8 +17,9 @@ namespace ParkingServis.Forms
         private VozilaForm activeVozilaForm;
         public DodajVozilo(VozilaForm activeVozilaform)
         {
-            this.activeVozilaForm = activeVozilaform;
             InitializeComponent();
+            this.activeVozilaForm = activeVozilaform;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
