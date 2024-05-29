@@ -30,7 +30,6 @@
         {
             this.labelNaziv = new System.Windows.Forms.Label();
             this.textNaziv = new System.Windows.Forms.TextBox();
-            this.comboOsobaType = new System.Windows.Forms.ComboBox();
             this.labelPIB = new System.Windows.Forms.Label();
             this.textPIB = new System.Windows.Forms.TextBox();
             this.labelZona = new System.Windows.Forms.Label();
@@ -51,7 +50,6 @@
             this.textLicnoIme = new System.Windows.Forms.TextBox();
             this.labelAdresa = new System.Windows.Forms.Label();
             this.textAdresa = new System.Windows.Forms.TextBox();
-            this.labelTip = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelID = new System.Windows.Forms.Label();
             this.numericID = new System.Windows.Forms.NumericUpDown();
@@ -61,7 +59,7 @@
             // labelNaziv
             // 
             this.labelNaziv.AutoSize = true;
-            this.labelNaziv.Location = new System.Drawing.Point(211, 144);
+            this.labelNaziv.Location = new System.Drawing.Point(211, 88);
             this.labelNaziv.Name = "labelNaziv";
             this.labelNaziv.Size = new System.Drawing.Size(34, 13);
             this.labelNaziv.TabIndex = 54;
@@ -69,26 +67,15 @@
             // 
             // textNaziv
             // 
-            this.textNaziv.Location = new System.Drawing.Point(214, 160);
+            this.textNaziv.Location = new System.Drawing.Point(214, 104);
             this.textNaziv.Name = "textNaziv";
             this.textNaziv.Size = new System.Drawing.Size(120, 20);
             this.textNaziv.TabIndex = 53;
             // 
-            // comboOsobaType
-            // 
-            this.comboOsobaType.FormattingEnabled = true;
-            this.comboOsobaType.Items.AddRange(new object[] {
-            "FizickoLice",
-            "PravnoLice"});
-            this.comboOsobaType.Location = new System.Drawing.Point(35, 106);
-            this.comboOsobaType.Name = "comboOsobaType";
-            this.comboOsobaType.Size = new System.Drawing.Size(120, 21);
-            this.comboOsobaType.TabIndex = 52;
-            // 
             // labelPIB
             // 
             this.labelPIB.AutoSize = true;
-            this.labelPIB.Location = new System.Drawing.Point(211, 91);
+            this.labelPIB.Location = new System.Drawing.Point(211, 35);
             this.labelPIB.Name = "labelPIB";
             this.labelPIB.Size = new System.Drawing.Size(24, 13);
             this.labelPIB.TabIndex = 51;
@@ -96,7 +83,7 @@
             // 
             // textPIB
             // 
-            this.textPIB.Location = new System.Drawing.Point(214, 107);
+            this.textPIB.Location = new System.Drawing.Point(214, 51);
             this.textPIB.Name = "textPIB";
             this.textPIB.Size = new System.Drawing.Size(120, 20);
             this.textPIB.TabIndex = 50;
@@ -104,7 +91,7 @@
             // labelZona
             // 
             this.labelZona.AutoSize = true;
-            this.labelZona.Location = new System.Drawing.Point(391, 35);
+            this.labelZona.Location = new System.Drawing.Point(211, 258);
             this.labelZona.Name = "labelZona";
             this.labelZona.Size = new System.Drawing.Size(32, 13);
             this.labelZona.TabIndex = 49;
@@ -112,7 +99,7 @@
             // 
             // textZona
             // 
-            this.textZona.Location = new System.Drawing.Point(394, 51);
+            this.textZona.Location = new System.Drawing.Point(214, 274);
             this.textZona.Name = "textZona";
             this.textZona.Size = new System.Drawing.Size(120, 20);
             this.textZona.TabIndex = 48;
@@ -120,7 +107,7 @@
             // labelBrojVozackeDozvole
             // 
             this.labelBrojVozackeDozvole.AutoSize = true;
-            this.labelBrojVozackeDozvole.Location = new System.Drawing.Point(211, 258);
+            this.labelBrojVozackeDozvole.Location = new System.Drawing.Point(211, 202);
             this.labelBrojVozackeDozvole.Name = "labelBrojVozackeDozvole";
             this.labelBrojVozackeDozvole.Size = new System.Drawing.Size(112, 13);
             this.labelBrojVozackeDozvole.TabIndex = 47;
@@ -128,7 +115,7 @@
             // 
             // textBrojVozackeDozvole
             // 
-            this.textBrojVozackeDozvole.Location = new System.Drawing.Point(214, 274);
+            this.textBrojVozackeDozvole.Location = new System.Drawing.Point(214, 218);
             this.textBrojVozackeDozvole.Name = "textBrojVozackeDozvole";
             this.textBrojVozackeDozvole.Size = new System.Drawing.Size(120, 20);
             this.textBrojVozackeDozvole.TabIndex = 46;
@@ -136,7 +123,7 @@
             // labelMestoIzdanjaLicne
             // 
             this.labelMestoIzdanjaLicne.AutoSize = true;
-            this.labelMestoIzdanjaLicne.Location = new System.Drawing.Point(211, 202);
+            this.labelMestoIzdanjaLicne.Location = new System.Drawing.Point(211, 146);
             this.labelMestoIzdanjaLicne.Name = "labelMestoIzdanjaLicne";
             this.labelMestoIzdanjaLicne.Size = new System.Drawing.Size(102, 13);
             this.labelMestoIzdanjaLicne.TabIndex = 45;
@@ -144,7 +131,7 @@
             // 
             // textMestoIzdanjaLicne
             // 
-            this.textMestoIzdanjaLicne.Location = new System.Drawing.Point(214, 218);
+            this.textMestoIzdanjaLicne.Location = new System.Drawing.Point(214, 162);
             this.textMestoIzdanjaLicne.Name = "textMestoIzdanjaLicne";
             this.textMestoIzdanjaLicne.Size = new System.Drawing.Size(120, 20);
             this.textMestoIzdanjaLicne.TabIndex = 44;
@@ -152,7 +139,7 @@
             // labelBrojLicen
             // 
             this.labelBrojLicen.AutoSize = true;
-            this.labelBrojLicen.Location = new System.Drawing.Point(211, 144);
+            this.labelBrojLicen.Location = new System.Drawing.Point(211, 88);
             this.labelBrojLicen.Name = "labelBrojLicen";
             this.labelBrojLicen.Size = new System.Drawing.Size(82, 13);
             this.labelBrojLicen.TabIndex = 43;
@@ -160,7 +147,7 @@
             // 
             // textBrojLicneKarte
             // 
-            this.textBrojLicneKarte.Location = new System.Drawing.Point(214, 160);
+            this.textBrojLicneKarte.Location = new System.Drawing.Point(214, 104);
             this.textBrojLicneKarte.Name = "textBrojLicneKarte";
             this.textBrojLicneKarte.Size = new System.Drawing.Size(120, 20);
             this.textBrojLicneKarte.TabIndex = 42;
@@ -168,7 +155,7 @@
             // labelJMBG
             // 
             this.labelJMBG.AutoSize = true;
-            this.labelJMBG.Location = new System.Drawing.Point(211, 91);
+            this.labelJMBG.Location = new System.Drawing.Point(211, 35);
             this.labelJMBG.Name = "labelJMBG";
             this.labelJMBG.Size = new System.Drawing.Size(36, 13);
             this.labelJMBG.TabIndex = 41;
@@ -176,7 +163,7 @@
             // 
             // textJMBG
             // 
-            this.textJMBG.Location = new System.Drawing.Point(214, 107);
+            this.textJMBG.Location = new System.Drawing.Point(214, 51);
             this.textJMBG.Name = "textJMBG";
             this.textJMBG.Size = new System.Drawing.Size(120, 20);
             this.textJMBG.TabIndex = 40;
@@ -184,7 +171,7 @@
             // labelPrezime
             // 
             this.labelPrezime.AutoSize = true;
-            this.labelPrezime.Location = new System.Drawing.Point(211, 35);
+            this.labelPrezime.Location = new System.Drawing.Point(32, 258);
             this.labelPrezime.Name = "labelPrezime";
             this.labelPrezime.Size = new System.Drawing.Size(44, 13);
             this.labelPrezime.TabIndex = 39;
@@ -192,7 +179,7 @@
             // 
             // textPrezime
             // 
-            this.textPrezime.Location = new System.Drawing.Point(214, 51);
+            this.textPrezime.Location = new System.Drawing.Point(35, 274);
             this.textPrezime.Name = "textPrezime";
             this.textPrezime.Size = new System.Drawing.Size(120, 20);
             this.textPrezime.TabIndex = 38;
@@ -200,7 +187,7 @@
             // labelImeRoditelja
             // 
             this.labelImeRoditelja.AutoSize = true;
-            this.labelImeRoditelja.Location = new System.Drawing.Point(32, 258);
+            this.labelImeRoditelja.Location = new System.Drawing.Point(32, 202);
             this.labelImeRoditelja.Name = "labelImeRoditelja";
             this.labelImeRoditelja.Size = new System.Drawing.Size(68, 13);
             this.labelImeRoditelja.TabIndex = 37;
@@ -208,7 +195,7 @@
             // 
             // textImeRoditelja
             // 
-            this.textImeRoditelja.Location = new System.Drawing.Point(35, 274);
+            this.textImeRoditelja.Location = new System.Drawing.Point(35, 218);
             this.textImeRoditelja.Name = "textImeRoditelja";
             this.textImeRoditelja.Size = new System.Drawing.Size(120, 20);
             this.textImeRoditelja.TabIndex = 36;
@@ -216,7 +203,7 @@
             // labelLicnoIme
             // 
             this.labelLicnoIme.AutoSize = true;
-            this.labelLicnoIme.Location = new System.Drawing.Point(32, 202);
+            this.labelLicnoIme.Location = new System.Drawing.Point(32, 146);
             this.labelLicnoIme.Name = "labelLicnoIme";
             this.labelLicnoIme.Size = new System.Drawing.Size(53, 13);
             this.labelLicnoIme.TabIndex = 35;
@@ -224,7 +211,7 @@
             // 
             // textLicnoIme
             // 
-            this.textLicnoIme.Location = new System.Drawing.Point(35, 218);
+            this.textLicnoIme.Location = new System.Drawing.Point(35, 162);
             this.textLicnoIme.Name = "textLicnoIme";
             this.textLicnoIme.Size = new System.Drawing.Size(120, 20);
             this.textLicnoIme.TabIndex = 34;
@@ -232,7 +219,7 @@
             // labelAdresa
             // 
             this.labelAdresa.AutoSize = true;
-            this.labelAdresa.Location = new System.Drawing.Point(32, 144);
+            this.labelAdresa.Location = new System.Drawing.Point(32, 88);
             this.labelAdresa.Name = "labelAdresa";
             this.labelAdresa.Size = new System.Drawing.Size(40, 13);
             this.labelAdresa.TabIndex = 33;
@@ -240,23 +227,14 @@
             // 
             // textAdresa
             // 
-            this.textAdresa.Location = new System.Drawing.Point(35, 160);
+            this.textAdresa.Location = new System.Drawing.Point(35, 104);
             this.textAdresa.Name = "textAdresa";
             this.textAdresa.Size = new System.Drawing.Size(120, 20);
             this.textAdresa.TabIndex = 32;
             // 
-            // labelTip
-            // 
-            this.labelTip.AutoSize = true;
-            this.labelTip.Location = new System.Drawing.Point(32, 91);
-            this.labelTip.Name = "labelTip";
-            this.labelTip.Size = new System.Drawing.Size(22, 13);
-            this.labelTip.TabIndex = 31;
-            this.labelTip.Text = "Tip";
-            // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(214, 371);
+            this.buttonSave.Location = new System.Drawing.Point(123, 360);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(120, 44);
             this.buttonSave.TabIndex = 30;
@@ -285,10 +263,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 450);
+            this.ClientSize = new System.Drawing.Size(371, 450);
             this.Controls.Add(this.labelNaziv);
             this.Controls.Add(this.textNaziv);
-            this.Controls.Add(this.comboOsobaType);
             this.Controls.Add(this.labelPIB);
             this.Controls.Add(this.textPIB);
             this.Controls.Add(this.labelZona);
@@ -309,7 +286,6 @@
             this.Controls.Add(this.textLicnoIme);
             this.Controls.Add(this.labelAdresa);
             this.Controls.Add(this.textAdresa);
-            this.Controls.Add(this.labelTip);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.numericID);
@@ -326,7 +302,6 @@
 
         private System.Windows.Forms.Label labelNaziv;
         private System.Windows.Forms.TextBox textNaziv;
-        private System.Windows.Forms.ComboBox comboOsobaType;
         private System.Windows.Forms.Label labelPIB;
         private System.Windows.Forms.TextBox textPIB;
         private System.Windows.Forms.Label labelZona;
@@ -347,7 +322,6 @@
         private System.Windows.Forms.TextBox textLicnoIme;
         private System.Windows.Forms.Label labelAdresa;
         private System.Windows.Forms.TextBox textAdresa;
-        private System.Windows.Forms.Label labelTip;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.NumericUpDown numericID;
