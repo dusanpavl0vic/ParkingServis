@@ -56,5 +56,24 @@ namespace ParkingServis.Forms
             IzmeniParkingMesto izmeniPM = new IzmeniParkingMesto(this, Convert.ToInt32(listaParkingMesta.SelectedItems[0].SubItems[0].Text));
             izmeniPM.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (listaParkingMesta.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Morate odabrati barem jedan parking");
+                return;
+            }
+
+            var selected = listaParkingMesta.SelectedItems;
+
+            for (int i = 0; i < selected.Count; i++)
+            {
+                MessageBox.Show("Brisanje " + int.Parse(selected[i].SubItems[0].Text));
+                DTOManager.ObrisiParkingMesto(int.Parse(selected[i].SubItems[0].Text));
+            }
+
+            PopulateListView();
+        }
     }
 }

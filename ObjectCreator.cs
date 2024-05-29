@@ -53,5 +53,32 @@ namespace ParkingServis
 
             return parking;
         }
+
+        public Osoba ToOsoba(Osoba osoba, OsobaBasic osobaBasic)
+        {
+            osoba.ID = osobaBasic.ID;
+            osoba.Adresa = osobaBasic.Adresa;
+            osoba.LicnoIme = osobaBasic.LicnoIme;
+            osoba.ImeRoditelja = osobaBasic.ImeRoditelja;
+            osoba.Prezime = osobaBasic.Prezime;
+
+
+            if (osobaBasic.OsobaType == "FizickoLice")
+            {
+                osoba.JMBG = osobaBasic.JMBG;
+                osoba.BrojLicneKarte = osobaBasic.BrojLicneKarte;
+                osoba.MestoIzdavanjaLicne = osobaBasic.MestoIzdavanjaLicne;
+                osoba.BrojVozackeDozvole = osobaBasic.BrojVozackeDozvole;
+                osoba.ZiviUZoni = osobaBasic.ZiviUZoni;
+            }
+
+            if (osobaBasic.OsobaType == "PravnoLice")
+            {
+                osoba.PIB = osobaBasic.PIB;
+                osoba.Naziv = osobaBasic.Naziv;
+            }
+
+            return osoba;
+        }
     }
 }

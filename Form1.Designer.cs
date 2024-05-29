@@ -40,7 +40,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 37);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Parking mesta";
+            this.button1.Text = "Parkinzi";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -66,7 +66,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(366, 258);
+            this.button5.Location = new System.Drawing.Point(366, 250);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(126, 37);
             this.button5.TabIndex = 4;

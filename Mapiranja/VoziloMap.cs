@@ -31,7 +31,7 @@ namespace ParkingServis.Mapiranja
 
             
             HasOne(x => x.VoziloZaPretplatnu).Constrained().Cascade.None();
-            HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.None();
+            HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
 
             HasMany(x => x.ListaZakupa).Cascade.All().KeyColumn("RegistarskiBrojVozila");
         }

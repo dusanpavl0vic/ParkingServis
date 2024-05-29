@@ -34,9 +34,9 @@ namespace ParkingServis.Entiteti
 
         public Osoba()
         {
-            ListTelefoni = new List<OsobaTelefon>();
-            KupovinaPretplatne = new List<Karta>();
-            ZakupljenaParkingMesta = new List<Zakup>();
+            this.ListTelefoni = new List<OsobaTelefon>();
+            this.KupovinaPretplatne = new List<Karta>();
+            this.ZakupljenaParkingMesta = new List<Zakup>();
         }
     }
 

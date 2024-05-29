@@ -46,19 +46,20 @@ namespace ParkingServis
 
         public VoziloBasic(Vozilo vozilo)
         {
-            this.Id = vozilo.Id;
-            this.RegistarskiBroj = vozilo.RegistarskiBroj;
-            this.BrojSaobracajneDozvole = vozilo.BrojSaobracajneDozvole;
-            this.Proizvodjac = vozilo.Proizvodjac;
-            this.Model = vozilo.Model;
+            Id = vozilo.Id;
+            RegistarskiBroj = vozilo.RegistarskiBroj;
+            BrojSaobracajneDozvole = vozilo.BrojSaobracajneDozvole;
+            Proizvodjac = vozilo.Proizvodjac;
+            Model = vozilo.Model;
         }
 
-        public VoziloBasic(int Id, string RegistarskiBroj, string BrojSaobracajneDozvole,string Model,string Proizvodjac)
+        public VoziloBasic(int Id, string RegistarskiBroj, string BrojSaobracajneDozvole, string Model,
+            string Proizvodjac)
         {
             this.Id = Id;
             this.RegistarskiBroj = RegistarskiBroj;
             this.BrojSaobracajneDozvole = BrojSaobracajneDozvole;
-            this.Model=Model;
+            this.Model = Model;
             this.Proizvodjac = Proizvodjac;
         }
 
@@ -216,11 +217,11 @@ namespace ParkingServis
         public int ID;
         public string NazivUlice;
         public string ParkingMestoType;
+        public Parking PripadaParkingu;
         public int? RedniBroj;
         public int? Sprat;
         public string TrenutniStatus;
         public string Zona;
-        public Parking PripadaParkingu;
 
         public ParkingMestoBasic(ParkingMesto parking)
         {
@@ -249,16 +250,110 @@ namespace ParkingServis
     }
 
     #endregion
+
+    #region Osoba
+
+    public class OsobaPregled
+    {
+        public int ID;
+        public string Adresa;
+        public string BrojLicneKarte;
+        public string BrojVozackeDozvole;
+        public string JMBG;
+        public string LicnoIme;
+        public string ImeRoditelja;
+        public string Prezime;
+        public string MestoIzdavanjaLicne;
+        public string Naziv;
+        public string PIB;
+        public string ZiviUZoni;
+
+        public OsobaPregled(Osoba osoba)
+        {
+            ID = osoba.ID;
+            Adresa = osoba.Adresa;
+            LicnoIme = osoba.LicnoIme;
+            ImeRoditelja = osoba.ImeRoditelja;
+            Prezime = osoba.Prezime;
+            JMBG = osoba.JMBG;
+            BrojLicneKarte = osoba.BrojLicneKarte;
+            MestoIzdavanjaLicne = osoba.MestoIzdavanjaLicne;
+            BrojVozackeDozvole = osoba.BrojVozackeDozvole;
+            ZiviUZoni = osoba.ZiviUZoni;
+            PIB = osoba.PIB;
+            Naziv = osoba.Naziv;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                ID.ToString(),
+                Adresa,
+                LicnoIme,
+                ImeRoditelja,
+                Prezime,
+                JMBG,
+                BrojLicneKarte,
+                MestoIzdavanjaLicne,
+                BrojVozackeDozvole,
+                ZiviUZoni,
+                PIB,
+                Naziv
+            };
+        }
+    }
+
+    public class OsobaBasic
+    {
+        public int ID;
+        public string Adresa;
+        public string BrojLicneKarte;
+        public string BrojVozackeDozvole;
+        public string JMBG;
+        public string LicnoIme;
+        public string ImeRoditelja;
+        public string MestoIzdavanjaLicne;
+        public string Naziv;
+        public string PIB;
+        public string Prezime;
+        public string ZiviUZoni;
+        public string OsobaType;
+
+        public OsobaBasic(Osoba osoba)
+        {
+            ID = osoba.ID;
+            Adresa = osoba.Adresa;
+            LicnoIme = osoba.LicnoIme;
+            ImeRoditelja = osoba.ImeRoditelja;
+            Prezime = osoba.Prezime;
+            JMBG = osoba.JMBG;
+            BrojLicneKarte = osoba.BrojLicneKarte;
+            MestoIzdavanjaLicne = osoba.MestoIzdavanjaLicne;
+            BrojVozackeDozvole = osoba.BrojVozackeDozvole;
+            ZiviUZoni = osoba.ZiviUZoni;
+            PIB = osoba.PIB;
+            Naziv = osoba.Naziv;
+            OsobaType = osoba.OsobaType;
+        }
+
+        public OsobaBasic(int ID,string Adresa, string LicnoIme, string imeRoditelja, string Prezime, string JMBG, string brojLicneKarte, string mestoIzdavanjaLicne, string brojVozackeDozvole, string ziviUZoni, string PIB, string Naziv, string osobaType)
+        {
+            this.ID = ID;
+            this.Adresa = Adresa;
+            this.LicnoIme = LicnoIme;
+            this.ImeRoditelja = imeRoditelja;
+            this.Prezime = Prezime;
+            this.JMBG = JMBG;
+            this.BrojLicneKarte = brojLicneKarte;
+            this.MestoIzdavanjaLicne = mestoIzdavanjaLicne;
+            this.BrojVozackeDozvole = brojVozackeDozvole;
+            this.ZiviUZoni = ziviUZoni;
+            this.PIB = PIB;
+            this.Naziv = Naziv;
+            this.OsobaType = osobaType;
+        }
+    }
+
+    #endregion
 }
-
-
-//public virtual string MontazniObjekat { get; set; }
-//public virtual string Zona { get; set; }
-//public virtual string Adresa { get; set; }
-//public virtual DateTime OdVreme { get; set; }
-//public virtual DateTime DoVreme { get; set; }
-//public virtual int BrojParkingMesta { get; set; }
-//public virtual string Naziv { get; set; }
-//public virtual string ParkingType { get; set; }
-//public virtual int? Spratovi { get; set; }
-//public virtual int? Nivoi { get; set; }

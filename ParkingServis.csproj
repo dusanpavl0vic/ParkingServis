@@ -122,6 +122,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DodajOsobuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DodajOsobuForm.Designer.cs">
+      <DependentUpon>DodajOsobuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DodajParking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,12 @@
     </Compile>
     <Compile Include="Forms\DodajVozilo.Designer.cs">
       <DependentUpon>DodajVozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IzmeniOsobu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IzmeniOsobu.Designer.cs">
+      <DependentUpon>IzmeniOsobu.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\IzmeniParking.cs">
       <SubType>Form</SubType>
@@ -197,6 +209,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DodajOsobuForm.resx">
+      <DependentUpon>DodajOsobuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DodajParking.resx">
       <DependentUpon>DodajParking.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DodajVozilo.resx">
       <DependentUpon>DodajVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IzmeniOsobu.resx">
+      <DependentUpon>IzmeniOsobu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IzmeniParking.resx">
       <DependentUpon>IzmeniParking.cs</DependentUpon>

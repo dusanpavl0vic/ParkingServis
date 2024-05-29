@@ -29,11 +29,6 @@ namespace ParkingServis
                 IEnumerable<Vozilo> svaVozila = from o in session.Query<Vozilo>()
                                                    select o;
 
-
-                //Vozilo testVozilo = svaVozila.ElementAt(0);
-                //MessageBox.Show(
-                //    testVozilo.BrojSaobracajneDozvole + " " + testVozilo.Model + " " + testVozilo.Proizvodjac);
-
                 foreach(Vozilo vozilo in svaVozila)
                 {
                     vozila.Add(new VoziloPregled(vozilo));
@@ -62,6 +57,7 @@ namespace ParkingServis
                 {
                     session.SaveOrUpdate(postojiVozilo);
                     MessageBox.Show("Vec postoji vozilo sa tim id-jem");
+                    session.Close();
                     return;
                 }
 
@@ -84,7 +80,14 @@ namespace ParkingServis
             try
             {
                 NHibernate.ISession s = DataLayer.GetSession();
-                Vozilo vozilo = s.Load<Vozilo>(index);
+                Vozilo vozilo = s.Get<Vozilo>(index);
+
+                if (vozilo == null)
+                {
+                    MessageBox.Show("Ne postoji vozilo sa tim id-jem");
+                    s.Close();
+                    return;
+                }
 
                 s.Delete(vozilo);
                 s.Flush();
@@ -149,7 +152,14 @@ namespace ParkingServis
             try
             {
                 NHibernate.ISession session = DataLayer.GetSession();
-                Parking parking = session.Load<Parking>(index);
+                Parking parking = session.Get<Parking>(index);
+
+                if(parking == null)
+                {
+                    MessageBox.Show("Ne postoji parking sa tim id-jem");
+                    session.Close();
+                    return;
+                }
 
                 session.Delete(parking);
                 session.Flush();
@@ -172,6 +182,7 @@ namespace ParkingServis
                 if (postojiParking != null)
                 {
                     MessageBox.Show("Vec postoji parking sa tim id-jem");
+                    session.Close();
                     return;
                 }
 
@@ -200,6 +211,7 @@ namespace ParkingServis
                 if (parking == null)
                 {
                     MessageBox.Show("Ne postoji parking sa tim id-jem");
+                    session.Close();
                     return;
                 }
 
@@ -271,6 +283,13 @@ namespace ParkingServis
                 NHibernate.ISession session = DataLayer.GetSession();
                 ParkingMesto parkingMesto = session.Get<ParkingMesto>(index);
 
+                if (parkingMesto == null)
+                {
+                    MessageBox.Show("Ne postoji parking sa tim id-jem");
+                    session.Close();
+                    return;
+                }
+
                 session.Delete(parkingMesto);
                 session.Flush();
                 session.Close();
@@ -292,6 +311,7 @@ namespace ParkingServis
                 if (postojiParkingMesto != null)
                 {
                     MessageBox.Show("Vec postoji parking sa tim id-jem");
+                    session.Close();
                     return;
                 }
 
@@ -319,11 +339,153 @@ namespace ParkingServis
                 if (parkingMesto == null)
                 {
                     MessageBox.Show("Ne postoji parking sa tim id-jem");
+                    session.Close();
                     return;
                 }
 
                 parkingMesto = ObjectCreator.Instance.ToParkingMesto(parkingMesto, novoParkingMesto);
                 session.Update(parkingMesto);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
+        #endregion
+
+        #region Osobe
+
+        public static Osoba VratiOsobu(int index)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                Osoba osoba = session.Get<Osoba>(index);
+                return osoba;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+
+        }
+
+        public static List<OsobaPregled> VratiOsobe()
+        {
+            List<OsobaPregled> osobeList = new List<OsobaPregled>();
+
+            try
+            {
+                ISession session = DataLayer.GetSession();
+                IEnumerable<Osoba> sveOsobe = from o in session.Query<Osoba>()
+                                                   select o;
+
+                foreach (Osoba osoba in sveOsobe)
+                {
+                    osobeList.Add(new OsobaPregled(osoba));
+                }
+
+                return osobeList;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return osobeList;
+            }
+        } 
+        public static void ObrisiOsobu(int index)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+                Osoba osoba = session.Get<Osoba>(index);
+
+                if (osoba == null)
+                {
+                    MessageBox.Show("Ne postoji osoba sa tim id-jem");
+
+                    session.Close();
+                    return;
+                }
+
+                session.Delete(osoba);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void DodajOsobu(OsobaBasic novaOsoba)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                Osoba postojiOsoba = session.Get<Osoba>(novaOsoba.ID);
+                if (postojiOsoba != null)
+                {
+                    MessageBox.Show("Vec postoji parking sa tim id-jem");
+                    session.Close();
+                    return;
+                }
+
+                Osoba osoba;
+                if (novaOsoba.OsobaType == "FizickoLice")
+                {
+                    osoba = new FizickoLice();
+                }
+                else if (novaOsoba.OsobaType == "PravnoLice")
+                {
+                    osoba = new PravnoLice();
+                }
+                else
+                {
+                    MessageBox.Show("Osoba mora biti ili fizicko ili pravno lice");
+                    session.Close();
+                    return;
+                }
+                
+                ObjectCreator.Instance.ToOsoba(osoba, novaOsoba);
+                session.Save(osoba);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void AzurirajOsobu(OsobaBasic novaOsoba)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                Osoba osoba = session.Get<Osoba>(novaOsoba.ID);
+
+                if (osoba == null)
+                {
+                    MessageBox.Show("Ne postoji osoba sa tim id-jem");
+                    session.Close();
+                    return;
+                }
+
+                osoba = ObjectCreator.Instance.ToOsoba(osoba, novaOsoba);
+                session.Update(osoba);
 
                 session.Flush();
                 session.Close();

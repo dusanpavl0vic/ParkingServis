@@ -30,7 +30,7 @@ namespace ParkingServis.Mapiranja
         public OsobaMap()
         {
             Table("Osoba");
-            Id(x => x.ID, "ID").GeneratedBy.Identity();
+            Id(x => x.ID, "ID").GeneratedBy.Assigned();
 
             DiscriminateSubClassesOnColumn("OSOBATYPE");
 
@@ -46,8 +46,9 @@ namespace ParkingServis.Mapiranja
             Map(x => x.PIB, "PIB");
             Map(x => x.Naziv, "Naziv");
 
-            HasMany(x => x.ListTelefoni).KeyColumn("IDOsobe").Inverse().Cascade.All();
-            HasMany(x => x.KupovinaPretplatne).KeyColumn("IDOsobe").Inverse().Cascade.All();
+            // TODO ovde bi vrv trebao delete orphan
+            HasMany(x => x.ListTelefoni).KeyColumn("IDOsobe").Inverse().Cascade.None();
+            HasMany(x => x.KupovinaPretplatne).KeyColumn("IDOsobe").Inverse().Cascade.None();
 
 
             HasMany(x => x.ZakupljenaParkingMesta).Cascade.All().KeyColumn("IDOsobe");
