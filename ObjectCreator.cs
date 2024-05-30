@@ -124,5 +124,18 @@ namespace ParkingServis
             return zakup;
         }
 
+        public IskoriscenaKarta ToIskoriscenaKarta(IskoriscenaKarta karta, IskoriscenaKartaBasic iskoriscenaKartaBasic)
+        {
+            karta.DoVreme = iskoriscenaKartaBasic.DoVreme;
+            karta.OdVreme = iskoriscenaKartaBasic.OdVreme;
+            karta.OdVreme = iskoriscenaKartaBasic.OdVreme;
+            karta.VremeIzvrseneKontrole = iskoriscenaKartaBasic.VremeIzvrseneKontrole;
+
+            karta.ZaVozilo = iskoriscenaKartaBasic.ZaVozilo;
+            karta.ZaParkingMesto = iskoriscenaKartaBasic.ZaParkingMesto;
+            karta.KupljenaNaKioskuKarta = iskoriscenaKartaBasic.KupljenaNaKioskuKarta;
+
+            return karta;
+        }
     }
 }

@@ -14,12 +14,14 @@ namespace ParkingServis.Forms
     {
 
         private DodajZakupForm dodajZakupForm;
+        private DodajIskoriscenuKartu dodajIskoriscenuKartuForm;
 
-        public OdaberiParkingMesto(DodajZakupForm dodajZakupForm = null)
+        public OdaberiParkingMesto(DodajZakupForm dodajZakupForm = null, DodajIskoriscenuKartu dodajIskoriscenuKartuForm = null)
         {
             InitializeComponent();
 
             this.dodajZakupForm = dodajZakupForm;
+            this.dodajIskoriscenuKartuForm = dodajIskoriscenuKartuForm;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -30,8 +32,10 @@ namespace ParkingServis.Forms
                 return;
             }
 
-            this.dodajZakupForm?.SelectParkingMestoID(
-                Convert.ToInt32(listaParkingMesta.SelectedItems[0].SubItems[0].Text));
+            int selectedId = Convert.ToInt32(listaParkingMesta.SelectedItems[0].SubItems[0].Text);
+
+            this.dodajZakupForm?.SelectParkingMestoID(selectedId);
+            this.dodajIskoriscenuKartuForm?.SelectParkingMestoID(selectedId);
 
             this.Close();
         }

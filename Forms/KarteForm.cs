@@ -75,5 +75,19 @@ namespace ParkingServis
             IskorisceneKarte iskorisceneForm = new IskorisceneKarte();
             iskorisceneForm.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (listaKarta.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Morate odabrati barem jednu kartu");
+                return;
+            }
+
+            var selected = Convert.ToInt32(listaKarta.SelectedItems[0].SubItems[0].Text);
+
+            ZoneKarata btForm = new ZoneKarata(selected);
+            btForm.Show();
+        }
     }
 }

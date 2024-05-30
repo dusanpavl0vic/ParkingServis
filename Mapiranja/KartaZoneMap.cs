@@ -20,8 +20,9 @@ namespace ParkingServis.Mapiranja
         {
             Table("KartaZone");
             
-            Id(x => x.Id, "ID").GeneratedBy.Identity();
+            Id(x => x.Id, "ID").GeneratedBy.Assigned();
 
+            Map(x => x.Zona, "Zona");
             References(x => x.Karta).Column("SerijskiBrojKarte").Not.Nullable().LazyLoad();
 
         }

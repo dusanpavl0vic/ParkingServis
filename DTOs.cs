@@ -509,12 +509,17 @@ namespace ParkingServis
             };
         }
     }
+
     public class IskoriscenaKartaBasic
     {
         public int Id;
-        public DateTime? VremeIzvrseneKontrole;
-        public DateTime? OdVreme;
-        public DateTime? DoVreme;
+        public DateTime VremeIzvrseneKontrole;
+        public DateTime OdVreme;
+        public DateTime DoVreme;
+
+        public Vozilo ZaVozilo;
+        public ParkingMesto ZaParkingMesto;
+        public Karta KupljenaNaKioskuKarta;
 
         public IskoriscenaKartaBasic(IskoriscenaKarta iskoriscenakarta)
         {
@@ -522,14 +527,22 @@ namespace ParkingServis
             this.VremeIzvrseneKontrole = iskoriscenakarta.VremeIzvrseneKontrole;
             this.OdVreme = iskoriscenakarta.OdVreme;
             this.DoVreme = iskoriscenakarta.DoVreme;
+
+            this.ZaVozilo = iskoriscenakarta.ZaVozilo;
+            this.ZaParkingMesto = iskoriscenakarta.ZaParkingMesto;
+            this.KupljenaNaKioskuKarta = iskoriscenakarta.KupljenaNaKioskuKarta;
         }
 
-        public IskoriscenaKartaBasic(int Id, DateTime? VremeIzvrseneKontrole, DateTime? OdVreme, DateTime? DoVreme)
+        public IskoriscenaKartaBasic(int Id, DateTime VremeIzvrseneKontrole, DateTime OdVreme, DateTime DoVreme, Vozilo ZaVozilo, ParkingMesto ZaParkingMesto, Karta KupljenaNaKioskuKarta)
         {
             this.Id = Id;
             this.VremeIzvrseneKontrole = VremeIzvrseneKontrole;
             this.OdVreme = OdVreme;
             this.DoVreme = DoVreme;
+
+            this.ZaVozilo = ZaVozilo;
+            this.ZaParkingMesto = ZaParkingMesto;
+            this.KupljenaNaKioskuKarta = KupljenaNaKioskuKarta;
         }
     }
 
@@ -610,5 +623,49 @@ namespace ParkingServis
     }
 
 
+    #endregion
+
+    #region Zone
+    public class ZonePregled
+    {
+        public int Id;
+        public string Zona;
+
+        public ZonePregled(KartaZone kartaZone)
+        {
+            Id = kartaZone.Id;
+            Zona = kartaZone.Zona;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                Id.ToString(),
+                Zona
+            };
+        }
+    }
+
+    public class ZoneBasic
+    {
+        public int Id; 
+        public string Zona;
+        public Karta Karta;
+
+        public ZoneBasic(KartaZone kartaZone)
+        {
+            this.Id = kartaZone.Id;
+            this.Zona = kartaZone.Zona;
+            this.Karta = kartaZone.Karta;
+        }
+
+        public ZoneBasic(int Id, string Zona, Karta Karta)
+        {
+            this.Id = Id;
+            this.Zona = Zona;
+            this.Karta = Karta;
+        }
+    }
     #endregion
 }

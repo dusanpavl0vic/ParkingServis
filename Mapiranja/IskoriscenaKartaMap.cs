@@ -27,7 +27,7 @@ namespace ParkingServis.Mapiranja
         public IskoriscenaKartaMap()
         {
             Table("IskoriscenaKarta");
-            Id(x => x.Id, "ID").GeneratedBy.Identity();
+            Id(x => x.Id, "ID").GeneratedBy.Assigned();
 
             Map(x => x.OdVreme, "OdVreme").Not.Nullable();
             Map(x => x.DoVreme, "DoVreme").Not.Nullable();

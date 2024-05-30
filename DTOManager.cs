@@ -717,6 +717,30 @@ namespace ParkingServis
             }
         }
 
+        public static List<KartaPregled> VratiSveKarte()
+        {
+            List<KartaPregled> karteList = new List<KartaPregled>();
+
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                IEnumerable<Karta> sveKarte = from ot in session.Query<Karta>()
+                    select ot;
+
+                foreach (Karta karta in sveKarte)
+                {
+                    karteList.Add(new KartaPregled(karta));
+                }
+
+                return karteList;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return karteList;
+            }
+        } 
         
         public static List<KartaPregled> VratiKarte()
         {
@@ -831,6 +855,24 @@ namespace ParkingServis
 
         #region IskorisceneKarte
 
+
+        public static IskoriscenaKarta VratiIskoriscenuKartu(int index)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                IskoriscenaKarta karta = session.Get<IskoriscenaKarta>(index);
+                return karta;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+        }
+
+
         public static List<IskoriscenaKartaPregled> VratiIskorisceneKarte()
         {
             List<IskoriscenaKartaPregled> ikarte = new List<IskoriscenaKartaPregled>();
@@ -853,6 +895,61 @@ namespace ParkingServis
             {
                 MessageBox.Show(e.Message);
                 return ikarte;
+            }
+        }
+        
+        public static void DodajIskoriscenuKartu(IskoriscenaKartaBasic novaIskoriscenaKarta)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                IskoriscenaKarta iskoriscenaKarta = session.Get<IskoriscenaKarta>(novaIskoriscenaKarta.Id);
+
+                if (iskoriscenaKarta != null)
+                {
+                    MessageBox.Show("Vec postoji zakup sa tim id-jem");
+                    session.Close();
+                    return;
+                }
+
+                IskoriscenaKarta dodjIskoriscenaKarta = new IskoriscenaKarta();
+
+                ObjectCreator.Instance.ToIskoriscenaKarta(dodjIskoriscenaKarta, novaIskoriscenaKarta);
+                
+                session.Save(dodjIskoriscenaKarta);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void ObrisiIskoriscenuKartu(int index)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                IskoriscenaKarta iskoriscenaKarta = session.Get<IskoriscenaKarta>(index);
+
+                if (iskoriscenaKarta == null)
+                {
+                    MessageBox.Show("Ne postoji telefon sa tim id-jem");
+
+                    session.Close();
+                    return;
+                }
+
+                session.Delete(iskoriscenaKarta);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -921,11 +1018,26 @@ namespace ParkingServis
                 Zakup zakup = new Zakup();
 
                 ObjectCreator.Instance.ToZakup(zakup, noviZakup);
+                
                 session.Save(zakup);
-
                 session.Flush();
-                session.Close();
 
+                //using (var transaction = session.BeginTransaction())
+                //{
+                //    session.Save(zakup);
+                //    session.Flush();
+                //    transaction.Commit();
+                //}
+
+                //using (var transaction = session.BeginTransaction())
+                //{
+                //    zakup.ParkingMesto.TrenutniStatus = "Zauzeto";
+                //    session.SaveOrUpdate(zakup.ParkingMesto);
+                //    session.Flush();
+                //    transaction.Commit();
+                //}
+
+                session.Close();
             }
             catch (Exception e)
             {
@@ -959,8 +1071,53 @@ namespace ParkingServis
             }
         }
 
-
-
         #endregion
+
+        #region Zone
+        public static KartaZone VratiZonu(int index)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                KartaZone zone = session.Get<KartaZone>(index);
+                return zone;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+
+        }
+
+        public static List<ZonePregled> VratiZone(int idZone)
+        {
+            List<ZonePregled> zone = new List<ZonePregled>();
+
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                IEnumerable<KartaZone> svezone = from ot in session.Query<KartaZone>()
+                                                             where ot.Karta.SerijskiBroj == idZone
+                                                             select ot;
+
+                foreach (KartaZone z in svezone)
+                {
+                    MessageBox.Show(z.Zona);
+                    zone.Add(new ZonePregled(z));
+                }
+
+                return zone;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return zone;
+            }
+        }
+        #endregion
+
     }
 }

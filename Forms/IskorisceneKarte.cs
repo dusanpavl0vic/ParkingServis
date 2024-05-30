@@ -27,6 +27,7 @@ namespace ParkingServis.Forms
         {
 
         }
+
         public void PopulateListView()
         {
             listaIskoriscenih.Items.Clear();
@@ -39,6 +40,31 @@ namespace ParkingServis.Forms
             }
 
             listaIskoriscenih.Refresh();
+        }
+
+        private void IskorisceneKarte_Load(object sender, EventArgs e)
+        {
+            PopulateListView();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DodajIskoriscenuKartu isk = new DodajIskoriscenuKartu(this);
+            isk.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listaIskoriscenih.SelectedItems.Count < 0)
+            {
+                MessageBox.Show("Morate odabrati barem jednu iskoriscenu kartu");
+                return;
+            }
+
+            int index = Convert.ToInt32(listaIskoriscenih.SelectedItems[0].SubItems[0].Text);
+
+            DTOManager.ObrisiIskoriscenuKartu(index);
+            PopulateListView();
         }
     }
 }

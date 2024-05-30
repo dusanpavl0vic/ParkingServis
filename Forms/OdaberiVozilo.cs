@@ -15,14 +15,16 @@ namespace ParkingServis.Forms
         private DodajKartuForm kartaForm;
         private AzurirajKartuForm azurirajKartuForm;
         private DodajZakupForm dodajZakupForm;
+        private DodajIskoriscenuKartu dodajIskoriscenuKartuForm;
 
-        public OdaberiVozilo(DodajKartuForm kartaForm = null, AzurirajKartuForm azurirajKartuForm = null, DodajZakupForm dodajZakupForm = null)
+        public OdaberiVozilo(DodajKartuForm kartaForm = null, AzurirajKartuForm azurirajKartuForm = null, DodajZakupForm dodajZakupForm = null, DodajIskoriscenuKartu dodajKartuForm = null)
         {
             InitializeComponent();
 
             this.kartaForm = kartaForm;
             this.azurirajKartuForm = azurirajKartuForm;
             this.dodajZakupForm = dodajZakupForm;
+            this.dodajIskoriscenuKartuForm = dodajKartuForm;
         }
 
         
@@ -58,6 +60,7 @@ namespace ParkingServis.Forms
             kartaForm?.SelectVoziloID(selectedID);
             azurirajKartuForm?.SelectVoziloID(selectedID);
             dodajZakupForm?.SelectVoziloID(selectedID);
+            dodajIskoriscenuKartuForm?.SelectVoziloID(selectedID);
 
             this.Close();
         }
