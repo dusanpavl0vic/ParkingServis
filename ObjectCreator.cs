@@ -33,8 +33,15 @@ namespace ParkingServis
             parking.BrojParkingMesta = parkingBasic.BrojParkingMesta;
             parking.Naziv = parkingBasic.Naziv;
             parking.ParkingType = parkingBasic.ParkingType;
-            parking.Spratovi = parkingBasic.Spratovi;
-            parking.Nivoi = parkingBasic.Nivoi;
+
+            if (parkingBasic.ParkingType == "Podzemna")
+            {
+                parking.Nivoi = parkingBasic.Nivoi;
+            }
+            else if (parkingBasic.ParkingType == "Nadzemna")
+            {
+                parking.Spratovi = parkingBasic.Spratovi;
+            }
 
             return parking;
         }

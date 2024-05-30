@@ -1,6 +1,6 @@
-﻿namespace ParkingServis
+﻿namespace ParkingServis.Forms
 {
-    partial class VozilaForm
+    partial class OdaberiVozilo
     {
         /// <summary>
         /// Required designer variable.
@@ -36,9 +36,7 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -46,12 +44,12 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listaVozila);
-            this.groupBox1.Location = new System.Drawing.Point(9, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(11, 11);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(487, 431);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista vozila";
             // 
@@ -66,13 +64,12 @@
             this.listaVozila.FullRowSelect = true;
             this.listaVozila.HideSelection = false;
             this.listaVozila.Location = new System.Drawing.Point(4, 15);
-            this.listaVozila.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listaVozila.Margin = new System.Windows.Forms.Padding(2);
             this.listaVozila.Name = "listaVozila";
             this.listaVozila.Size = new System.Drawing.Size(469, 400);
             this.listaVozila.TabIndex = 0;
             this.listaVozila.UseCompatibleStateImageBehavior = false;
             this.listaVozila.View = System.Windows.Forms.View.Details;
-            this.listaVozila.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -81,14 +78,17 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Registarski Broj";
+            this.columnHeader2.Width = 93;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Broj Saobracajne Dozvole";
+            this.columnHeader3.Width = 91;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Proizvodjac";
+            this.columnHeader4.Width = 89;
             // 
             // columnHeader5
             // 
@@ -96,62 +96,34 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(562, 10);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Controls.Add(this.buttonSave);
+            this.groupBox2.Location = new System.Drawing.Point(526, 184);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(229, 187);
-            this.groupBox2.TabIndex = 1;
+            this.groupBox2.Size = new System.Drawing.Size(139, 70);
+            this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Podaci o vozilima";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            this.groupBox2.Text = "Sacuvaj";
             // 
-            // button3
+            // buttonSave
             // 
-            this.button3.Location = new System.Drawing.Point(4, 119);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(203, 39);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Obrisi vozilo";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonSave.Location = new System.Drawing.Point(6, 19);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(128, 45);
+            this.buttonSave.TabIndex = 0;
+            this.buttonSave.Text = "Odaberi";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(4, 69);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(203, 39);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Izmeni podatke o vozilu";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(4, 25);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(203, 39);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Dodaj vozilo";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // VozilaForm
+            // OdaberiVozilo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(713, 450);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "VozilaForm";
-            this.Text = "Pregled Vozila";
-            this.Load += new System.EventHandler(this.VozilaForm_Load);
+            this.Name = "OdaberiVozilo";
+            this.Text = "OdaberiVozilo";
+            this.Load += new System.EventHandler(this.OdaberiVozilo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -162,14 +134,12 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListView listaVozila;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button buttonSave;
     }
 }

@@ -36,6 +36,8 @@ namespace ParkingServis.Mapiranja
             References(x => x.ZaVozilo, "RegistarskiBrojVozila").LazyLoad();
             References(x => x.ZaParkingMesto, "IDParkingMesta").LazyLoad();
 
+            //References(x => x.OdnosiNaVozilo).Nullable().Column("OdnosiNaVozilo").LazyLoad();
+
             //CheckConstraint("DoVreme > OdVreme");
         }
     }

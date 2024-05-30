@@ -84,5 +84,10 @@ namespace ParkingServis
                 new ParkingMesta(Convert.ToInt32(listaParkinga.SelectedItems[0].SubItems[0].Text));
             parkingMestoForm.Show();
         }
+
+        private void listaParkinga_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

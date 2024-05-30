@@ -42,6 +42,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonParkingMesta = new System.Windows.Forms.Button();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -52,7 +54,7 @@
             this.groupBox1.Controls.Add(this.listaParkinga);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(464, 525);
+            this.groupBox1.Size = new System.Drawing.Size(621, 525);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista parkinga";
@@ -65,15 +67,18 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
             this.listaParkinga.FullRowSelect = true;
             this.listaParkinga.HideSelection = false;
             this.listaParkinga.Location = new System.Drawing.Point(6, 19);
             this.listaParkinga.Name = "listaParkinga";
-            this.listaParkinga.Size = new System.Drawing.Size(452, 500);
+            this.listaParkinga.Size = new System.Drawing.Size(607, 500);
             this.listaParkinga.TabIndex = 0;
             this.listaParkinga.UseCompatibleStateImageBehavior = false;
             this.listaParkinga.View = System.Windows.Forms.View.Details;
+            this.listaParkinga.SelectedIndexChanged += new System.EventHandler(this.listaParkinga_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -85,19 +90,19 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Adresa";
+            this.columnHeader3.Text = "Zona";
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Od Vreme";
+            this.columnHeader4.Text = "Adresa";
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Do Vreme";
+            this.columnHeader5.Text = "Od Vreme";
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Broj Parking Mesta";
+            this.columnHeader6.Text = "Do Vreme";
             this.columnHeader6.Width = 109;
             // 
             // groupBox2
@@ -105,7 +110,7 @@
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(496, 12);
+            this.groupBox2.Location = new System.Drawing.Point(649, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(221, 153);
             this.groupBox2.TabIndex = 1;
@@ -145,7 +150,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.buttonParkingMesta);
-            this.groupBox3.Location = new System.Drawing.Point(496, 180);
+            this.groupBox3.Location = new System.Drawing.Point(649, 180);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(221, 64);
             this.groupBox3.TabIndex = 3;
@@ -162,11 +167,20 @@
             this.buttonParkingMesta.UseVisualStyleBackColor = true;
             this.buttonParkingMesta.Click += new System.EventHandler(this.buttonParkingMesta_Click);
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Broj Parking Mesta";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Spratovi / Nivoi";
+            this.columnHeader8.Width = 91;
+            // 
             // ParkingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 549);
+            this.ClientSize = new System.Drawing.Size(881, 549);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -196,5 +210,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buttonParkingMesta;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
     }
 }

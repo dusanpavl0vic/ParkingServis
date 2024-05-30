@@ -227,8 +227,24 @@ namespace ParkingServis
                     return;
                 }
 
-                Parking parking = new Parking();
+                Parking parking;
+                if (noviParking.ParkingType == "Podzemna")
+                {
+                    parking = new Podzemna();
+                }
+                else if (noviParking.ParkingType == "Nadzemna")
+                {
+                    parking = new Nadzemna();
+                }
+                else
+                {
+                    MessageBox.Show("Tip parkinga nije validan");
+                    session.Close();
+                    return;
+                }
+
                 ObjectCreator.Instance.ToParking(parking, noviParking);
+                MessageBox.Show(parking.ParkingType);
                 session.Save(parking);
 
                 session.Flush();
@@ -540,5 +556,36 @@ namespace ParkingServis
         }
 
         #endregion
+
+        #region Karte
+
+        
+        public static List<KartaPregled> VratiKarte()
+        {
+            List<KartaPregled> karteList = new List<KartaPregled>();
+
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                List<Pretplatna> sveKarte = session.Query<Karta>()
+                    .OfType<Pretplatna>()
+                    .ToList();
+
+                foreach (Pretplatna karta in sveKarte)
+                {
+                    karteList.Add(new KartaPregled(karta));
+                }
+
+                return karteList;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return karteList;
+            }
+        } 
+
+#endregion
     }
 }

@@ -34,7 +34,6 @@ namespace ParkingServis
 
         public void PopulateListView()
         {
-            //MessageBox.Show("Mrnjao");
             listaVozila.Items.Clear();
 
             List<VoziloPregled> podaci = DTOManager.VratiSvaVozila();

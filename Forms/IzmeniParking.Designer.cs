@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.inputTipParkinga = new System.Windows.Forms.ComboBox();
             this.inputMontazniObjekat = new System.Windows.Forms.ComboBox();
             this.inputID = new System.Windows.Forms.NumericUpDown();
             this.inputNivoi = new System.Windows.Forms.NumericUpDown();
@@ -36,9 +35,8 @@
             this.inputBrojParkingMesta = new System.Windows.Forms.NumericUpDown();
             this.DoVreme = new System.Windows.Forms.DateTimePicker();
             this.OdVreme = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.labelNivoi = new System.Windows.Forms.Label();
+            this.labelSpratovi = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,17 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.inputSpratovi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputBrojParkingMesta)).BeginInit();
             this.SuspendLayout();
-            // 
-            // inputTipParkinga
-            // 
-            this.inputTipParkinga.FormattingEnabled = true;
-            this.inputTipParkinga.Items.AddRange(new object[] {
-            "Podzemna",
-            "Nadzemna"});
-            this.inputTipParkinga.Location = new System.Drawing.Point(193, 86);
-            this.inputTipParkinga.Name = "inputTipParkinga";
-            this.inputTipParkinga.Size = new System.Drawing.Size(121, 21);
-            this.inputTipParkinga.TabIndex = 52;
             // 
             // inputMontazniObjekat
             // 
@@ -96,58 +83,49 @@
             // 
             // inputSpratovi
             // 
-            this.inputSpratovi.Location = new System.Drawing.Point(193, 143);
+            this.inputSpratovi.Location = new System.Drawing.Point(192, 198);
             this.inputSpratovi.Name = "inputSpratovi";
             this.inputSpratovi.Size = new System.Drawing.Size(120, 20);
             this.inputSpratovi.TabIndex = 48;
             // 
             // inputBrojParkingMesta
             // 
-            this.inputBrojParkingMesta.Location = new System.Drawing.Point(193, 253);
+            this.inputBrojParkingMesta.Location = new System.Drawing.Point(193, 142);
             this.inputBrojParkingMesta.Name = "inputBrojParkingMesta";
             this.inputBrojParkingMesta.Size = new System.Drawing.Size(120, 20);
             this.inputBrojParkingMesta.TabIndex = 47;
             // 
             // DoVreme
             // 
-            this.DoVreme.Location = new System.Drawing.Point(51, 309);
+            this.DoVreme.Location = new System.Drawing.Point(51, 254);
             this.DoVreme.Name = "DoVreme";
-            this.DoVreme.Size = new System.Drawing.Size(100, 20);
+            this.DoVreme.Size = new System.Drawing.Size(120, 20);
             this.DoVreme.TabIndex = 46;
             // 
             // OdVreme
             // 
-            this.OdVreme.Location = new System.Drawing.Point(51, 253);
+            this.OdVreme.Location = new System.Drawing.Point(51, 198);
             this.OdVreme.Name = "OdVreme";
-            this.OdVreme.Size = new System.Drawing.Size(100, 20);
+            this.OdVreme.Size = new System.Drawing.Size(120, 20);
             this.OdVreme.TabIndex = 45;
             // 
-            // label11
+            // labelNivoi
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(190, 182);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 13);
-            this.label11.TabIndex = 44;
-            this.label11.Text = "Nivoi";
+            this.labelNivoi.AutoSize = true;
+            this.labelNivoi.Location = new System.Drawing.Point(190, 182);
+            this.labelNivoi.Name = "labelNivoi";
+            this.labelNivoi.Size = new System.Drawing.Size(31, 13);
+            this.labelNivoi.TabIndex = 44;
+            this.labelNivoi.Text = "Nivoi";
             // 
-            // label10
+            // labelSpratovi
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(190, 127);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 13);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "Spratovi";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(190, 70);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 13);
-            this.label9.TabIndex = 42;
-            this.label9.Text = "Tip Parkinga";
+            this.labelSpratovi.AutoSize = true;
+            this.labelSpratovi.Location = new System.Drawing.Point(189, 182);
+            this.labelSpratovi.Name = "labelSpratovi";
+            this.labelSpratovi.Size = new System.Drawing.Size(46, 13);
+            this.labelSpratovi.TabIndex = 43;
+            this.labelSpratovi.Text = "Spratovi";
             // 
             // label8
             // 
@@ -161,7 +139,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(190, 237);
+            this.label7.Location = new System.Drawing.Point(190, 126);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 13);
             this.label7.TabIndex = 40;
@@ -170,7 +148,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 293);
+            this.label6.Location = new System.Drawing.Point(48, 238);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 39;
@@ -179,7 +157,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(48, 237);
+            this.label5.Location = new System.Drawing.Point(48, 182);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 38;
@@ -196,15 +174,15 @@
             // 
             // textZona
             // 
-            this.textZona.Location = new System.Drawing.Point(51, 198);
+            this.textZona.Location = new System.Drawing.Point(192, 86);
             this.textZona.Name = "textZona";
-            this.textZona.Size = new System.Drawing.Size(100, 20);
+            this.textZona.Size = new System.Drawing.Size(120, 20);
             this.textZona.TabIndex = 36;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 182);
+            this.label3.Location = new System.Drawing.Point(191, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 35;
@@ -214,7 +192,7 @@
             // 
             this.textAdresa.Location = new System.Drawing.Point(51, 143);
             this.textAdresa.Name = "textAdresa";
-            this.textAdresa.Size = new System.Drawing.Size(100, 20);
+            this.textAdresa.Size = new System.Drawing.Size(120, 20);
             this.textAdresa.TabIndex = 34;
             // 
             // label2
@@ -230,7 +208,7 @@
             // 
             this.textNaziv.Location = new System.Drawing.Point(51, 86);
             this.textNaziv.Name = "textNaziv";
-            this.textNaziv.Size = new System.Drawing.Size(100, 20);
+            this.textNaziv.Size = new System.Drawing.Size(120, 20);
             this.textNaziv.TabIndex = 32;
             // 
             // label1
@@ -244,7 +222,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(131, 359);
+            this.saveButton.Location = new System.Drawing.Point(130, 306);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(105, 37);
             this.saveButton.TabIndex = 53;
@@ -256,9 +234,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 425);
+            this.ClientSize = new System.Drawing.Size(379, 373);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.inputTipParkinga);
             this.Controls.Add(this.inputMontazniObjekat);
             this.Controls.Add(this.inputID);
             this.Controls.Add(this.inputNivoi);
@@ -266,9 +243,8 @@
             this.Controls.Add(this.inputBrojParkingMesta);
             this.Controls.Add(this.DoVreme);
             this.Controls.Add(this.OdVreme);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.labelNivoi);
+            this.Controls.Add(this.labelSpratovi);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -293,8 +269,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox inputTipParkinga;
         private System.Windows.Forms.ComboBox inputMontazniObjekat;
         private System.Windows.Forms.NumericUpDown inputID;
         private System.Windows.Forms.NumericUpDown inputNivoi;
@@ -302,9 +276,8 @@
         private System.Windows.Forms.NumericUpDown inputBrojParkingMesta;
         private System.Windows.Forms.DateTimePicker DoVreme;
         private System.Windows.Forms.DateTimePicker OdVreme;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelNivoi;
+        private System.Windows.Forms.Label labelSpratovi;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

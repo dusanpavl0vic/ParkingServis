@@ -40,8 +40,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.labelSpratovi = new System.Windows.Forms.Label();
+            this.labelNivoi = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.OdVreme = new System.Windows.Forms.DateTimePicker();
             this.DoVreme = new System.Windows.Forms.DateTimePicker();
@@ -77,15 +77,15 @@
             // 
             // textNaziv
             // 
-            this.textNaziv.Location = new System.Drawing.Point(44, 96);
+            this.textNaziv.Location = new System.Drawing.Point(44, 151);
             this.textNaziv.Name = "textNaziv";
-            this.textNaziv.Size = new System.Drawing.Size(100, 20);
+            this.textNaziv.Size = new System.Drawing.Size(120, 20);
             this.textNaziv.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 192);
+            this.label3.Location = new System.Drawing.Point(185, 76);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 5;
@@ -93,15 +93,15 @@
             // 
             // textAdresa
             // 
-            this.textAdresa.Location = new System.Drawing.Point(44, 153);
+            this.textAdresa.Location = new System.Drawing.Point(44, 208);
             this.textAdresa.Name = "textAdresa";
-            this.textAdresa.Size = new System.Drawing.Size(100, 20);
+            this.textAdresa.Size = new System.Drawing.Size(120, 20);
             this.textAdresa.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 137);
+            this.label4.Location = new System.Drawing.Point(41, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 7;
@@ -109,9 +109,9 @@
             // 
             // textZona
             // 
-            this.textZona.Location = new System.Drawing.Point(44, 208);
+            this.textZona.Location = new System.Drawing.Point(186, 92);
             this.textZona.Name = "textZona";
-            this.textZona.Size = new System.Drawing.Size(100, 20);
+            this.textZona.Size = new System.Drawing.Size(120, 20);
             this.textZona.TabIndex = 6;
             // 
             // label5
@@ -126,7 +126,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(41, 303);
+            this.label6.Location = new System.Drawing.Point(183, 192);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 11;
@@ -135,7 +135,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(183, 247);
+            this.label7.Location = new System.Drawing.Point(183, 137);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 13);
             this.label7.TabIndex = 13;
@@ -144,7 +144,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(41, 80);
+            this.label8.Location = new System.Drawing.Point(41, 135);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 15;
@@ -153,33 +153,33 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(183, 80);
+            this.label9.Location = new System.Drawing.Point(41, 76);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 13);
             this.label9.TabIndex = 17;
             this.label9.Text = "Tip Parkinga";
             // 
-            // label10
+            // labelSpratovi
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(183, 137);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 13);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "Spratovi";
+            this.labelSpratovi.AutoSize = true;
+            this.labelSpratovi.Location = new System.Drawing.Point(183, 246);
+            this.labelSpratovi.Name = "labelSpratovi";
+            this.labelSpratovi.Size = new System.Drawing.Size(46, 13);
+            this.labelSpratovi.TabIndex = 19;
+            this.labelSpratovi.Text = "Spratovi";
             // 
-            // label11
+            // labelNivoi
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(183, 192);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 13);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Nivoi";
+            this.labelNivoi.AutoSize = true;
+            this.labelNivoi.Location = new System.Drawing.Point(184, 247);
+            this.labelNivoi.Name = "labelNivoi";
+            this.labelNivoi.Size = new System.Drawing.Size(31, 13);
+            this.labelNivoi.TabIndex = 21;
+            this.labelNivoi.Text = "Nivoi";
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(127, 368);
+            this.saveButton.Location = new System.Drawing.Point(142, 321);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(87, 35);
             this.saveButton.TabIndex = 22;
@@ -191,33 +191,33 @@
             // 
             this.OdVreme.Location = new System.Drawing.Point(44, 263);
             this.OdVreme.Name = "OdVreme";
-            this.OdVreme.Size = new System.Drawing.Size(100, 20);
+            this.OdVreme.Size = new System.Drawing.Size(120, 20);
             this.OdVreme.TabIndex = 23;
             // 
             // DoVreme
             // 
-            this.DoVreme.Location = new System.Drawing.Point(44, 319);
+            this.DoVreme.Location = new System.Drawing.Point(186, 208);
             this.DoVreme.Name = "DoVreme";
-            this.DoVreme.Size = new System.Drawing.Size(100, 20);
+            this.DoVreme.Size = new System.Drawing.Size(120, 20);
             this.DoVreme.TabIndex = 24;
             // 
             // inputBrojParkingMesta
             // 
-            this.inputBrojParkingMesta.Location = new System.Drawing.Point(186, 263);
+            this.inputBrojParkingMesta.Location = new System.Drawing.Point(186, 153);
             this.inputBrojParkingMesta.Name = "inputBrojParkingMesta";
             this.inputBrojParkingMesta.Size = new System.Drawing.Size(120, 20);
             this.inputBrojParkingMesta.TabIndex = 25;
             // 
             // inputSpratovi
             // 
-            this.inputSpratovi.Location = new System.Drawing.Point(186, 153);
+            this.inputSpratovi.Location = new System.Drawing.Point(186, 262);
             this.inputSpratovi.Name = "inputSpratovi";
             this.inputSpratovi.Size = new System.Drawing.Size(120, 20);
             this.inputSpratovi.TabIndex = 26;
             // 
             // inputNivoi
             // 
-            this.inputNivoi.Location = new System.Drawing.Point(186, 208);
+            this.inputNivoi.Location = new System.Drawing.Point(187, 263);
             this.inputNivoi.Name = "inputNivoi";
             this.inputNivoi.Size = new System.Drawing.Size(120, 20);
             this.inputNivoi.TabIndex = 27;
@@ -246,16 +246,17 @@
             this.inputTipParkinga.Items.AddRange(new object[] {
             "Podzemna",
             "Nadzemna"});
-            this.inputTipParkinga.Location = new System.Drawing.Point(186, 96);
+            this.inputTipParkinga.Location = new System.Drawing.Point(44, 92);
             this.inputTipParkinga.Name = "inputTipParkinga";
             this.inputTipParkinga.Size = new System.Drawing.Size(121, 21);
             this.inputTipParkinga.TabIndex = 30;
+            this.inputTipParkinga.SelectedIndexChanged += new System.EventHandler(this.inputTipParkinga_SelectedIndexChanged);
             // 
             // DodajParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 425);
+            this.ClientSize = new System.Drawing.Size(381, 383);
             this.Controls.Add(this.inputTipParkinga);
             this.Controls.Add(this.inputMontazniObjekat);
             this.Controls.Add(this.inputID);
@@ -265,8 +266,8 @@
             this.Controls.Add(this.DoVreme);
             this.Controls.Add(this.OdVreme);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.labelNivoi);
+            this.Controls.Add(this.labelSpratovi);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -281,6 +282,7 @@
             this.Controls.Add(this.label1);
             this.Name = "DodajParking";
             this.Text = "DodajParking";
+            this.Load += new System.EventHandler(this.DodajParking_Load);
             ((System.ComponentModel.ISupportInitialize)(this.inputBrojParkingMesta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputSpratovi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputNivoi)).EndInit();
@@ -303,8 +305,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labelSpratovi;
+        private System.Windows.Forms.Label labelNivoi;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.DateTimePicker OdVreme;
         private System.Windows.Forms.DateTimePicker DoVreme;

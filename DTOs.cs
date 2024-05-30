@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using ParkingServis.Entiteti;
 
 namespace ParkingServis
@@ -89,6 +90,8 @@ namespace ParkingServis
         public string Naziv;
         public DateTime OdVreme;
         public string Zona;
+        public int? Spratovi;
+        public int? Nivoi;
 
         public ParkingPregled(Parking parking)
         {
@@ -99,10 +102,22 @@ namespace ParkingServis
             OdVreme = parking.OdVreme;
             DoVreme = parking.DoVreme;
             BrojParkingMesta = parking.BrojParkingMesta;
+            Spratovi = parking.Spratovi;
+            Nivoi = parking.Nivoi;
         }
 
         public string[] GetListViewItem()
         {
+            int? broj;
+            if (Spratovi != null)
+            {
+                broj = Spratovi;
+            }
+            else
+            {
+                broj = Nivoi;
+            }
+
             return new[]
             {
                 Id.ToString(),
@@ -111,7 +126,8 @@ namespace ParkingServis
                 Adresa,
                 OdVreme.ToString(),
                 DoVreme.ToString(),
-                BrojParkingMesta.ToString()
+                BrojParkingMesta.ToString(),
+                broj.ToString()
             };
         }
     }
@@ -355,5 +371,57 @@ namespace ParkingServis
         }
     }
 
+    #endregion
+
+    #region Karta
+    public class KartaPregled
+    {
+        public int SerijskiBroj;
+        public DateTime? Datum;
+        public DateTime? OdVreme;
+        public DateTime? DoVreme;
+
+        public KartaPregled(Karta karta)
+        {
+            this.SerijskiBroj = karta.SerijskiBroj;
+            this.Datum = karta.Datum;
+            this.OdVreme = karta.OdVreme;
+            this.DoVreme = karta.DoVreme;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                SerijskiBroj.ToString(),
+                Datum.ToString(),
+                OdVreme.ToString(),
+                DoVreme.ToString(),
+            };
+        }
+    }
+    public class KartaBasic
+    {
+        public int SerijskiBroj;
+        public DateTime? Datum;
+        public DateTime? OdVreme;
+        public DateTime? DoVreme;
+
+        public KartaBasic(Karta karta)
+        {
+            this.SerijskiBroj = karta.SerijskiBroj;
+            this.Datum = karta.Datum;
+            this.OdVreme = karta.OdVreme;
+            this.DoVreme = karta.DoVreme;
+        }
+
+        public KartaBasic(int SerijskiBroj, DateTime? Datum, DateTime? OdVreme, DateTime? DoVreme)
+        {
+            this.SerijskiBroj = SerijskiBroj;
+            this.Datum = Datum;
+            this.OdVreme = OdVreme;
+            this.DoVreme = DoVreme;
+        }
+    }
     #endregion
 }
