@@ -28,7 +28,7 @@ namespace ParkingServis.Mapiranja
         {
             Table("ParkingMesto");
 
-            Id(x => x.ID).GeneratedBy.Identity();
+            Id(x => x.ID).GeneratedBy.Assigned();
 
             DiscriminateSubClassesOnColumn("PARKINGMESTOTYPE");
 
@@ -41,9 +41,13 @@ namespace ParkingServis.Mapiranja
             References(x => x.PripadaParkingu).Column("IDParkinga").Not.Nullable().LazyLoad();
 
             HasMany(x => x.ListaZakupa).Cascade.All().KeyColumn("IDParkingMesta");
-            HasMany(x => x.IskoriscenaKarta).Cascade.All().KeyColumn("IDParkingMesta");
 
-            //HasMany(x => x.ListaZakupa).Cascade.All().KeyColumn("IDParkingMesta");
+            HasOne(x => x.IskoriscenaKarta)
+                .PropertyRef(nameof(IskoriscenaKarta.ZaParkingMesto))
+                //.Cascade.All();
+                .Cascade.None();
+            //HasMany(x => x.IskoriscenaKarta).Cascade.All().KeyColumn("IDParkingMesta");
+
 
 
 

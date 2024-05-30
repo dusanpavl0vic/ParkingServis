@@ -43,14 +43,14 @@ namespace ParkingServis.Entiteti
         public virtual int? Sprat { get; set; }
         
         // strani kljucevi
-        public virtual IList<IskoriscenaKarta> IskoriscenaKarta { get; set; }
+        public virtual IskoriscenaKarta IskoriscenaKarta { get; set; }
         public virtual Parking PripadaParkingu { get; set; }
         public virtual IList<Zakup> ListaZakupa { get; set; }
 
         public ParkingMesto()
         {
             this.ListaZakupa = new List<Zakup>();
-            this.IskoriscenaKarta = new List<IskoriscenaKarta>();
+            //this.IskoriscenaKarta = new List<IskoriscenaKarta>();
         }
     }
     public class NaUlici : ParkingMesto

@@ -24,12 +24,12 @@ namespace ParkingServis.Entiteti
         public virtual Osoba ProdajaOsobi { get; set; }
         public virtual Vozilo OdnosiNaVozilo { get; set; }
         public virtual IList<KartaZone> ListaZona { get; set; }
-        public virtual IList<IskoriscenaKarta> IskoriscenaKarta { get; set; }
+        public virtual IskoriscenaKarta IskoriscenaKarta { get; set; }
 
         public Karta()
         {
             ListaZona = new List<KartaZone>();
-            this.IskoriscenaKarta = new List<IskoriscenaKarta>();
+            //this.IskoriscenaKarta = new List<IskoriscenaKarta>();
         }
 
     }
