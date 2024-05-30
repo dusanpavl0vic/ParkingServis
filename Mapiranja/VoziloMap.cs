@@ -30,8 +30,8 @@ namespace ParkingServis.Mapiranja
 
 
             
-            HasOne(x => x.VoziloZaPretplatnu).Constrained().Cascade.None();
-            HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.None();
+            HasMany(x => x.VoziloZaPretplatnu).Cascade.All().KeyColumn("RegistarskiBrojVozila");
+            HasMany(x => x.IskoriscenaKarta).Cascade.All().KeyColumn("RegistarskiBrojVozila");
 
             HasMany(x => x.ListaZakupa).Cascade.All().KeyColumn("RegistarskiBrojVozila");
         }

@@ -41,7 +41,7 @@ namespace ParkingServis.Mapiranja
 
             HasMany(x => x.ListaZona).KeyColumn("SerijskiBrojKarta").Inverse().Cascade.All();
 
-            HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
+            HasMany(x => x.IskoriscenaKarta).KeyColumn("SerijskiBroj").Inverse().Cascade.All();
 
 
             //CheckConstraint("DoVreme > OdVreme");

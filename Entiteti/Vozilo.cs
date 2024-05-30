@@ -15,14 +15,16 @@ namespace ParkingServis.Entiteti
         public virtual string Model { get; set; }
 
         // strani kljucevi
-        public virtual Karta VoziloZaPretplatnu { get; set; }
-        public virtual IskoriscenaKarta IskoriscenaKarta { get; set; }
+        public virtual IList<Karta> VoziloZaPretplatnu { get; set; }
+        public virtual IList<IskoriscenaKarta> IskoriscenaKarta { get; set; }
         public virtual IList<Zakup> ListaZakupa { get; set; }
 
         public Vozilo()
         {
             //this.VoziloZaPretplatnu = null;
             //this.IskoriscenaKarta = null;
+            this.IskoriscenaKarta = new List<IskoriscenaKarta>();
+            this.VoziloZaPretplatnu = new List<Karta>();
             this.ListaZakupa = new List<Zakup>();
         }
     }
