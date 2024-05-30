@@ -33,6 +33,7 @@ namespace ParkingServis
                 throw;
             }
         }
+
         public static List<VoziloPregled> VratiSvaVozila()
         {
             List<VoziloPregled> vozila = new List<VoziloPregled>();
@@ -559,6 +560,22 @@ namespace ParkingServis
 
         #region Karte
 
+         public static Karta VratiKartu(int index)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                Karta karta = session.Get<Karta>(index);
+                return karta;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+        }
+
         
         public static List<KartaPregled> VratiKarte()
         {
@@ -585,6 +602,35 @@ namespace ParkingServis
                 return karteList;
             }
         } 
+
+        public static void AzurirajKartu(KartaBasic novaKarta)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                Karta karta = session.Get<Karta>(novaKarta.SerijskiBroj);
+
+                if (karta == null)
+                {
+                    MessageBox.Show("Ne postoji karta sa tim id-jem");
+                    session.Close();
+                    return;
+                }
+
+                karta = ObjectCreator.Instance.ToKarta(karta, novaKarta);
+                session.Update(karta);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
         
          public static void DodajKartu(KartaBasic novaKarta)
         {
@@ -615,7 +661,33 @@ namespace ParkingServis
             }
         }
 
+        public static void ObrisiKartu(int index)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+                Karta karta = session.Get<Karta>(index);
 
-#endregion
+                if (karta == null)
+                {
+                    MessageBox.Show("Ne postoji osoba sa tim id-jem");
+
+                    session.Close();
+                    return;
+                }
+
+                session.Delete(karta);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+
+
+        #endregion
     }
 }

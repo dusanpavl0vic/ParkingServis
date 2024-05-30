@@ -39,9 +39,9 @@ namespace ParkingServis.Mapiranja
             References(x => x.OdnosiNaVozilo).Nullable().Column("REGISTARSKIBROJVOZILA").LazyLoad();
             //HasOne(x => x.OdnosiNaVozilo).Constrained().Cascade.None();
 
-            HasMany(x => x.ListaZona).KeyColumn("SerijskiBrojKarta").Inverse().Cascade.All();
+            HasMany(x => x.ListaZona).KeyColumn("SerijskiBrojKarta").Inverse().Cascade.None();
 
-            HasMany(x => x.IskoriscenaKarta).KeyColumn("SerijskiBroj").Inverse().Cascade.All();
+            HasMany(x => x.IskoriscenaKarta).KeyColumn("SerijskiBroj").Inverse().Cascade.None();
 
 
             //CheckConstraint("DoVreme > OdVreme");

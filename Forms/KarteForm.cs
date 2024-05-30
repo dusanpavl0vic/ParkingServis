@@ -42,5 +42,32 @@ namespace ParkingServis
             DodajKartuForm dodajKartu = new DodajKartuForm(this);
             dodajKartu.Show();
         }
+
+        private void buttonIzbrisi_Click(object sender, EventArgs e)
+        {
+            if (listaKarta.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("Morate odabrati barem jednu kartu");
+                return;
+            }
+
+            DTOManager.ObrisiKartu(Convert.ToInt32(listaKarta.SelectedItems[0].SubItems[0].Text));
+            PopulateListView();
+        }
+
+        private void buttonIzmeni_Click(object sender, EventArgs e)
+        {
+            if (listaKarta.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("Morate odabrati barem jednu kartu");
+                return;
+            }
+
+
+            AzurirajKartuForm azurirajKartu =
+                new AzurirajKartuForm(this, Convert.ToInt32(listaKarta.SelectedItems[0].SubItems[0].Text));
+
+            azurirajKartu.Show();
+        }
     }
 }
