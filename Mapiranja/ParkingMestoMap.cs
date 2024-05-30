@@ -40,11 +40,12 @@ namespace ParkingServis.Mapiranja
 
             References(x => x.PripadaParkingu).Column("IDParkinga").Not.Nullable().LazyLoad();
 
-            HasOne(x => x.IskoriscenaKarta).Constrained().Cascade.All();
-
             HasMany(x => x.ListaZakupa).Cascade.All().KeyColumn("IDParkingMesta");
+            HasMany(x => x.IskoriscenaKarta).Cascade.All().KeyColumn("IDParkingMesta");
 
-            //HasOne(x => x.Zakup).Cascade.All();
+            //HasMany(x => x.ListaZakupa).Cascade.All().KeyColumn("IDParkingMesta");
+
+
 
             //CheckConstraint("PARKINGMESTOTYPE in ('NaUlici', 'JavnoParkingMesto')");
             //CheckConstraint("TrenutniStatus in ('Zauzeto', 'Slobodno')");

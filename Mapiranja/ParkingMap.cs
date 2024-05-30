@@ -47,7 +47,6 @@ namespace ParkingServis.Mapiranja
             Map(x => x.Nivoi, "Nivoi");
 
             HasMany(x => x.SadrziParkingMesta).KeyColumn("IDParkinga").Inverse().Cascade.All();
-            //HasMany(x => x.ListaZakupa).Cascade.All().KeyColumn("IDOsobe");
 
             //CheckConstraint("BrojParkingMesta > 0");
             //CheckConstraint("DoVreme > OdVreme");
