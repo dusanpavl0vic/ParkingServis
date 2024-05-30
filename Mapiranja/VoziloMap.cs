@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Mapping;
 using ParkingServis.Entiteti;
+using ParkingServis.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +30,19 @@ namespace ParkingServis.Mapiranja
             Map(x => x.Model, "Model").Not.Nullable();
 
 
-            
-            HasMany(x => x.VoziloZaPretplatnu).Cascade.All().KeyColumn("RegistarskiBrojVozila");
-            HasMany(x => x.IskoriscenaKarta).Cascade.All().KeyColumn("RegistarskiBrojVozila");
+            //1:1
+            HasOne(x => x.VoziloZaPretplatnu)
+                    .PropertyRef(nameof(Karta.OdnosiNaVozilo))
+                    //.Cascade.All();
+                    .Cascade.None();
+
+            HasOne(x => x.IskoriscenaKarta)
+                    .PropertyRef(nameof(IskoriscenaKarta.ZaVozilo))
+                    //.Cascade.All();
+                    .Cascade.None();
+
+            //HasMany(x => x.VoziloZaPretplatnu).Cascade.All().KeyColumn("RegistarskiBrojVozila");
+            //HasMany(x => x.IskoriscenaKarta).Cascade.All().KeyColumn("RegistarskiBrojVozila");
 
             HasMany(x => x.ListaZakupa).Cascade.All().KeyColumn("RegistarskiBrojVozila");
         }

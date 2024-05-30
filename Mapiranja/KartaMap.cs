@@ -36,12 +36,16 @@ namespace ParkingServis.Mapiranja
             Map(x => x.DoVreme, "DoVreme");
 
             References(x => x.ProdajaOsobi).Column("IDOsobe").LazyLoad();
-            References(x => x.OdnosiNaVozilo).Nullable().Column("REGISTARSKIBROJVOZILA").LazyLoad();
-            //HasOne(x => x.OdnosiNaVozilo).Constrained().Cascade.None();
+            References(x => x.OdnosiNaVozilo).Nullable().Column("REGISTARSKIBROJVOZILA").LazyLoad().Cascade.All(); ;
+            
 
-            HasMany(x => x.ListaZona).KeyColumn("SerijskiBrojKarta").Inverse().Cascade.None();
+            HasMany(x => x.ListaZona).KeyColumn("SerijskiBrojKarta").Inverse().Cascade.All();
 
-            HasMany(x => x.IskoriscenaKarta).KeyColumn("SerijskiBroj").Inverse().Cascade.None();
+            
+            HasOne(x => x.IskoriscenaKarta)
+                .PropertyRef(nameof(IskoriscenaKarta.KupljenaNaKioskuKarta))
+                //.Cascade.All();
+                .Cascade.None();
 
 
             //CheckConstraint("DoVreme > OdVreme");
