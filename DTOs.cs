@@ -534,4 +534,48 @@ namespace ParkingServis
     }
 
     #endregion
+
+    #region Zone
+    public class ZonePregled
+    {
+        public int Id;
+        public string Zona;
+
+        public ZonePregled(KartaZone kartaZone)
+        {
+            Id = kartaZone.Id;
+            Zona = kartaZone.Zona;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                Id.ToString(),
+                Zona
+            };
+        }
+    }
+
+    public class ZoneBasic
+    {
+        public int Id; 
+        public string Zona;
+        public Karta Karta;
+
+        public ZoneBasic(KartaZone kartaZone)
+        {
+            this.Id = kartaZone.Id;
+            this.Zona = kartaZone.Zona;
+            this.Karta = kartaZone.Karta;
+        }
+
+        public ZoneBasic(int Id, string Zona, Karta Karta)
+        {
+            this.Id = Id;
+            this.Zona = Zona;
+            this.Karta = Karta;
+        }
+    }
+    #endregion
 }

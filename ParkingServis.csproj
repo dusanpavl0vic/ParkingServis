@@ -224,6 +224,12 @@
     <Compile Include="Forms\ParkingMesta.Designer.cs">
       <DependentUpon>ParkingMesta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ZoneKarata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ZoneKarata.Designer.cs">
+      <DependentUpon>ZoneKarata.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mapiranja\IskoriscenaKartaMap.cs" />
     <Compile Include="Mapiranja\KartaMap.cs" />
     <Compile Include="Mapiranja\KartaZoneMap.cs" />
@@ -313,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ParkingMesta.resx">
       <DependentUpon>ParkingMesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ZoneKarata.resx">
+      <DependentUpon>ZoneKarata.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

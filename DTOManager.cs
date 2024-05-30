@@ -808,16 +808,62 @@ namespace ParkingServis
                 {
                     ikarte.Add(new IskoriscenaKartaPregled(iskoriscenakarta));
                 }
-
+                session.Close();
                 return ikarte;
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
-                return ikarte;
+                
             }
+            return ikarte;
         }
 
+        #endregion
+
+        #region Zone
+        public static KartaZone VratiZonu(int index)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                KartaZone zone = session.Get<KartaZone>(index);
+                return zone;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+
+        }
+
+        public static List<ZonePregled> VratiZone(int idZone)
+        {
+            List<ZonePregled> zone = new List<ZonePregled>();
+
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                IEnumerable<KartaZone> svezone = from ot in session.Query<KartaZone>()
+                                                             where ot.Karta.SerijskiBroj == idZone
+                                                             select ot;
+
+                foreach (KartaZone z in svezone)
+                {
+                    zone.Add(new ZonePregled(z));
+                }
+
+                return zone;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return zone;
+            }
+        }
         #endregion
     }
 }
