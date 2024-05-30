@@ -374,6 +374,53 @@ namespace ParkingServis
 
     #endregion
 
+    #region BrojeviTelefona
+
+    
+    public class BrojTelefonaPregled
+    {
+        public int Id;
+        public string Telefon;
+
+        public BrojTelefonaPregled(OsobaTelefon osobaFon)
+        {
+            Id = osobaFon.Id;
+            Telefon = osobaFon.Telefon;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                Id.ToString(),
+                Telefon
+            };
+        }
+    }
+
+    public class BrojTelefonaBasic
+    {
+        public int Id;
+        public string Telefon;
+        public Osoba Osoba;
+
+        public BrojTelefonaBasic(OsobaTelefon osobaFon)
+        {
+            this.Id = osobaFon.Id;
+            this.Telefon = osobaFon.Telefon;
+            this.Osoba = osobaFon.Osoba;
+        }
+
+        public BrojTelefonaBasic(int Id, string Telefon, Osoba osoba)
+        {
+            this.Id = Id;
+            this.Telefon = Telefon;
+            this.Osoba = osoba;
+        }
+    }
+
+    #endregion
+
     #region Karta
     public class KartaPregled
     {

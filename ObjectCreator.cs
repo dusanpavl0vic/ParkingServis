@@ -88,6 +88,15 @@ namespace ParkingServis
             return osoba;
         }
 
+        public OsobaTelefon ToTelefon(OsobaTelefon telefon, BrojTelefonaBasic telefonaBasic)
+        {
+            telefon.Id = telefonaBasic.Id;
+            telefon.Telefon = telefonaBasic.Telefon;
+            telefon.Osoba = telefonaBasic.Osoba;
+
+            return telefon;
+        }
+
         public Karta ToKarta(Karta karta, KartaBasic kartaBasic)
         {
             karta.SerijskiBroj = kartaBasic.SerijskiBroj;

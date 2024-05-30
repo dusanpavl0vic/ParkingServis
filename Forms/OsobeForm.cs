@@ -78,5 +78,19 @@ namespace ParkingServis
                 new IzmeniOsobu(this, Convert.ToInt32(listaOsoba.SelectedItems[0].SubItems[0].Text));
             izmeniOsobu.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (listaOsoba.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Morate odabrati barem jednu osobu");
+                return;
+            }
+
+            var selected = Convert.ToInt32(listaOsoba.SelectedItems[0].SubItems[0].Text);
+
+            BrojeviTelefonaOsobaForm btForm = new BrojeviTelefonaOsobaForm(selected);
+            btForm.Show();
+        }
     }
 }
