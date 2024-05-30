@@ -57,6 +57,7 @@
             this.buttonIDVozila.TabIndex = 31;
             this.buttonIDVozila.Text = "Odaberi";
             this.buttonIDVozila.UseVisualStyleBackColor = true;
+            this.buttonIDVozila.Click += new System.EventHandler(this.buttonIDVozila_Click);
             // 
             // buttonIdOsobe
             // 
@@ -67,6 +68,7 @@
             this.buttonIdOsobe.TabIndex = 30;
             this.buttonIdOsobe.Text = "Odaberi";
             this.buttonIdOsobe.UseVisualStyleBackColor = true;
+            this.buttonIdOsobe.Click += new System.EventHandler(this.buttonIdOsobe_Click);
             // 
             // label6
             // 

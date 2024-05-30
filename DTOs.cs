@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ParkingServis.Entiteti;
+using ParkingServis.Forms;
 
 namespace ParkingServis
 {
@@ -432,5 +433,58 @@ namespace ParkingServis
             this.OdnosiSeNaVozilo = OdnosiSeNaVozilo;
         }
     }
+    #endregion
+
+    #region Iskoriscena Karta
+    public class IskoriscenaKartaPregled
+    {
+        public int Id;
+        public DateTime? VremeIzvrseneKontrole;
+        public DateTime OdVreme;
+        public DateTime DoVreme;
+
+        public IskoriscenaKartaPregled(IskoriscenaKarta iskoriscenakarta)
+        {
+            this.Id = iskoriscenakarta.Id;
+            this.VremeIzvrseneKontrole = iskoriscenakarta.VremeIzvrseneKontrole;
+            this.OdVreme = iskoriscenakarta.OdVreme;
+            this.DoVreme = iskoriscenakarta.DoVreme;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                Id.ToString(),
+                VremeIzvrseneKontrole.ToString(),
+                OdVreme.ToString(),
+                DoVreme.ToString(),
+            };
+        }
+    }
+    public class IskoriscenaKartaBasic
+    {
+        public int Id;
+        public DateTime? VremeIzvrseneKontrole;
+        public DateTime? OdVreme;
+        public DateTime? DoVreme;
+
+        public IskoriscenaKartaBasic(IskoriscenaKarta iskoriscenakarta)
+        {
+            this.Id = iskoriscenakarta.Id;
+            this.VremeIzvrseneKontrole = iskoriscenakarta.VremeIzvrseneKontrole;
+            this.OdVreme = iskoriscenakarta.OdVreme;
+            this.DoVreme = iskoriscenakarta.DoVreme;
+        }
+
+        public IskoriscenaKartaBasic(int Id, DateTime? VremeIzvrseneKontrole, DateTime? OdVreme, DateTime? DoVreme)
+        {
+            this.Id = Id;
+            this.VremeIzvrseneKontrole = VremeIzvrseneKontrole;
+            this.OdVreme = OdVreme;
+            this.DoVreme = DoVreme;
+        }
+    }
+
     #endregion
 }

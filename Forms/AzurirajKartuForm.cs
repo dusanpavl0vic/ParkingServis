@@ -15,12 +15,17 @@ namespace ParkingServis.Forms
     {
         private KarteForm karteForm;
         private int serijskiBrojKarte;
+        private int selectedOsobaId;
+        private int selectedVoziloId;
+
         public AzurirajKartuForm(KarteForm karteForm, int index)
         {
             InitializeComponent();
 
             this.karteForm = karteForm;
             this.serijskiBrojKarte = index;
+            this.selectedOsobaId = 0;
+            this.selectedVoziloId = 0;
         }
 
         private void AzurirajKartuForm_Load(object sender, EventArgs e)
@@ -53,6 +58,20 @@ namespace ParkingServis.Forms
             numericIDOsobe.Value = karta.ProdajaOsobi?.ID ?? 0;
             numericIDVozila.Value = karta.OdnosiNaVozilo?.Id ?? 0;
 
+            this.selectedOsobaId = karta.ProdajaOsobi?.ID ?? 0;
+            this.selectedVoziloId = karta.OdnosiNaVozilo?.Id ?? 0;
+        }
+
+        public void SelectOsobaID(int index)
+        {
+            this.selectedOsobaId = index;
+            numericIDOsobe.Value = this.selectedOsobaId;
+        }
+
+        public void SelectVoziloID(int index)
+        {
+            this.selectedVoziloId = index;
+            numericIDVozila.Value = this.selectedVoziloId;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -89,6 +108,18 @@ namespace ParkingServis.Forms
         {
             this.serijskiBrojKarte = Convert.ToInt32(numericSerijskiBroj.Value);
             LoadData();
+        }
+
+        private void buttonIdOsobe_Click(object sender, EventArgs e)
+        {
+            OdaberiOsobu odaberiOsobuForm = new OdaberiOsobu(azurirajKartuForm: this);
+            odaberiOsobuForm.Show();
+        }
+
+        private void buttonIDVozila_Click(object sender, EventArgs e)
+        {
+            OdaberiVozilo odaberiVoziloForm = new OdaberiVozilo(azurirajKartuForm: this);
+            odaberiVoziloForm.Show();
         }
     }
 }
