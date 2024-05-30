@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NHibernate.Linq.Functions;
+using ParkingServis.Entiteti;
 
 namespace ParkingServis.Forms
 {
@@ -56,7 +58,27 @@ namespace ParkingServis.Forms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            string kartaType = "Pretplatna";
 
+            Osoba osoba = DTOManager.VratiOsobu(Convert.ToInt32(numericIDOsobe.Value));
+            if (osoba == null)
+            {
+                MessageBox.Show("Ne postoji osoba sa tim id-jem");
+                return;
+            }
+
+            Vozilo vozilo = DTOManager.VratiVozilo(Convert.ToInt32(numericIDVozila.Value));
+            if (vozilo == null)
+            {
+                MessageBox.Show("Ne postoji vozilo sa tim id-jem");
+                return;
+            }
+
+            KartaBasic novaKarta = new KartaBasic(Convert.ToInt32(numericSerijskiBroj.Value), kartaType,
+                dateDatum.Value, dateOdVreme.Value, dateDoVreme.Value, osoba, vozilo);
+
+            DTOManager.DodajKartu(novaKarta);
+            karteForm.PopulateListView();
         }
 
     }

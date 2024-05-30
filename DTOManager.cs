@@ -585,6 +585,36 @@ namespace ParkingServis
                 return karteList;
             }
         } 
+        
+         public static void DodajKartu(KartaBasic novaKarta)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                Karta postojiKarta = session.Get<Karta>(novaKarta.SerijskiBroj);
+                if (postojiKarta != null)
+                {
+                    MessageBox.Show("Vec postoji karta sa tim serijskim brojem");
+                    session.Close();
+                    return;
+                }
+
+                Karta karta = new Pretplatna(); 
+                
+                ObjectCreator.Instance.ToKarta(karta, novaKarta);
+                session.Save(karta);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
 
 #endregion
     }

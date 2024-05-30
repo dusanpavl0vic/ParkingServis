@@ -104,7 +104,6 @@ namespace ParkingServis.Forms
                 labelMestoIzdanjaLicne.Hide();
                 labelBrojVozackeDozvole.Hide();
                 labelZona.Hide();
-
         }
     }
 }

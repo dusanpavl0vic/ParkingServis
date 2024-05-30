@@ -87,5 +87,18 @@ namespace ParkingServis
 
             return osoba;
         }
+
+        public Karta ToKarta(Karta karta, KartaBasic kartaBasic)
+        {
+            karta.SerijskiBroj = kartaBasic.SerijskiBroj;
+            karta.KartaType = kartaBasic.KartaType;
+            karta.Datum = kartaBasic.Datum;
+            karta.OdVreme = kartaBasic.OdVreme;
+            karta.DoVreme = kartaBasic.DoVreme;
+            karta.ProdajaOsobi = kartaBasic.ProdajaOsobi;
+            karta.OdnosiNaVozilo = kartaBasic.OdnosiSeNaVozilo;
+
+            return karta;
+        }
     }
 }

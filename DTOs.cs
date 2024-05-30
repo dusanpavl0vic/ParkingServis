@@ -403,24 +403,33 @@ namespace ParkingServis
     public class KartaBasic
     {
         public int SerijskiBroj;
+        public string KartaType;
         public DateTime? Datum;
         public DateTime? OdVreme;
         public DateTime? DoVreme;
+        public Osoba ProdajaOsobi;
+        public Vozilo OdnosiSeNaVozilo;
 
         public KartaBasic(Karta karta)
         {
             this.SerijskiBroj = karta.SerijskiBroj;
+            this.KartaType = karta.KartaType;
             this.Datum = karta.Datum;
             this.OdVreme = karta.OdVreme;
             this.DoVreme = karta.DoVreme;
+            this.ProdajaOsobi = karta.ProdajaOsobi;
+            this.OdnosiSeNaVozilo = karta.OdnosiNaVozilo;
         }
 
-        public KartaBasic(int SerijskiBroj, DateTime? Datum, DateTime? OdVreme, DateTime? DoVreme)
+        public KartaBasic(int SerijskiBroj, string kartaType , DateTime? Datum, DateTime? OdVreme, DateTime? DoVreme, Osoba ProdajaOsobi, Vozilo OdnosiSeNaVozilo)
         {
             this.SerijskiBroj = SerijskiBroj;
+            this.KartaType = kartaType;
             this.Datum = Datum;
             this.OdVreme = OdVreme;
             this.DoVreme = DoVreme;
+            this.ProdajaOsobi = ProdajaOsobi;
+            this.OdnosiSeNaVozilo = OdnosiSeNaVozilo;
         }
     }
     #endregion
