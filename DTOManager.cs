@@ -372,7 +372,21 @@ namespace ParkingServis
                     return;
                 }
 
-                ParkingMesto parkingMesto = new ParkingMesto();
+                ParkingMesto parkingMesto;
+                if (novoParkingMesto.ParkingMestoType == "NaUlici")
+                {
+                    parkingMesto = new NaUlici();
+                }
+                else if (novoParkingMesto.ParkingMestoType == "JavnoParkingMesto")
+                {
+                    parkingMesto = new JavnoParkingMesto();
+                }
+                else
+                {
+                    MessageBox.Show("Tip parking mesta nije validan");
+                    return;
+                }
+
                 ObjectCreator.Instance.ToParkingMesto(parkingMesto, novoParkingMesto);
                 session.Save(parkingMesto);
 
