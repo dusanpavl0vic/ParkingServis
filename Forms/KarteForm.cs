@@ -42,5 +42,11 @@ namespace ParkingServis
             DodajKartuForm dodajKartu = new DodajKartuForm(this);
             dodajKartu.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            IskorisceneKarte iskorisceneForm = new IskorisceneKarte();
+            iskorisceneForm.ShowDialog();
+        }
     }
 }

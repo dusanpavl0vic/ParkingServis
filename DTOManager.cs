@@ -69,7 +69,6 @@ namespace ParkingServis
                 Vozilo postojiVozilo = session.Get<Vozilo>(novoVozilo.Id);
                 if (postojiVozilo != null)
                 {
-                    session.SaveOrUpdate(postojiVozilo);
                     MessageBox.Show("Vec postoji vozilo sa tim id-jem");
                     session.Close();
                     return;
@@ -584,8 +583,37 @@ namespace ParkingServis
                 MessageBox.Show(e.Message);
                 return karteList;
             }
-        } 
+        }
 
-#endregion
+        #endregion
+
+        #region IskorisceneKarte
+
+        public static List<IskoriscenaKartaPregled> VratiIskorisceneKarte()
+        {
+            List<IskoriscenaKartaPregled> ikarte = new List<IskoriscenaKartaPregled>();
+
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                IEnumerable<IskoriscenaKarta> iskoriscenekarte = from o in session.Query<IskoriscenaKarta>()
+                                                select o;
+
+                foreach (IskoriscenaKarta iskoriscenakarta in iskoriscenekarte)
+                {
+                    ikarte.Add(new IskoriscenaKartaPregled(iskoriscenakarta));
+                }
+
+                return ikarte;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return ikarte;
+            }
+        }
+
+        #endregion
     }
 }
