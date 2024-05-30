@@ -20,7 +20,9 @@ namespace ParkingServis.Mapiranja
         public OsobaTelefonMap()
         {
             Table("OsobaTelefon");
-            Id(x => x.Id, "ID").GeneratedBy.Identity();
+            Id(x => x.Id, "ID").GeneratedBy.Assigned();
+
+            Map(x => x.Telefon, "Telefon");
 
             References(x => x.Osoba).Column("IDOsobe").Not.Nullable().LazyLoad();
         }

@@ -33,6 +33,7 @@ namespace ParkingServis
                 throw;
             }
         }
+
         public static List<VoziloPregled> VratiSvaVozila()
         {
             List<VoziloPregled> vozila = new List<VoziloPregled>();
@@ -69,7 +70,6 @@ namespace ParkingServis
                 Vozilo postojiVozilo = session.Get<Vozilo>(novoVozilo.Id);
                 if (postojiVozilo != null)
                 {
-                    session.SaveOrUpdate(postojiVozilo);
                     MessageBox.Show("Vec postoji vozilo sa tim id-jem");
                     session.Close();
                     return;
@@ -458,6 +458,7 @@ namespace ParkingServis
                 return osobeList;
             }
         } 
+
         public static void ObrisiOsobu(int index)
         {
             try
@@ -557,7 +558,126 @@ namespace ParkingServis
 
         #endregion
 
+        #region BrojeviTelefona
+
+        public static OsobaTelefon VratiTelefon(int index)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                OsobaTelefon telefon = session.Get<OsobaTelefon>(index);
+                return telefon;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+
+        }
+
+        public static List<BrojTelefonaPregled> VratiBrojeve(int idOsobe)
+        {
+            List<BrojTelefonaPregled> brojeviTelefona = new List<BrojTelefonaPregled>();
+
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                IEnumerable<OsobaTelefon> sveOsobeTelefoni = from ot in session.Query<OsobaTelefon>()
+                                                     where ot.Osoba.ID == idOsobe select ot;
+
+                foreach (OsobaTelefon telefon in sveOsobeTelefoni)
+                {
+                    brojeviTelefona.Add(new BrojTelefonaPregled(telefon));
+                }
+
+                return brojeviTelefona;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return brojeviTelefona;
+            }
+        } 
+
+        public static void DodajBrojTelefona(BrojTelefonaBasic noviBrTelefonBasic)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                OsobaTelefon postojiTelefon = session.Get<OsobaTelefon>(noviBrTelefonBasic.Id);
+
+                if (postojiTelefon != null)
+                {
+                    MessageBox.Show("Vec postoji telefon sa tim id-jem");
+                    session.Close();
+                    return;
+                }
+
+                OsobaTelefon telefon = new OsobaTelefon();
+
+                ObjectCreator.Instance.ToTelefon(telefon, noviBrTelefonBasic);
+                session.Save(telefon);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void ObrisiBrojTelefona(int index)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                OsobaTelefon telefon = session.Get<OsobaTelefon>(index);
+
+                if (telefon == null)
+                {
+                    MessageBox.Show("Ne postoji telefon sa tim id-jem");
+
+                    session.Close();
+                    return;
+                }
+
+                session.Delete(telefon);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+
+        #endregion
+
         #region Karte
+
+        public static Karta VratiKartu(int index)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                Karta karta = session.Get<Karta>(index);
+                return karta;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+        }
 
         
         public static List<KartaPregled> VratiKarte()
@@ -586,6 +706,118 @@ namespace ParkingServis
             }
         } 
 
-#endregion
+        public static void AzurirajKartu(KartaBasic novaKarta)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                Karta karta = session.Get<Karta>(novaKarta.SerijskiBroj);
+
+                if (karta == null)
+                {
+                    MessageBox.Show("Ne postoji karta sa tim id-jem");
+                    session.Close();
+                    return;
+                }
+
+                karta = ObjectCreator.Instance.ToKarta(karta, novaKarta);
+                session.Update(karta);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        
+         public static void DodajKartu(KartaBasic novaKarta)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                Karta postojiKarta = session.Get<Karta>(novaKarta.SerijskiBroj);
+                if (postojiKarta != null)
+                {
+                    MessageBox.Show("Vec postoji karta sa tim serijskim brojem");
+                    session.Close();
+                    return;
+                }
+
+                Karta karta = new Pretplatna(); 
+                
+                ObjectCreator.Instance.ToKarta(karta, novaKarta);
+                session.Save(karta);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void ObrisiKartu(int index)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+                Karta karta = session.Get<Karta>(index);
+
+                if (karta == null)
+                {
+                    MessageBox.Show("Ne postoji osoba sa tim id-jem");
+
+                    session.Close();
+                    return;
+                }
+
+                session.Delete(karta);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        #endregion
+
+        #region IskorisceneKarte
+
+        public static List<IskoriscenaKartaPregled> VratiIskorisceneKarte()
+        {
+            List<IskoriscenaKartaPregled> ikarte = new List<IskoriscenaKartaPregled>();
+
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                IEnumerable<IskoriscenaKarta> iskoriscenekarte = from o in session.Query<IskoriscenaKarta>()
+                                                select o;
+
+                foreach (IskoriscenaKarta iskoriscenakarta in iskoriscenekarte)
+                {
+                    ikarte.Add(new IskoriscenaKartaPregled(iskoriscenakarta));
+                }
+
+                return ikarte;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return ikarte;
+            }
+        }
+
+        #endregion
     }
 }

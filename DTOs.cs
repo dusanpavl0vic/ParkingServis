@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ParkingServis.Entiteti;
+using ParkingServis.Forms;
 
 namespace ParkingServis
 {
@@ -373,6 +374,53 @@ namespace ParkingServis
 
     #endregion
 
+    #region BrojeviTelefona
+
+    
+    public class BrojTelefonaPregled
+    {
+        public int Id;
+        public string Telefon;
+
+        public BrojTelefonaPregled(OsobaTelefon osobaFon)
+        {
+            Id = osobaFon.Id;
+            Telefon = osobaFon.Telefon;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                Id.ToString(),
+                Telefon
+            };
+        }
+    }
+
+    public class BrojTelefonaBasic
+    {
+        public int Id;
+        public string Telefon;
+        public Osoba Osoba;
+
+        public BrojTelefonaBasic(OsobaTelefon osobaFon)
+        {
+            this.Id = osobaFon.Id;
+            this.Telefon = osobaFon.Telefon;
+            this.Osoba = osobaFon.Osoba;
+        }
+
+        public BrojTelefonaBasic(int Id, string Telefon, Osoba osoba)
+        {
+            this.Id = Id;
+            this.Telefon = Telefon;
+            this.Osoba = osoba;
+        }
+    }
+
+    #endregion
+
     #region Karta
     public class KartaPregled
     {
@@ -403,25 +451,87 @@ namespace ParkingServis
     public class KartaBasic
     {
         public int SerijskiBroj;
+        public string KartaType;
         public DateTime? Datum;
         public DateTime? OdVreme;
         public DateTime? DoVreme;
+        public Osoba ProdajaOsobi;
+        public Vozilo OdnosiSeNaVozilo;
 
         public KartaBasic(Karta karta)
         {
             this.SerijskiBroj = karta.SerijskiBroj;
+            this.KartaType = karta.KartaType;
             this.Datum = karta.Datum;
             this.OdVreme = karta.OdVreme;
             this.DoVreme = karta.DoVreme;
+            this.ProdajaOsobi = karta.ProdajaOsobi;
+            this.OdnosiSeNaVozilo = karta.OdnosiNaVozilo;
         }
 
-        public KartaBasic(int SerijskiBroj, DateTime? Datum, DateTime? OdVreme, DateTime? DoVreme)
+        public KartaBasic(int SerijskiBroj, string kartaType , DateTime? Datum, DateTime? OdVreme, DateTime? DoVreme, Osoba ProdajaOsobi, Vozilo OdnosiSeNaVozilo)
         {
             this.SerijskiBroj = SerijskiBroj;
+            this.KartaType = kartaType;
             this.Datum = Datum;
+            this.OdVreme = OdVreme;
+            this.DoVreme = DoVreme;
+            this.ProdajaOsobi = ProdajaOsobi;
+            this.OdnosiSeNaVozilo = OdnosiSeNaVozilo;
+        }
+    }
+    #endregion
+
+    #region Iskoriscena Karta
+    public class IskoriscenaKartaPregled
+    {
+        public int Id;
+        public DateTime? VremeIzvrseneKontrole;
+        public DateTime OdVreme;
+        public DateTime DoVreme;
+
+        public IskoriscenaKartaPregled(IskoriscenaKarta iskoriscenakarta)
+        {
+            this.Id = iskoriscenakarta.Id;
+            this.VremeIzvrseneKontrole = iskoriscenakarta.VremeIzvrseneKontrole;
+            this.OdVreme = iskoriscenakarta.OdVreme;
+            this.DoVreme = iskoriscenakarta.DoVreme;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                Id.ToString(),
+                VremeIzvrseneKontrole.ToString(),
+                OdVreme.ToString(),
+                DoVreme.ToString(),
+            };
+        }
+    }
+    public class IskoriscenaKartaBasic
+    {
+        public int Id;
+        public DateTime? VremeIzvrseneKontrole;
+        public DateTime? OdVreme;
+        public DateTime? DoVreme;
+
+        public IskoriscenaKartaBasic(IskoriscenaKarta iskoriscenakarta)
+        {
+            this.Id = iskoriscenakarta.Id;
+            this.VremeIzvrseneKontrole = iskoriscenakarta.VremeIzvrseneKontrole;
+            this.OdVreme = iskoriscenakarta.OdVreme;
+            this.DoVreme = iskoriscenakarta.DoVreme;
+        }
+
+        public IskoriscenaKartaBasic(int Id, DateTime? VremeIzvrseneKontrole, DateTime? OdVreme, DateTime? DoVreme)
+        {
+            this.Id = Id;
+            this.VremeIzvrseneKontrole = VremeIzvrseneKontrole;
             this.OdVreme = OdVreme;
             this.DoVreme = DoVreme;
         }
     }
+
     #endregion
 }

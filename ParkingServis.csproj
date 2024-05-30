@@ -122,6 +122,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AzurirajKartuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AzurirajKartuForm.Designer.cs">
+      <DependentUpon>AzurirajKartuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BrojeviTelefonaOsobaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BrojeviTelefonaOsobaForm.Designer.cs">
+      <DependentUpon>BrojeviTelefonaOsobaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DodajBrojTelefona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DodajBrojTelefona.Designer.cs">
+      <DependentUpon>DodajBrojTelefona.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DodajKartuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +169,12 @@
     </Compile>
     <Compile Include="Forms\DodajVozilo.Designer.cs">
       <DependentUpon>DodajVozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IskorisceneKarte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IskorisceneKarte.Designer.cs">
+      <DependentUpon>IskorisceneKarte.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\IzmeniOsobu.cs">
       <SubType>Form</SubType>
@@ -233,6 +257,15 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AzurirajKartuForm.resx">
+      <DependentUpon>AzurirajKartuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BrojeviTelefonaOsobaForm.resx">
+      <DependentUpon>BrojeviTelefonaOsobaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DodajBrojTelefona.resx">
+      <DependentUpon>DodajBrojTelefona.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DodajKartuForm.resx">
       <DependentUpon>DodajKartuForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DodajVozilo.resx">
       <DependentUpon>DodajVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IskorisceneKarte.resx">
+      <DependentUpon>IskorisceneKarte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IzmeniOsobu.resx">
       <DependentUpon>IzmeniOsobu.cs</DependentUpon>

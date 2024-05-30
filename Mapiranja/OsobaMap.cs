@@ -46,7 +46,7 @@ namespace ParkingServis.Mapiranja
             Map(x => x.PIB, "PIB");
             Map(x => x.Naziv, "Naziv");
 
-            // TODO ovde bi vrv trebao delete orphan
+            // TODO ovde bi vrv trebao delete orphan myb
             HasMany(x => x.ListTelefoni).KeyColumn("IDOsobe").Inverse().Cascade.None();
             HasMany(x => x.KupovinaPretplatne).KeyColumn("IDOsobe").Inverse().Cascade.None();
 

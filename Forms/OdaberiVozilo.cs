@@ -13,11 +13,14 @@ namespace ParkingServis.Forms
     public partial class OdaberiVozilo : Form
     {
         private DodajKartuForm kartaForm;
-        public OdaberiVozilo(DodajKartuForm kartaForm)
+        private AzurirajKartuForm azurirajKartuForm;
+
+        public OdaberiVozilo(DodajKartuForm kartaForm = null, AzurirajKartuForm azurirajKartuForm = null)
         {
             InitializeComponent();
 
             this.kartaForm = kartaForm;
+            this.azurirajKartuForm = azurirajKartuForm;
         }
 
         
@@ -48,8 +51,11 @@ namespace ParkingServis.Forms
                 return;
             }
 
+            int selectedID = Convert.ToInt32(listaVozila.SelectedItems[0].SubItems[0].Text);
 
-            kartaForm.SelectVoziloID(Convert.ToInt32(listaVozila.SelectedItems[0].SubItems[0].Text));
+            kartaForm?.SelectVoziloID(selectedID);
+            azurirajKartuForm?.SelectVoziloID(selectedID);
+
             this.Close();
         }
     }
