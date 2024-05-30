@@ -170,6 +170,12 @@
     <Compile Include="Forms\DodajVozilo.Designer.cs">
       <DependentUpon>DodajVozilo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DodajZakupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DodajZakupForm.Designer.cs">
+      <DependentUpon>DodajZakupForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\IskorisceneKarte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,12 @@
     <Compile Include="Forms\OdaberiOsobu.Designer.cs">
       <DependentUpon>OdaberiOsobu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OdaberiParkingMesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OdaberiParkingMesto.Designer.cs">
+      <DependentUpon>OdaberiParkingMesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\OdaberiVozilo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +235,12 @@
     </Compile>
     <Compile Include="Forms\ParkingMesta.Designer.cs">
       <DependentUpon>ParkingMesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ZakupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ZakupForm.Designer.cs">
+      <DependentUpon>ZakupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Mapiranja\IskoriscenaKartaMap.cs" />
     <Compile Include="Mapiranja\KartaMap.cs" />
@@ -281,6 +299,9 @@
     <EmbeddedResource Include="Forms\DodajVozilo.resx">
       <DependentUpon>DodajVozilo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DodajZakupForm.resx">
+      <DependentUpon>DodajZakupForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\IskorisceneKarte.resx">
       <DependentUpon>IskorisceneKarte.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +323,9 @@
     <EmbeddedResource Include="Forms\OdaberiOsobu.resx">
       <DependentUpon>OdaberiOsobu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OdaberiParkingMesto.resx">
+      <DependentUpon>OdaberiParkingMesto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\OdaberiVozilo.resx">
       <DependentUpon>OdaberiVozilo.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ParkingMesta.resx">
       <DependentUpon>ParkingMesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ZakupForm.resx">
+      <DependentUpon>ZakupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -307,6 +307,30 @@ namespace ParkingServis
             }
         }
 
+        public static List<ParkingMestoPregled> VratiSvaParkingMesta()
+        {
+            List<ParkingMestoPregled> parkingMesta = new List<ParkingMestoPregled>();
+
+            try
+            {
+                ISession session = DataLayer.GetSession();
+                IEnumerable<ParkingMesto> sviParkingzi = from o in session.Query<ParkingMesto>()
+                    select o;
+
+                foreach (ParkingMesto p in sviParkingzi)
+                {
+                    parkingMesta.Add(new ParkingMestoPregled(p));
+                }
+
+                return parkingMesta;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return parkingMesta;
+            }
+        } 
+
         public static List<ParkingMestoPregled> VratiParkingMesta(int idParkinga)
         {
             List<ParkingMestoPregled> parkingMesta = new List<ParkingMestoPregled>();
@@ -831,6 +855,111 @@ namespace ParkingServis
                 return ikarte;
             }
         }
+
+        #endregion
+
+        #region Zakup
+
+        public static Zakup VratiZakup(int index)
+        {
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                Zakup zakup = session.Get<Zakup>(index);
+                return zakup;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+        }
+
+        public static List<ZakupPregled> VratiZakupe()
+        {
+            List<ZakupPregled> karteList = new List<ZakupPregled>();
+
+            try
+            {
+                ISession session = DataLayer.GetSession();
+
+                IEnumerable<Zakup> sviZakupi = from o in session.Query<Zakup>()
+                    select o;
+
+
+                foreach (Zakup zakup in sviZakupi)
+                {
+                    karteList.Add(new ZakupPregled(zakup));
+                }
+
+                return karteList;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return karteList;
+            }
+        } 
+
+
+        public static void DodajZakup(ZakupBasic noviZakup)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                Zakup postojiZakup = session.Get<Zakup>(noviZakup.Id);
+
+                if (postojiZakup != null)
+                {
+                    MessageBox.Show("Vec postoji zakup sa tim id-jem");
+                    session.Close();
+                    return;
+                }
+
+                Zakup zakup = new Zakup();
+
+                ObjectCreator.Instance.ToZakup(zakup, noviZakup);
+                session.Save(zakup);
+
+                session.Flush();
+                session.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+         
+        public static void ObrisiZakup(int index)
+        {
+            try
+            {
+                NHibernate.ISession session = DataLayer.GetSession();
+
+                Zakup zakup = session.Get<Zakup>(index);
+
+                if (zakup == null)
+                {
+                    MessageBox.Show("Ne postoji zakup sa tim id-jem");
+                    
+                    session.Close();
+                    return;
+                }
+
+                session.Delete(zakup);
+                session.Flush();
+                session.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+
 
         #endregion
     }

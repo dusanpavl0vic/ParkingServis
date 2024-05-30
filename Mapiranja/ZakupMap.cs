@@ -27,7 +27,7 @@ namespace ParkingServis.Mapiranja
         public ZakupMap()
         {
             Table("Zakup");
-            Id(x => x.Id, "ID").GeneratedBy.Identity();
+            Id(x => x.Id, "ID").GeneratedBy.Assigned();
 
             Map(x => x.OdVreme, "OdVreme").Not.Nullable();
             Map(x => x.DoVreme, "DoVreme").Not.Nullable();
@@ -35,7 +35,7 @@ namespace ParkingServis.Mapiranja
 
             References(x => x.Osoba, "IDOSOBE").LazyLoad();
             References(x => x.Vozilo, "RegistarskiBrojVozila").LazyLoad();
-            References(x => x.ParkingMesto, "IDParkingMesta").LazyLoad();
+            References(x => x.ParkingMesto, "IDParkingMesta").Unique().LazyLoad();
 
             //CheckConstraint("DoVreme > OdVreme");
         }

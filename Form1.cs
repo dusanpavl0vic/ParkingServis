@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ParkingServis.Forms;
 
 
 namespace ParkingServis
@@ -42,6 +43,12 @@ namespace ParkingServis
         {
             KarteForm karteForm  = new KarteForm();
             karteForm.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ZakupForm zakupForm = new ZakupForm();
+            zakupForm.Show();
         }
 
 

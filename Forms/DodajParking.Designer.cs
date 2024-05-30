@@ -214,9 +214,11 @@
             // 
             // DoVreme
             // 
+            this.DoVreme.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.DoVreme.Location = new System.Drawing.Point(248, 256);
             this.DoVreme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DoVreme.Name = "DoVreme";
+            this.DoVreme.ShowUpDown = true;
             this.DoVreme.Size = new System.Drawing.Size(159, 22);
             this.DoVreme.TabIndex = 24;
             // 

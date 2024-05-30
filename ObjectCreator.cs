@@ -109,5 +109,20 @@ namespace ParkingServis
 
             return karta;
         }
+
+        public Zakup ToZakup(Zakup zakup, ZakupBasic noviZakup)
+        {
+            zakup.Id = noviZakup.Id;
+            zakup.OdVreme = noviZakup.OdVreme;
+            zakup.DoVreme = noviZakup.DoVreme;
+            zakup.DatumPotpisa = noviZakup.DatumPotpisa;
+
+            zakup.Osoba = noviZakup.Osoba;
+            zakup.Vozilo = noviZakup.Vozilo;
+            zakup.ParkingMesto = noviZakup.ParkingMesto;
+
+            return zakup;
+        }
+
     }
 }

@@ -534,4 +534,81 @@ namespace ParkingServis
     }
 
     #endregion
+
+    #region Zakup
+
+    public class ZakupPregled
+    {
+        public int Id;
+        public DateTime? OdVreme;
+        public DateTime? DoVreme;
+        public DateTime? DatumPotpisa;
+        public int OsobaId;
+        public int VoziloId;
+        public int ParkinMestoId;
+
+
+        public ZakupPregled(Zakup zakup)
+        {
+            this.Id = zakup.Id;
+            this.OdVreme = zakup.OdVreme;
+            this.DoVreme= zakup.DoVreme;
+            this.DatumPotpisa = zakup.DatumPotpisa;
+
+            this.OsobaId = zakup.Osoba.ID;
+            this.VoziloId = zakup.Vozilo.Id;
+            this.ParkinMestoId = zakup.ParkingMesto.ID;
+        }
+
+        public string[] GetListViewItem()
+        {
+            return new[]
+            {
+                this.Id.ToString(),
+                OdVreme.ToString(),
+                DoVreme.ToString(),
+                DatumPotpisa.ToString(),
+                OsobaId.ToString(),
+                VoziloId.ToString(),
+                ParkinMestoId.ToString(),
+            };
+        }
+    }
+    public class ZakupBasic
+    {
+        public int Id;
+        public DateTime OdVreme;
+        public DateTime DoVreme;
+        public DateTime DatumPotpisa;
+        public Osoba Osoba;
+        public Vozilo Vozilo;
+        public ParkingMesto ParkingMesto;
+
+        public ZakupBasic(Zakup zakup)
+        {
+            this.Id = zakup.Id;
+            this.OdVreme = zakup.OdVreme;
+            this.DoVreme= zakup.DoVreme;
+            this.DatumPotpisa = zakup.DatumPotpisa;
+
+            this.Osoba = zakup.Osoba;
+            this.Vozilo = zakup.Vozilo;
+            this.ParkingMesto = zakup.ParkingMesto;
+        }
+
+        public ZakupBasic(int Id, DateTime OdVreme, DateTime DoVreme, DateTime DatumPotpisa, Osoba Osoba, Vozilo Vozilo, ParkingMesto ParkingMesto)
+        {
+            this.Id = Id;
+            this.OdVreme = OdVreme;
+            this.DoVreme = DoVreme;
+            this.DatumPotpisa = DatumPotpisa;
+
+            this.Osoba = Osoba;
+            this.Vozilo = Vozilo;
+            this.ParkingMesto = ParkingMesto;
+        }
+    }
+
+
+    #endregion
 }

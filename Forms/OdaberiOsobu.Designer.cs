@@ -51,18 +51,21 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.buttonSave);
-            this.groupBox1.Location = new System.Drawing.Point(903, 233);
+            this.groupBox1.Location = new System.Drawing.Point(1204, 287);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(139, 70);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(185, 86);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sacuvaj";
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(6, 19);
+            this.buttonSave.Location = new System.Drawing.Point(8, 23);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(128, 45);
+            this.buttonSave.Size = new System.Drawing.Size(171, 55);
             this.buttonSave.TabIndex = 0;
             this.buttonSave.Text = "Odaberi";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -85,9 +88,10 @@
             this.columnHeader13});
             this.listaOsoba.FullRowSelect = true;
             this.listaOsoba.HideSelection = false;
-            this.listaOsoba.Location = new System.Drawing.Point(6, 19);
+            this.listaOsoba.Location = new System.Drawing.Point(8, 23);
+            this.listaOsoba.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listaOsoba.Name = "listaOsoba";
-            this.listaOsoba.Size = new System.Drawing.Size(832, 500);
+            this.listaOsoba.Size = new System.Drawing.Size(1108, 614);
             this.listaOsoba.TabIndex = 2;
             this.listaOsoba.UseCompatibleStateImageBehavior = false;
             this.listaOsoba.View = System.Windows.Forms.View.Details;
@@ -144,20 +148,23 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.listaOsoba);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(16, 15);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(844, 526);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(1125, 647);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Lista Osoba";
             // 
             // OdaberiOsobu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1120, 550);
+            this.ClientSize = new System.Drawing.Size(1493, 677);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "OdaberiOsobu";
             this.Text = "OdaberiOsobu";
             this.Load += new System.EventHandler(this.OdaberiOsobu_Load);
