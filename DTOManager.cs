@@ -1105,7 +1105,6 @@ namespace ParkingServis
 
                 foreach (KartaZone z in svezone)
                 {
-                    MessageBox.Show(z.Zona);
                     zone.Add(new ZonePregled(z));
                 }
 
